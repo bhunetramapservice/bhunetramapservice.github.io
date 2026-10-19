@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BHU-NETRA Map Service | Georeferenced &amp; Digitized Khasra Maps</title>
+<meta name="description" content="BHU-NETRA Map Service: georeferenced and digitized khasra (cadastral) maps in KML, DWG, SHP and Excel for 14 Indian states. Village-wise, bulk, satellite-aligned.">
+<meta name="keywords" content="khasra map, digitized khasra, georeferenced cadastral map, village map KML, DWG khasra, SHP cadastral, Rajasthan khasra map, bhunaksha to KML, land records GIS">
+<meta property="og:title" content="BHU-NETRA Map Service">
+<meta property="og:description" content="Georeferenced & Digitized Khasra Maps - KML, DWG, SHP, etc. 14 states.">
+<meta property="og:image" content="images/hero_banner.jpg">
+<link rel="icon" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#080E1D; --deep:#0B1428; --panel:#0E1A33; --navy:#11356F; --line:#1E3A66;
+  --em:#0A5B4C; --em-mid:#19A884; --em-lit:#2EE6B0; --amb:#F28E3A; --amb-lit:#FFB46B;
+  --mist:#EFF2FC; --muted:#93A4C3;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--void);color:var(--mist);font-family:Inter,"Segoe UI",system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
+a{color:var(--em-lit);text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+h1,h2,h3,.brand,.btn,.tag{font-family:Rajdhani,"Bahnschrift",sans-serif;letter-spacing:.02em}
+/* backdrop grid */
+body::before{content:"";position:fixed;inset:0;z-index:-1;
+  background:
+   linear-gradient(rgba(46,230,176,.05) 1px,transparent 1px) 0 0/44px 44px,
+   linear-gradient(90deg,rgba(46,230,176,.05) 1px,transparent 1px) 0 0/44px 44px,
+   radial-gradient(1200px 600px at 80% -10%,rgba(17,53,111,.55),transparent 60%),
+   radial-gradient(900px 500px at -10% 30%,rgba(10,91,76,.35),transparent 60%),var(--void)}
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:rgba(8,14,29,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:700;color:#fff;white-space:nowrap}
+.brand img{width:40px;height:40px}
+.brand span{color:var(--em-lit)}
+.links{display:flex;gap:22px;font-size:15px}
+.links a{color:var(--muted)} .links a:hover{color:var(--em-lit)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:10px;font-weight:700;font-size:17px;
+  background:linear-gradient(90deg,var(--em-mid),var(--em-lit));color:#04211A;box-shadow:0 0 24px rgba(46,230,176,.25);transition:.2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 34px rgba(46,230,176,.45)}
+.btn.ghost{background:transparent;color:var(--em-lit);border:1px solid var(--em-mid);box-shadow:none}
+nav .btn{padding:8px 16px;font-size:15px}
+/* hero */
+.hero{padding:70px 0 50px}
+.herogrid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.tag{display:inline-block;color:var(--amb-lit);font-weight:700;letter-spacing:.32em;font-size:13px;margin-bottom:14px}
+.hero h1{font-size:clamp(36px,5.4vw,62px);line-height:1.05;font-weight:700}
+.hero h1 em{font-style:normal;color:var(--em-lit)}
+.hero p.lead{color:#C9D6EA;font-size:18px;margin:18px 0 26px;max-width:600px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.chip{border:1px solid var(--line);background:rgba(14,26,51,.7);padding:6px 12px;border-radius:999px;font-size:13px;color:var(--mist)}
+.chip b{color:var(--em-lit)}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.eye{position:relative;aspect-ratio:1;display:grid;place-items:center}
+.eye img{width:88%;filter:drop-shadow(0 0 40px rgba(46,230,176,.35));animation:float 6s ease-in-out infinite}
+.eye::before,.eye::after{content:"";position:absolute;inset:4%;border-radius:50%;border:1px dashed rgba(46,230,176,.35);animation:spin 40s linear infinite}
+.eye::after{inset:13%;border:1px solid rgba(242,142,58,.35);animation-duration:26s;animation-direction:reverse}
+@keyframes spin{to{transform:rotate(360deg)}} @keyframes float{50%{transform:translateY(-10px)}}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+.stat{background:rgba(14,26,51,.75);border:1px solid var(--line);border-radius:14px;padding:16px;text-align:center}
+.stat b{display:block;font-family:Rajdhani;font-size:32px;color:var(--em-lit);line-height:1}
+.stat span{font-size:13px;color:var(--muted)}
+/* sections */
+section{padding:70px 0}
+.head{margin-bottom:34px}
+.head h2{font-size:clamp(28px,3.6vw,40px)}
+.head p{color:var(--muted);max-width:700px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:linear-gradient(180deg,rgba(14,26,51,.9),rgba(11,20,40,.9));border:1px solid var(--line);border-radius:16px;padding:22px;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;left:0;top:0;height:3px;width:100%;background:linear-gradient(90deg,var(--em-mid),var(--amb))}
+.card h3{font-size:22px;margin:6px 0 6px;color:#fff}
+.card p{color:#B9C7DF;font-size:15px}
+.ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(46,230,176,.12);color:var(--em-lit);font-size:22px}
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.shot{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--panel);cursor:zoom-in;transition:.25s}
+.shot:hover{transform:translateY(-4px);border-color:var(--em-mid)}
+.shot img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.shot div{padding:12px 16px}
+.shot b{font-family:Rajdhani;font-size:19px} .shot small{display:block;color:var(--muted)}
+.formats{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.fmt{padding:10px 16px;border-radius:12px;background:rgba(242,142,58,.1);border:1px solid rgba(242,142,58,.4);color:var(--amb-lit);font-family:Rajdhani;font-weight:700;font-size:17px}
+/* coverage */
+.cover{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
+.cover img{border-radius:16px;border:1px solid var(--line)}
+.states{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.state{display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:12px;background:rgba(14,26,51,.8);border:1px solid var(--line);font-weight:500}
+.state::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--em-lit);box-shadow:0 0 10px var(--em-lit)}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
+.step{counter-increment:s;padding:22px;border-radius:16px;border:1px solid var(--line);background:rgba(14,26,51,.8)}
+.step::before{content:"0" counter(s);font-family:Rajdhani;font-weight:700;font-size:34px;color:var(--amb)}
+.step h3{font-size:20px;margin:4px 0}
+.step p{color:#B9C7DF;font-size:14.5px}
+/* contact */
+.contact{text-align:center;border:1px solid var(--line);border-radius:22px;padding:50px 24px;
+  background:radial-gradient(600px 220px at 50% 0,rgba(46,230,176,.14),transparent),rgba(11,20,40,.9)}
+.contact h2{font-size:clamp(28px,4vw,42px)}
+.mail{display:inline-block;margin:18px 0 26px;font-family:Rajdhani;font-weight:700;font-size:clamp(20px,3.4vw,30px);color:#fff;border-bottom:2px solid var(--em-lit)}
+.verify{margin-top:26px;color:var(--muted);font-size:14px}
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+/* lightbox */
+#lb{position:fixed;inset:0;background:rgba(4,8,18,.92);display:none;place-items:center;z-index:50;padding:20px;cursor:zoom-out}
+#lb.on{display:grid} #lb img{max-height:92vh;border-radius:12px}
+@media (max-width:900px){
+  .herogrid,.cover{grid-template-columns:1fr} .eye{max-width:320px;margin:0 auto;order:-1}
+  .grid3,.gallery{grid-template-columns:1fr 1fr} .steps{grid-template-columns:1fr 1fr} .stats{grid-template-columns:1fr 1fr}
+  .links{display:none}
+}
+@media (max-width:560px){
+  .grid3,.gallery,.steps{grid-template-columns:1fr} .states{grid-template-columns:1fr 1fr}
+  .brand{font-size:18px} nav .btn{display:none} section{padding:50px 0} .hero{padding:40px 0 20px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="images/logo.png" alt="BHU-NETRA logo">BHU-NETRA <span>MAP SERVICE</span></a>
+    <div class="links"><a href="#services">Services</a><a href="#demo">Demo</a><a href="#states">States</a><a href="#process">Process</a><a href="#contact">Contact</a></div>
+    <a class="btn" href="mailto:bhunetramapservice@gmail.com?subject=Quotation%20request%20-%20khasra%20maps">Get a quote</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap herogrid">
+    <div>
+      <div class="tag">HYPER-SPATIAL LAND INTELLIGENCE</div>
+      <h1>Georeferenced &amp; Digitized <em>Khasra Maps</em></h1>
+      <p class="lead">Village cadastral maps turned into accurate GIS / CAD files &ndash; every khasra a clean polygon with its number, laid on the real field edges of satellite imagery. Village by village, or a whole tehsil at once.</p>
+      <div class="chips"><span class="chip"><b>KML</b> / KMZ</span><span class="chip"><b>DWG</b> / DXF</span><span class="chip"><b>SHP</b></span><span class="chip"><b>Excel</b> khasra list</span><span class="chip">PDF maps, etc.</span></div>
+      <div class="cta">
+        <a class="btn" href="mailto:bhunetramapservice@gmail.com?subject=Quotation%20request%20-%20khasra%20maps">&#9993; Request a quotation</a>
+        <a class="btn ghost" href="#demo">See sample work</a>
+      </div>
+    </div>
+    <div class="eye"><img src="images/logo.png" alt="BHU-NETRA eye"></div>
+  </div>
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><b>14</b><span>states &amp; UT covered</span></div>
+      <div class="stat"><b>Bulk</b><span>a whole tehsil in one order</span></div>
+      <div class="stat"><b>0</b><span>overlaps between khasras</span></div>
+      <div class="stat"><b>3+</b><span>formats: KML, DWG, SHP</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="services">
+  <div class="wrap">
+    <div class="head"><div class="tag">WHAT WE PROVIDE</div><h2>Everything a land project needs</h2>
+      <p>For solar &amp; wind developers, land aggregators, transmission lines, real estate, infrastructure planning and surveyors.</p></div>
+    <div class="grid3">
+      <div class="card"><div class="ico">&#9638;</div><h3>Digitized khasra maps</h3><p>Every khasra number as a polygon with its label &ndash; clean topology, no overlaps, no gaps between neighbours.</p></div>
+      <div class="card"><div class="ico">&#127760;</div><h3>Georeferencing</h3><p>Maps aligned to satellite imagery in WGS 84 / UTM &ndash; open straight in Google Earth, QGIS, ArcGIS or AutoCAD.</p></div>
+      <div class="card"><div class="ico">&#9711;</div><h3>Village outer boundary</h3><p>The village boundary built from its own khasras, included inside every file.</p></div>
+      <div class="card"><div class="ico">&#9776;</div><h3>Khasra list in Excel</h3><p>Khasra number and area (hectare / bigha) for every village, ready for your land team.</p></div>
+      <div class="card"><div class="ico">&#9673;</div><h3>Colour-coded land category</h3><p>Private / Khatedari, Government (Sarkari), allotable and non-allotable land &ndash; khasra by khasra.</p></div>
+      <div class="card"><div class="ico">&#9881;</div><h3>Bulk &amp; combined files</h3><p>A whole tehsil or district, folder-wise (District &gt; Tehsil &gt; Village), plus one combined layer for all villages.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="demo">
+  <div class="wrap">
+    <div class="head"><div class="tag">SAMPLE WORK</div><h2>See what you get</h2>
+      <p>A sample village (public land record) &ndash; click a picture to enlarge.</p></div>
+    <div class="gallery">
+      <figure class="shot"><img src="images/demo_1_digitized.jpg" alt="Digitized khasra map" loading="lazy"><div><b>Digitized khasra map</b><small>Every khasra with its number &middot; DWG / SHP / KML</small></div></figure>
+      <figure class="shot"><img src="images/demo_3_satellite.jpg" alt="Khasra map on satellite" loading="lazy"><div><b>Georeferenced on satellite</b><small>Lines sit on the real field edges</small></div></figure>
+      <figure class="shot"><img src="images/demo_2_colour_coded.jpg" alt="Colour-coded land category" loading="lazy"><div><b>Colour-coded land category</b><small>Private vs Government land</small></div></figure>
+    </div>
+    <div class="formats"><span class="fmt">KML / KMZ</span><span class="fmt">DWG / DXF</span><span class="fmt">SHP + QGIS style</span><span class="fmt">Excel</span><span class="fmt">PDF / PNG</span></div>
+  </div>
+</section>
+
+<section id="states">
+  <div class="wrap cover">
+    <img src="images/coverage_map.jpg" alt="States covered by BHU-NETRA Map Service" loading="lazy">
+    <div>
+      <div class="head"><div class="tag">COVERAGE</div><h2>States we cover</h2>
+        <p>Khasra / cadastral maps for any village &ndash; one village or a thousand.</p></div>
+      <div class="states">
+        <div class="state">Rajasthan</div><div class="state">Madhya Pradesh</div>
+        <div class="state">Maharashtra</div><div class="state">Uttar Pradesh</div>
+        <div class="state">Bihar</div><div class="state">Odisha</div>
+        <div class="state">Chhattisgarh</div><div class="state">Karnataka</div>
+        <div class="state">Tamil Nadu</div><div class="state">Andhra Pradesh</div>
+        <div class="state">Haryana</div><div class="state">Delhi</div>
+        <div class="state">Goa</div><div class="state">Tripura</div>
+      </div>
+      <p style="margin-top:14px;color:var(--muted)">Your state is not listed? Write to us &ndash; new states are added regularly.</p>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="head"><div class="tag">HOW IT WORKS</div><h2>Four simple steps</h2></div>
+    <div class="steps">
+      <div class="step"><h3>Send your village list</h3><p>State, district, tehsil and village names &ndash; Excel, PDF or a photo is fine.</p></div>
+      <div class="step"><h3>Get a quotation</h3><p>Price per map and delivery time. Every quotation is valid for 7 days.</p></div>
+      <div class="step"><h3>Confirm with 50% advance</h3><p>Work starts as soon as the village list is confirmed.</p></div>
+      <div class="step"><h3>Receive your files</h3><p>Google Drive link or pen drive, folder-wise, with a digitally signed invoice.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <div class="tag">ENQUIRIES</div>
+      <h2>Get a quotation for your villages</h2>
+      <a class="mail" href="mailto:bhunetramapservice@gmail.com?subject=Quotation%20request%20-%20khasra%20maps">bhunetramapservice@gmail.com</a><br>
+      <a class="btn" href="mailto:bhunetramapservice@gmail.com?subject=Quotation%20request%20-%20khasra%20maps&amp;body=State%3A%0ADistrict%3A%0ATehsil%3A%0AVillages%20(names%20or%20attach%20list)%3A%0AFormats%20needed%20(KML%20%2F%20DWG%20%2F%20SHP)%3A%0A">&#9993; Write to us</a>
+      <p class="verify">Every BHU-NETRA invoice carries a digital signature, a digital stamp and a QR code &ndash; send it to us any time to check that it is genuine.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; <span id="yr">2026</span> BHU-NETRA Map Service &middot; bhunetramapservice@gmail.com</span>
+    <span>Maps are digitized from public land-record maps for planning / reference use; not a legal survey or title document.</span>
+  </div>
+</footer>
+
+<div id="lb"><img alt=""></div>
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const lb = document.getElementById('lb'), li = lb.querySelector('img');
+  document.querySelectorAll('.shot img, .cover img').forEach(i => i.addEventListener('click', () => { li.src = i.src; li.alt = i.alt; lb.classList.add('on'); }));
+  lb.addEventListener('click', () => lb.classList.remove('on'));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('on'); });
+</script>
+</body>
+</html>
