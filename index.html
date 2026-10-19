@@ -10,6 +10,32 @@
 <meta property="og:description" content="Georeferenced & Digitized Khasra Maps - KML, DWG, SHP, etc. 14 states, single village to whole district.">
 <meta property="og:image" content="https://bhunetramapservice.github.io/images/states/hero_map.jpg">
 <meta name="theme-color" content="#080E1D">
+<link rel="canonical" href="https://bhunetramapservice.github.io/">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bhunetramapservice.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "ProfessionalService",
+ "name": "BHU-NETRA Map Service",
+ "alternateName": "BHU-NETRA",
+ "url": "https://bhunetramapservice.github.io/",
+ "logo": "https://bhunetramapservice.github.io/images/logo.png",
+ "image": "https://bhunetramapservice.github.io/images/states/hero_map.jpg",
+ "description": "Georeferenced and digitized khasra (cadastral) maps in KML, DWG, SHP and Excel for 14 Indian states - single village to whole district, satellite aligned.",
+ "email": "bhunetramapservice@gmail.com",
+ "telephone": "+91-6295114453",
+ "areaServed": ["Rajasthan","Madhya Pradesh","Maharashtra","Uttar Pradesh","Bihar","Odisha","Chhattisgarh","Karnataka","Tamil Nadu","Andhra Pradesh","Haryana","Delhi","Goa","Tripura"],
+ "knowsAbout": ["khasra map","cadastral map digitization","georeferencing","KML","DWG","Shapefile","land records GIS","Bhunaksha"],
+ "contactPoint": {"@type": "ContactPoint", "contactType": "sales", "email": "bhunetramapservice@gmail.com", "telephone": "+91-6295114453", "availableLanguage": ["English","Hindi"]},
+ "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Map services", "itemListElement": [
+   {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Digitized khasra map (single village)"}},
+   {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Georeferenced village maps for solar / wind / transmission projects"}},
+   {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Whole tehsil / district khasra maps in KML, DWG, SHP"}}]}
+}
+</script>
 <link rel="icon" href="images/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
@@ -145,6 +171,24 @@ section{padding:80px 0}
 .contact h2{font-size:clamp(30px,4.4vw,48px)}
 .mail{display:inline-block;margin:18px 0 26px;font-family:Rajdhani;font-weight:700;font-size:clamp(20px,3.4vw,32px);color:#fff;border-bottom:2px solid var(--em-lit)}
 .verify{margin-top:26px;color:#C9D6EA;font-size:14px}
+.contact .sub{color:#C9D6EA;margin:10px 0 22px}
+.enq{max-width:760px;margin:0 auto;text-align:left;display:grid;gap:12px}
+.enq .f2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.enq label{display:block;font-size:13px;color:#AFC0DA}
+.enq input,.enq select,.enq textarea{display:block;width:100%;margin-top:6px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);
+  background:rgba(8,17,34,.9);color:#fff;font:15px Inter,sans-serif}
+.enq textarea{min-height:120px;resize:vertical}
+.enq input:focus,.enq select:focus,.enq textarea:focus{outline:none;border-color:var(--em-mid);box-shadow:0 0 0 3px rgba(46,230,176,.15)}
+.enq .fmts{display:flex;flex-wrap:wrap;gap:14px;align-items:center;font-size:14px;color:#C9D6EA}
+.enq .fmts label{display:flex;align-items:center;gap:6px;color:#fff;font-size:14px}
+.enq .fmts input{width:auto;margin:0;accent-color:var(--em-lit)}
+.enq .btn{justify-self:center;margin-top:6px}
+.enq-msg{text-align:center;min-height:22px;font-size:15px}
+.enq-msg.ok{color:var(--em-lit)}.enq-msg.err{color:#ff8a98}
+.wa{position:fixed;right:20px;bottom:20px;z-index:40;display:flex;align-items:center;gap:8px;padding:12px 18px 12px 14px;border-radius:999px;
+  background:#25D366;color:#06301A;font:700 16px Rajdhani,sans-serif;box-shadow:0 0 0 6px rgba(37,211,102,.18),0 10px 30px rgba(0,0,0,.4);transition:.2s}
+.wa:hover{transform:translateY(-3px)}
+@media (max-width:600px){.enq .f2{grid-template-columns:1fr}.wa span{display:none}.wa{padding:12px}}
 footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:13px}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 #lb{position:fixed;inset:0;background:rgba(4,8,18,.94);display:none;place-items:center;z-index:50;padding:20px;cursor:zoom-out}
@@ -215,7 +259,7 @@ nav .btn{white-space:nowrap}
 <nav id="nav">
   <div class="wrap">
     <a class="brand" href="#top"><img src="images/logo.png" alt="BHU-NETRA logo">BHU-NETRA <span>MAP SERVICE</span></a>
-    <div class="links"><a href="#orders">Orders</a><a href="#services">Services</a><a href="#demo">Demos</a><a href="#states">Coverage</a><a href="#contact">Contact</a></div>
+    <div class="links"><a href="#orders">Orders</a><a href="#services">Services</a><a href="#demo">Demos</a><a href="#states">Coverage</a><a href="verify/">Verify</a><a href="#contact">Contact</a></div>
     <div class="chrono" id="chrono" title="Your local time">
       <svg class="ring" viewBox="0 0 44 44" aria-hidden="true">
         <circle class="trk" cx="22" cy="22" r="19"/><circle class="sec" id="c-sec" cx="22" cy="22" r="19"/>
@@ -342,12 +386,37 @@ nav .btn{white-space:nowrap}
     <div class="contact reveal">
       <div class="tag">ENQUIRIES</div>
       <h2>Get a quotation &ndash; even for one village</h2>
-      <a class="mail" href="mailto:bhunetramapservice@gmail.com?subject=Quotation%20request%20-%20khasra%20maps">bhunetramapservice@gmail.com</a><br>
-      <a class="btn" href="mailto:bhunetramapservice@gmail.com?subject=Quotation%20request%20-%20khasra%20maps&amp;body=State%3A%0ADistrict%3A%0ATehsil%3A%0AVillages%20(names%20or%20attach%20list)%3A%0AFormats%20needed%20(KML%20%2F%20DWG%20%2F%20SHP)%3A%0A">&#9993; Write to us</a>
-      <p class="verify">Every BHU-NETRA invoice carries a digital signature, a digital stamp and a QR code &ndash; send it to us any time to check that it is genuine.</p>
+      <p class="sub">Fill the form &ndash; it reaches us directly. Or write to <a href="mailto:bhunetramapservice@gmail.com?subject=Quotation%20request%20-%20khasra%20maps">bhunetramapservice@gmail.com</a>, or chat on <a id="wa-inline" href="https://wa.me/916295114453" target="_blank" rel="noopener">WhatsApp +91 62951 14453</a>.</p>
+      <form id="enq" class="enq" autocomplete="on">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="f2">
+          <label>Name *<input name="Name" required maxlength="80" placeholder="Your name / company"></label>
+          <label>Mobile *<input name="Mobile" required maxlength="20" inputmode="tel" placeholder="+91 ..."></label>
+        </div>
+        <div class="f2">
+          <label>Email<input name="Email" type="email" maxlength="120" placeholder="you@example.com"></label>
+          <label>State *<select name="State" required id="enq-state"><option value="">Choose a state</option></select></label>
+        </div>
+        <div class="f2">
+          <label>District / Tehsil<input name="District / Tehsil" maxlength="120" placeholder="e.g. Pratapgarh / Arnod"></label>
+          <label>Number of villages<input name="Villages (count)" maxlength="10" inputmode="numeric" placeholder="1"></label>
+        </div>
+        <label>Village names / project details *<textarea name="Village list" required maxlength="5000" placeholder="One village per line, or describe the project area (a long list can also be emailed as Excel / PDF)."></textarea></label>
+        <div class="fmts"><span>Formats:</span>
+          <label><input type="checkbox" name="KML" value="yes" checked> KML</label><label><input type="checkbox" name="DWG" value="yes"> DWG</label>
+          <label><input type="checkbox" name="SHP" value="yes"> SHP</label><label><input type="checkbox" name="Excel" value="yes"> Excel</label>
+          <label><input type="checkbox" name="Colour-coded" value="yes"> Colour-coded land category</label></div>
+        <button class="btn" type="submit" id="enq-btn">&#9993; Send enquiry</button>
+        <p class="enq-msg" id="enq-msg"></p>
+      </form>
+      <p class="verify">Got an invoice or quotation from us? <a href="verify/">Check that it is genuine &rarr;</a> (scan its QR code, or enter the number + total amount)</p>
     </div>
   </div>
 </section>
+<a class="wa" id="wa" href="https://wa.me/916295114453" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.4.7 4.7 1.9 6.7L3 29l6.9-2.1c1.9 1 4 1.6 6.1 1.6 7 0 12.7-5.7 12.7-12.7S23 3 16 3zm0 23.1c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.1 1.2 1.2-4-.3-.4c-1.1-1.7-1.7-3.6-1.7-5.6C5.3 9.7 10.1 5 16 5s10.7 4.7 10.7 10.6S21.9 26.1 16 26.1zm5.9-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.6c.2.2 2.4 3.7 5.8 5.1 2.8 1.1 3.4.9 4 .8.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+  <span>WhatsApp</span>
+</a>
 
 <footer>
   <div class="wrap">
@@ -360,6 +429,34 @@ nav .btn{white-space:nowrap}
 <script>
 if (/shot/.test(location.search)) document.documentElement.classList.add('shotmode');   // static render for screenshots
 document.getElementById('yr').textContent = new Date().getFullYear();
+// ---- settings ----
+const WHATSAPP = '916295114453';                                            // country code + number, digits only
+const FORM_TO = 'https://formsubmit.co/ajax/bhunetramapservice@gmail.com';   // free form-to-email service
+(() => {
+  const wa = document.getElementById('wa'), msgTxt = encodeURIComponent('Hello BHU-NETRA Map Service, I need khasra maps for: ');
+  wa.href = document.getElementById('wa-inline').href = 'https://wa.me/' + WHATSAPP + '?text=' + msgTxt;
+  // enquiry form -> email (FormSubmit), no page reload
+  const STATES_ALL = ['Rajasthan','Madhya Pradesh','Maharashtra','Uttar Pradesh','Bihar','Odisha','Chhattisgarh','Karnataka','Tamil Nadu','Andhra Pradesh','Haryana','Delhi','Goa','Tripura','Other'];
+  const sel = document.getElementById('enq-state'); STATES_ALL.forEach(n => sel.add(new Option(n, n)));
+  const f = document.getElementById('enq'), msg = document.getElementById('enq-msg'), btn = document.getElementById('enq-btn');
+  f.addEventListener('submit', async e => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(f).entries());
+    if (data._honey) return;
+    data._subject = 'Website enquiry - ' + (data.State || '') + ' - ' + (data.Name || '');
+    data._template = 'table'; data._captcha = 'false';
+    btn.disabled = true; msg.className = 'enq-msg'; msg.textContent = 'Sending ...';
+    try {
+      const r = await fetch(FORM_TO, {method: 'POST', headers: {'Content-Type': 'application/json', 'Accept': 'application/json'}, body: JSON.stringify(data)});
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok || String(j.success) === 'false') throw new Error(j.message || r.status);
+      msg.className = 'enq-msg ok'; msg.textContent = '✔ Thank you! Your enquiry has reached us - we will reply soon.'; f.reset();
+    } catch (err) {
+      msg.className = 'enq-msg err';
+      msg.innerHTML = 'Could not send right now. Please email <a href="mailto:bhunetramapservice@gmail.com">bhunetramapservice@gmail.com</a> or WhatsApp us.';
+    } finally { btn.disabled = false; }
+  });
+})();
 // orbital chrono: outer ring = seconds, inner ring = minutes, HH:MM + date (visitor's local time)
 const DAYS = ['SUN','MON','TUE','WED','THU','FRI','SAT'], MON = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
 const pad = n => String(n).padStart(2, '0'), q = id => document.getElementById(id);

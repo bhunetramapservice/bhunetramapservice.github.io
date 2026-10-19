@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verify Invoice | BHU-NETRA Map Service</title>
+<meta name="description" content="Check that a BHU-NETRA Map Service invoice or quotation is genuine: scan its QR code or enter the number and total amount.">
+<meta name="theme-color" content="#080E1D">
+<link rel="icon" href="../images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tweetnacl/1.0.3/nacl-fast.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.8/html5-qrcode.min.js"></script>
+<style>
+:root{--void:#080E1D;--deep:#0B1428;--panel:#0E1A33;--navy:#11356F;--line:#1E3A66;--em:#0A5B4C;--em-mid:#19A884;--em-lit:#2EE6B0;
+  --amb:#F28E3A;--amb-lit:#FFB46B;--mist:#EFF2FC;--muted:#93A4C3;--red:#FF5468}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--void);color:var(--mist);font-family:Inter,"Segoe UI",system-ui,sans-serif;line-height:1.6;min-height:100vh}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(rgba(46,230,176,.045) 1px,transparent 1px) 0 0/44px 44px,linear-gradient(90deg,rgba(46,230,176,.045) 1px,transparent 1px) 0 0/44px 44px,
+  radial-gradient(900px 500px at 80% 0,rgba(17,53,111,.5),transparent 60%),var(--void)}
+a{color:var(--em-lit);text-decoration:none}
+h1,h2,h3,.brand,.btn,.tag{font-family:Rajdhani,"Bahnschrift",sans-serif;letter-spacing:.02em}
+.mono{font-family:"JetBrains Mono",Consolas,monospace}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px}
+nav{border-bottom:1px solid var(--line);background:rgba(8,14,29,.86);backdrop-filter:blur(10px)}
+nav .wrap{max-width:1200px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:700;color:#fff}
+.brand img{width:38px;height:38px;filter:drop-shadow(0 0 10px rgba(46,230,176,.5))}
+.brand span{color:var(--em-lit)}
+.tag{display:inline-block;color:var(--amb-lit);font-weight:700;letter-spacing:.32em;font-size:13px}
+header{padding:46px 0 18px}
+header h1{font-size:clamp(32px,5vw,50px);line-height:1.05}
+header p{color:var(--muted);margin-top:10px}
+.panel{position:relative;border:1px solid var(--line);border-radius:18px;background:rgba(11,20,40,.85);padding:22px;margin-top:18px}
+.panel::after{content:"";position:absolute;inset:6px;pointer-events:none;opacity:.75;background:
+  linear-gradient(var(--em-lit),var(--em-lit)) top left/14px 2px no-repeat,linear-gradient(var(--em-lit),var(--em-lit)) top left/2px 14px no-repeat,
+  linear-gradient(var(--em-lit),var(--em-lit)) top right/14px 2px no-repeat,linear-gradient(var(--em-lit),var(--em-lit)) top right/2px 14px no-repeat,
+  linear-gradient(var(--amb),var(--amb)) bottom left/14px 2px no-repeat,linear-gradient(var(--amb),var(--amb)) bottom left/2px 14px no-repeat,
+  linear-gradient(var(--amb),var(--amb)) bottom right/14px 2px no-repeat,linear-gradient(var(--amb),var(--amb)) bottom right/2px 14px no-repeat}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.tab{cursor:pointer;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:rgba(14,26,51,.8);color:#C9D6EA;font-size:14px}
+.tab.on{background:linear-gradient(90deg,var(--em-mid),var(--em-lit));color:#04211A;border-color:transparent;font-weight:600}
+.pane{display:none}.pane.on{display:block}
+label{display:block;font-size:13px;color:var(--muted);margin:10px 0 6px}
+input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#081122;color:#fff;font:15px Inter,sans-serif}
+textarea{min-height:150px;font-family:"JetBrains Mono",monospace;font-size:13px}
+input:focus,textarea:focus{outline:none;border-color:var(--em-mid);box-shadow:0 0 0 3px rgba(46,230,176,.15)}
+.row2{display:grid;grid-template-columns:1.4fr 1fr;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:12px;font-weight:700;font-size:17px;cursor:pointer;border:0;margin-top:14px;
+  background:linear-gradient(90deg,var(--em-mid),var(--em-lit));color:#04211A;box-shadow:0 0 22px rgba(46,230,176,.28)}
+.btn.ghost{background:transparent;color:var(--em-lit);border:1px solid var(--em-mid);box-shadow:none}
+#reader{border-radius:14px;overflow:hidden;border:1px dashed var(--line);margin-top:8px;min-height:40px}
+.hint{font-size:13px;color:var(--muted);margin-top:8px}
+#result{display:none;margin-top:20px;border-radius:18px;padding:22px;border:1px solid}
+#result.real{display:block;border-color:var(--em-mid);background:linear-gradient(160deg,rgba(10,91,76,.45),rgba(11,20,40,.9))}
+#result.fake{display:block;border-color:var(--red);background:linear-gradient(160deg,rgba(120,20,35,.45),rgba(11,20,40,.9))}
+#result.unk{display:block;border-color:var(--amb);background:linear-gradient(160deg,rgba(120,70,20,.4),rgba(11,20,40,.9))}
+#result h2{font-size:34px;line-height:1;display:flex;align-items:center;gap:12px}
+#result .seal{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;font-size:28px;border:2px solid}
+.real .seal{color:var(--em-lit);border-color:var(--em-lit);box-shadow:0 0 22px rgba(46,230,176,.5)}
+.fake .seal{color:var(--red);border-color:var(--red);box-shadow:0 0 22px rgba(255,84,104,.5)}
+.unk .seal{color:var(--amb-lit);border-color:var(--amb-lit)}
+#result p{margin-top:10px;color:#D8E3F5}
+#result table{margin-top:12px;width:100%;border-collapse:collapse;font-size:14px}
+#result td{padding:7px 0;border-bottom:1px dashed var(--line)} #result td:first-child{color:var(--muted)} #result td:last-child{text-align:right;font-family:"JetBrains Mono",monospace}
+.how{color:var(--muted);font-size:14px;margin:26px 0 40px}
+.how b{color:#fff}
+footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-size:13px;text-align:center}
+@media (max-width:560px){.row2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a class="brand" href="../"><img src="../images/logo.png" alt="BHU-NETRA logo">BHU-NETRA <span>MAP SERVICE</span></a>
+  <a href="../">&larr; Home</a></div></nav>
+<main class="wrap">
+  <header>
+    <div class="tag">DOCUMENT CHECK</div>
+    <h1>Is your invoice genuine?</h1>
+    <p>Every BHU-NETRA invoice and quotation is digitally signed. Scan its QR code, paste the QR text, or enter the document number and total amount &ndash; the check runs right here in your browser.</p>
+  </header>
+
+  <div class="panel">
+    <div class="tabs">
+      <button class="tab on" data-p="p-scan">&#9635; Scan QR</button>
+      <button class="tab" data-p="p-num">#&nbsp; Number + amount</button>
+      <button class="tab" data-p="p-text">&#9998; Paste QR text</button>
+    </div>
+    <div class="pane on" id="p-scan">
+      <button class="btn" id="cam">&#128247; Start camera</button>
+      <label class="btn ghost" for="qrfile" style="display:inline-flex">&#128444; Upload a photo of the QR</label>
+      <input type="file" id="qrfile" accept="image/*" style="display:none">
+      <div id="reader"></div>
+      <p class="hint">Point the camera at the QR code on the invoice (next to "SCAN &bull; VERIFY"). Nothing is uploaded &ndash; the picture stays on your device.</p>
+    </div>
+    <div class="pane" id="p-num">
+      <div class="row2">
+        <div><label for="no">Invoice / Quotation No.</label><input id="no" placeholder="BNMS-INV-2610-01234-X" autocomplete="off" spellcheck="false"></div>
+        <div><label for="amt">Total amount (&#8377;)</label><input id="amt" placeholder="114000" inputmode="decimal"></div>
+      </div>
+      <button class="btn" id="go-num">&#10004; Check</button>
+      <p class="hint">Use the TOTAL AMOUNT printed on the document (before advance), e.g. 1,14,000.00.</p>
+    </div>
+    <div class="pane" id="p-text">
+      <label for="qrtext">Text read from the QR code</label>
+      <textarea id="qrtext" placeholder="BHU-NETRA MAP SERVICE&#10;INVOICE BNMS-INV-...&#10;Date ... | Client ...&#10;Total Rs ... | Villages ...&#10;...&#10;SIG:..."></textarea>
+      <button class="btn" id="go-text">&#10004; Check</button>
+    </div>
+  </div>
+
+  <div id="result"></div>
+
+  <div class="how">
+    <p><b>How it works:</b> the QR holds the document details and a digital signature (Ed25519) that only BHU-NETRA Map Service can make. If anyone changes a number, the signature no longer matches. The number + amount check looks the document up in our published list, which holds only scrambled fingerprints &ndash; no client names or amounts.</p>
+    <p style="margin-top:10px">Still unsure? Write to <a href="mailto:bhunetramapservice@gmail.com?subject=Invoice%20check">bhunetramapservice@gmail.com</a> with a photo of the document.</p>
+  </div>
+</main>
+<footer>&copy; <span id="yr">2026</span> BHU-NETRA Map Service &middot; <a href="../">bhunetramapservice.github.io</a></footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+const $ = id => document.getElementById(id);
+document.querySelectorAll('.tab').forEach(t => t.onclick = () => {
+  document.querySelectorAll('.tab').forEach(x => x.classList.toggle('on', x === t));
+  document.querySelectorAll('.pane').forEach(p => p.classList.toggle('on', p.id === t.dataset.p));
+});
+const fresh = '?t=' + Date.now();
+const KEYS = fetch('key.json' + fresh).then(r => r.json()).then(j => j.keys || []).catch(() => []);
+const REG = fetch('register.json' + fresh).then(r => r.json()).then(j => j.docs || []).catch(() => []);
+
+const CHK = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
+const checkLetter = core => { let s = 0; for (let i = 0; i < core.length; i++) s += (i + 1) * core.charCodeAt(i); return CHK[s % CHK.length]; };
+function validNumber(no){ const m = /^(BNMS-(INV|QTN)-\d{4}-\d{5})-([A-Z])$/.exec(no); return !!m && checkLetter(m[1]) === m[3]; }
+const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+const b64u = s => b64(s.replace(/-/g, '+').replace(/_/g, '/') + '='.repeat((4 - s.length % 4) % 4));
+async function sha256(t){ const h = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(t)); return [...new Uint8Array(h)].map(b => b.toString(16).padStart(2, '0')).join(''); }
+const inr = x => '₹ ' + Number(x).toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function show(kind, title, msg, rows){
+  const r = $('result'); r.className = kind;
+  const icon = {real: '✔', fake: '✖', unk: '?'}[kind];
+  r.innerHTML = `<h2><span class="seal">${icon}</span>${esc(title)}</h2><p>${msg}</p>` +
+    (rows && rows.length ? '<table>' + rows.map(([k, v]) => `<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>`).join('') + '</table>' : '');
+  r.scrollIntoView({behavior: 'smooth', block: 'center'});
+}
+
+function parseQR(text){
+  text = (text || '').trim().replace(/\r\n?/g, '\n');
+  if (text.startsWith('BNMS-QR:')) text = new TextDecoder().decode(b64u(text.slice(8).split(/[:\s]/)[0]));
+  const i = text.lastIndexOf('\nSIG:');
+  if (i < 0) return null;
+  const body = text.slice(0, i), sig = text.slice(i + 5).trim(), f = {};
+  for (const ln of body.split('\n')) {
+    let m;
+    if ((m = /^(INVOICE|QUOTATION) (\S+)$/.exec(ln))) { f.kind = m[1]; f.number = m[2]; }
+    if ((m = /^Date (\S+) \| Client (\S+)$/.exec(ln))) { f.date = m[1]; f.client = m[2]; }
+    if ((m = /^Total Rs ([\d.]+) \| Villages (\d+)$/.exec(ln))) { f.total = parseFloat(m[1]); f.villages = +m[2]; }
+  }
+  return {body, sig, f};
+}
+
+async function checkQR(text){
+  const q = parseQR(text);
+  if (!q || !q.body.startsWith('BHU-NETRA MAP SERVICE') || !q.f.number)
+    return show('fake', 'Not a BHU-NETRA code', 'This QR / text does not come from a BHU-NETRA Map Service document.');
+  const keys = await KEYS;
+  let good = false;
+  try { const msg = new TextEncoder().encode(q.body), sig = b64u(q.sig);
+        good = keys.some(k => nacl.sign.detached.verify(msg, sig, b64(k))); } catch (e) { good = false; }
+  const rows = [['Document', (q.f.kind || '') + ' ' + q.f.number], ['Date', q.f.date || '-'], ['Client ID', q.f.client || '-'],
+                ['Total amount', q.f.total != null ? inr(q.f.total) : '-'], ['Villages', q.f.villages != null ? q.f.villages : '-']];
+  if (!good) return show('fake', 'FAKE', 'The digital signature does not match &ndash; this code was made or changed by someone else. Do not pay against it; write to us.', rows);
+  const reg = await REG, h = await sha256(`${q.f.number.toUpperCase()}|${q.f.total.toFixed(2)}`);
+  const inList = reg.some(e => e.h === h);
+  show('real', 'GENUINE', 'Digitally signed by BHU-NETRA Map Service. Please make sure the details below match your printed document.' +
+       (inList ? '' : ' <i>(Not yet in the online list &ndash; the signature alone proves it.)</i>'), rows);
+}
+
+async function checkNumber(){
+  const no = $('no').value.trim().toUpperCase().replace(/\s+/g, '');
+  const amt = parseFloat($('amt').value.replace(/[^\d.]/g, ''));
+  if (!no || isNaN(amt)) return show('unk', 'Enter both', 'Please enter the document number and the total amount.');
+  if (!validNumber(no)) return show('fake', 'Invalid number', `"${esc(no)}" is not a valid BHU-NETRA document number (format BNMS-INV-YYMM-NNNNN-X, with a check letter). Check for typing mistakes.`);
+  const reg = await REG, h = await sha256(`${no}|${amt.toFixed(2)}`), e = reg.find(x => x.h === h);
+  if (e) return show('real', 'GENUINE', 'This document is in the BHU-NETRA Map Service register.',
+                     [['Document', (e.k === 'i' ? 'Invoice ' : 'Quotation ') + no], ['Date', e.d], ['Total amount', inr(amt)]]);
+  show('fake', 'Not found', 'No BHU-NETRA document with this number <b>and</b> this total amount. Check both values (total amount, not balance), or scan the QR code instead. If it still fails, the document may be fake &ndash; write to us.');
+}
+
+$('go-num').onclick = checkNumber;
+$('amt').addEventListener('keydown', e => e.key === 'Enter' && checkNumber());
+$('go-text').onclick = () => checkQR($('qrtext').value);
+
+let cam = null;
+$('cam').onclick = async () => {
+  if (cam) { await cam.stop().catch(() => {}); cam = null; $('cam').textContent = '📷 Start camera'; return; }
+  try {
+    cam = new Html5Qrcode('reader');
+    await cam.start({facingMode: 'environment'}, {fps: 10, qrbox: 260}, async text => {
+      await cam.stop().catch(() => {}); cam = null; $('cam').textContent = '📷 Start camera'; checkQR(text);
+    });
+    $('cam').textContent = '■ Stop camera';
+  } catch (e) { cam = null; show('unk', 'Camera not available', 'Allow camera access, or upload a photo of the QR code instead.'); }
+};
+$('qrfile').onchange = async ev => {
+  const f = ev.target.files[0]; if (!f) return;
+  try { const text = await new Html5Qrcode('reader').scanFile(f, false); checkQR(text); }
+  catch (e) { show('unk', 'QR not readable', 'The QR code could not be read from this photo. Try a sharper, closer picture, or enter the number + amount.'); }
+  ev.target.value = '';
+};
+// links like verify/?q=<QR text> (optional)
+const qp = new URLSearchParams(location.search).get('q'); if (qp) { $('qrtext').value = qp; checkQR(qp); }
+</script>
+</body>
+</html>
