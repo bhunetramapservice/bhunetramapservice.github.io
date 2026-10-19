@@ -1,0 +1,122 @@
+[
+ {
+  "key": "rj",
+  "state": "Rajasthan",
+  "khasra": 408,
+  "area_ha": 251,
+  "lat": 24.1948,
+  "lon": 74.7852,
+  "district": "Pratapgarh",
+  "village": "Amaliphala"
+ },
+ {
+  "key": "mp",
+  "state": "Madhya Pradesh",
+  "khasra": 1419,
+  "area_ha": 1377,
+  "lat": 22.76,
+  "lon": 75.5067,
+  "district": "Indore",
+  "village": "Sagdod"
+ },
+ {
+  "key": "mh",
+  "state": "Maharashtra",
+  "khasra": 140,
+  "area_ha": 503,
+  "lat": 18.7702,
+  "lon": 73.3694,
+  "district": "Pune",
+  "village": "Khandala"
+ },
+ {
+  "key": "ga",
+  "state": "Goa",
+  "khasra": 3221,
+  "area_ha": 1187,
+  "lat": 15.4087,
+  "lon": 73.9786,
+  "district": "South Goa",
+  "village": "Bandora"
+ },
+ {
+  "key": "tr",
+  "state": "Tripura",
+  "khasra": 343,
+  "area_ha": 206,
+  "lat": 23.9135,
+  "lon": 91.8173,
+  "district": "Dhalai",
+  "village": "Kamalachhara"
+ },
+ {
+  "key": "cg",
+  "state": "Chhattisgarh",
+  "khasra": 639,
+  "area_ha": 732,
+  "lat": 20.1063,
+  "lon": 81.1902,
+  "district": "Kanker",
+  "village": "Amodi"
+ },
+ {
+  "key": "od",
+  "state": "Odisha",
+  "khasra": 598,
+  "area_ha": 210,
+  "lat": 21.8313,
+  "lon": 84.9557,
+  "district": "Sundargarh",
+  "village": "Banaigarh"
+ },
+ {
+  "key": "up",
+  "state": "Uttar Pradesh",
+  "khasra": 2745,
+  "area_ha": 1230,
+  "lat": 27.0681,
+  "lon": 77.8869,
+  "district": "Agra",
+  "village": "Akola"
+ },
+ {
+  "key": "ka",
+  "state": "Karnataka",
+  "khasra": 224,
+  "area_ha": 1086,
+  "lat": 13.042,
+  "lon": 76.1879,
+  "district": "Hassan",
+  "village": "Koramangala Kaval"
+ },
+ {
+  "key": "dl",
+  "state": "Delhi",
+  "khasra": 477,
+  "area_ha": 202,
+  "lat": 28.6079,
+  "lon": 77.3216,
+  "district": "East Delhi",
+  "village": "Kondli"
+ },
+ {
+  "key": "tn",
+  "state": "Tamil Nadu",
+  "khasra": 855,
+  "area_ha": 1153,
+  "lat": 13.4759,
+  "lon": 80.1253,
+  "district": "Tiruvallur",
+  "village": "Elavur"
+ },
+ {
+  "key": "ap",
+  "state": "Andhra Pradesh",
+  "khasra": 628,
+  "area_ha": 1816,
+  "lat": 16.3914,
+  "lon": 80.5455,
+  "district": "Guntur",
+  "village": "Kaza"
+ }
+]
