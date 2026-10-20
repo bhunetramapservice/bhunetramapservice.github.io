@@ -128,5 +128,15 @@
   "lon": 80.5455,
   "district": "Guntur",
   "village": "Kaza"
+ },
+ {
+  "key": "kl",
+  "state": "Kerala",
+  "khasra": 1977,
+  "area_ha": 284,
+  "lat": 10.6202,
+  "lon": 76.1646,
+  "district": "Thrissur",
+  "village": "Kiralur"
  }
 ]

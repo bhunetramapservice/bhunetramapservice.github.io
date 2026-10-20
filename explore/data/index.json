@@ -89,5 +89,12 @@
   "district": "Guntur",
   "village": "Kaza",
   "khasra": 628
+ },
+ {
+  "key": "kl",
+  "state": "Kerala",
+  "district": "Thrissur",
+  "village": "Kiralur",
+  "khasra": 1977
  }
 ]
