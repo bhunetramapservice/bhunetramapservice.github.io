@@ -168,5 +168,15 @@
   "lon": 93.9883,
   "district": "Golaghat",
   "village": "S-Guri Miri"
+ },
+ {
+  "key": "tg",
+  "state": "Telangana",
+  "khasra": 302,
+  "area_ha": 865,
+  "lat": 16.2769,
+  "lon": 78.409,
+  "district": "Nagarkurnool",
+  "village": "Chinnakarpamula"
  }
 ]

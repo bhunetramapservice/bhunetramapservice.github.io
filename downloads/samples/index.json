@@ -151,5 +151,14 @@
   "khasra": 500,
   "file": "downloads/samples/BHU-NETRA_Sample_S_Guri_Miri_Assam.zip",
   "kb": 519
+ },
+ {
+  "key": "tg",
+  "state": "Telangana",
+  "village": "Chinnakarpamula",
+  "district": "Nagarkurnool",
+  "khasra": 302,
+  "file": "downloads/samples/BHU-NETRA_Sample_Chinnakarpamula_Telangana.zip",
+  "kb": 203
  }
 ]

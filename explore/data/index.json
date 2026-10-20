@@ -117,5 +117,12 @@
   "district": "Golaghat",
   "village": "S-Guri Miri",
   "khasra": 500
+ },
+ {
+  "key": "tg",
+  "state": "Telangana",
+  "district": "Nagarkurnool",
+  "village": "Chinnakarpamula",
+  "khasra": 302
  }
 ]
