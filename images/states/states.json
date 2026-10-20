@@ -30,6 +30,16 @@
   "village": "Khandala"
  },
  {
+  "key": "br",
+  "state": "Bihar",
+  "khasra": 770,
+  "area_ha": 112,
+  "lat": 26.1359,
+  "lon": 87.4973,
+  "district": "Araria",
+  "village": "Azmatpur"
+ },
+ {
   "key": "ga",
   "state": "Goa",
   "khasra": 3221,
