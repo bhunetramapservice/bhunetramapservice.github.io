@@ -222,7 +222,9 @@ section{padding:80px 0}
 .pw h3{font:700 19px Rajdhani,sans-serif;color:#fff;margin:6px 0}
 .pw p{color:#B9C7DF;font-size:14px}
 .svis{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
-.proj{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.proj{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.pn .pw-big{font:700 46px/1 Rajdhani,sans-serif;color:var(--amb-lit);text-shadow:0 0 18px rgba(242,142,58,.35)}
+@media (max-width:1250px){.proj{grid-template-columns:repeat(3,1fr)}}
 .pj{position:relative;border-radius:18px;border:1px solid var(--line);padding:20px;background:linear-gradient(170deg,rgba(17,53,111,.5),rgba(11,20,40,.95));overflow:hidden}
 .pj::before{content:"";position:absolute;left:0;top:0;height:3px;width:100%;background:linear-gradient(90deg,var(--em-lit),var(--amb))}
 .pn{display:flex;align-items:baseline;gap:8px}
@@ -510,6 +512,9 @@ nav .btn{white-space:nowrap}
     <div class="head reveal"><div class="tag">PROJECTS DONE</div><h2>Recent work, in numbers</h2>
       <p>A few deliveries from our own records. Client names stay confidential.</p></div>
     <div class="proj">
+      <div class="pj reveal"><div class="pn"><span class="pw-big">FMB</span><small>wind projects</small></div>
+        <h3>Wind farm FMBs</h3><p>Field Measurement Book sketches for wind turbine (WTG) land - survey numbers measured, drawn to scale and georeferenced, with the land schedule.</p>
+        <div class="pt"><span>FMB</span><span>WTG land</span><span>DWG</span><span>KML</span></div></div>
       <div class="pj reveal"><div class="pn"><span class="count" data-to="387">387</span><small>villages</small></div>
         <h3>Two whole tehsils, Rajasthan</h3><p>Every village of two tehsils digitized and georeferenced, delivered folder-wise (District &gt; Tehsil &gt; Village) with village boundaries.</p>
         <div class="pt"><span>KML</span><span>DXF</span><span>SHP</span><span>Excel</span></div></div>
