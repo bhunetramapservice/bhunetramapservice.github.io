@@ -215,6 +215,12 @@ section{padding:80px 0}
 @media (max-width:1000px){.grid4{grid-template-columns:1fr 1fr}}
 @media (max-width:800px){.qb{grid-template-columns:1fr}.qb-out{grid-template-columns:1fr}.wwd{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.grid4{grid-template-columns:1fr}}
+.pw{position:relative;border-radius:16px;border:1px solid var(--line);padding:20px;background:linear-gradient(180deg,rgba(14,26,51,.9),rgba(11,20,40,.92));transition:.25s}
+.pw:hover{border-color:rgba(46,230,176,.55);transform:translateY(-3px)}
+.pw.hot{border-color:rgba(255,180,107,.6);box-shadow:0 0 28px rgba(242,142,58,.18)}
+.pw .pk{font:700 11px Rajdhani,sans-serif;letter-spacing:.18em;color:var(--amb-lit)}
+.pw h3{font:700 19px Rajdhani,sans-serif;color:#fff;margin:6px 0}
+.pw p{color:#B9C7DF;font-size:14px}
 .svis{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
 .proj{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .pj{position:relative;border-radius:18px;border:1px solid var(--line);padding:20px;background:linear-gradient(170deg,rgba(17,53,111,.5),rgba(11,20,40,.95));overflow:hidden}
@@ -405,6 +411,10 @@ nav .btn{white-space:nowrap}
       <div class="card reveal"><div class="ico">&#10230;</div><h3>Route survey</h3><p>Corridors for transmission lines, roads, pipelines and canals: alignment, crossings and the khasras affected along the route.</p></div>
       <div class="card reveal"><div class="ico">&#9728;</div><h3>Solar &amp; wind site survey</h3><p>Site feasibility: land category, slope, obstacles, access and available area - combined with our khasra and govt-land maps.</p></div>
       <div class="card reveal"><div class="ico">&#9776;</div><h3>Layout &amp; plotting plans</h3><p>Plot, colony and project layout plans prepared on the surveyed base, ready for approval and sale.</p></div>
+      <div class="card reveal"><div class="ico">&#9998;</div><h3>FMB preparation</h3><p>Field Measurement Book sketches for every survey number - measured on the ground, drawn to scale with chains, offsets and neighbours, georeferenced.</p></div>
+      <div class="card reveal"><div class="ico">&#10033;</div><h3>WTG micro-siting survey</h3><p>Wind turbine locations staked with DGPS, the khasras under each WTG, its blade-swept area and setbacks from roads, houses and lines.</p></div>
+      <div class="card reveal"><div class="ico">&#9783;</div><h3>Land acquisition schedule</h3><p>Khasra-wise affected area, owner details from the records and the land schedule in Excel - for leases, purchase and compensation.</p></div>
+      <div class="card reveal"><div class="ico">&#9638;</div><h3>Sub-division &amp; partition survey</h3><p>Splitting a khasra on the ground and on the map - new boundaries, areas and a sketch ready for the revenue records.</p></div>
     </div>
     <div class="svis">
       <figure class="libcard reveal"><div class="libimg"><img src="images/survey/survey_contour.jpg" alt="Topographic contour survey sample" loading="lazy"><span class="sw">Contour &middot; 2 m</span></div>
@@ -513,6 +523,24 @@ nav .btn{white-space:nowrap}
         <h3>Sample villages across India</h3><p>Real sample villages from 13 states on this website - open any of them on the live map or in the gallery.</p>
         <div class="pt"><a href="explore/">Live map</a><a href="gallery/">Gallery</a></div></div>
     </div>
+
+    <div class="head reveal" style="margin-top:46px"><div class="tag">PROJECTS WE WORK ON</div><h2>Maps + survey for every kind of project</h2>
+      <p>Land records and field survey in one delivery - from wind farm FMBs to highway land schedules.</p></div>
+    <div class="grid4 pws">
+      <div class="pw hot reveal"><span class="pk">WIND</span><h3>Wind farm FMB &amp; land</h3><p>FMB sketches for every WTG survey number, turbine points on the khasra map, access roads and cable routes, land schedule.</p><div class="pt"><span>FMB</span><span>WTG siting</span><span>DGPS</span><span>KML / DWG</span></div></div>
+      <div class="pw reveal"><span class="pk">SOLAR</span><h3>Solar park</h3><p>Khasra and govt-land maps of the project villages, contour and slope survey, usable area and layout base.</p><div class="pt"><span>Khasra maps</span><span>Contour</span><span>Slope</span><span>Layout</span></div></div>
+      <div class="pw reveal"><span class="pk">HYBRID</span><h3>Wind-solar hybrid</h3><p>One combined base for turbines and solar blocks: land category, FMB, levels and the land schedule together.</p><div class="pt"><span>FMB</span><span>Govt land</span><span>Contour</span></div></div>
+      <div class="pw reveal"><span class="pk">POWER</span><h3>Transmission line &amp; ROW</h3><p>Route survey, tower spots on the khasra map, khasras crossed and the right-of-way schedule.</p><div class="pt"><span>Route survey</span><span>Tower spots</span><span>ROW schedule</span></div></div>
+      <div class="pw reveal"><span class="pk">POWER</span><h3>Substation &amp; pooling station</h3><p>Site search on government land, DGPS boundary pillars, contour survey and the approach road.</p><div class="pt"><span>Govt land</span><span>DGPS</span><span>Contour</span></div></div>
+      <div class="pw reveal"><span class="pk">STORAGE</span><h3>BESS &amp; green hydrogen sites</h3><p>Land search near substations, khasra ownership, flood and slope checks for storage and hydrogen plants.</p><div class="pt"><span>Site search</span><span>Slope</span><span>Khasra list</span></div></div>
+      <div class="pw reveal"><span class="pk">ROAD</span><h3>Highway &amp; road projects</h3><p>Alignment survey and the land acquisition schedule: affected area of every khasra along the road.</p><div class="pt"><span>Route survey</span><span>LA schedule</span><span>DWG</span></div></div>
+      <div class="pw reveal"><span class="pk">CORRIDOR</span><h3>Railway, pipeline &amp; canal</h3><p>Long corridors village by village: centre line, khasras crossed and areas, delivered folder-wise.</p><div class="pt"><span>Corridor maps</span><span>Total Station</span><span>SHP</span></div></div>
+      <div class="pw reveal"><span class="pk">INDUSTRY</span><h3>Industrial park &amp; logistics</h3><p>Land bank mapping, boundary and contour survey, plotting layout on the surveyed base.</p><div class="pt"><span>Land bank</span><span>Contour</span><span>Layout</span></div></div>
+      <div class="pw reveal"><span class="pk">REAL ESTATE</span><h3>Township &amp; colony</h3><p>Demarcation from the land records, Total Station survey and plot layout ready for approval and sale.</p><div class="pt"><span>Demarcation</span><span>Total Station</span><span>Layout</span></div></div>
+      <div class="pw reveal"><span class="pk">MINING</span><h3>Mining lease</h3><p>Lease area on the khasra map, DGPS boundary pillars and drone survey of the pit and dumps.</p><div class="pt"><span>Lease map</span><span>DGPS</span><span>Drone</span></div></div>
+      <div class="pw reveal"><span class="pk">DUE DILIGENCE</span><h3>Land aggregation &amp; checks</h3><p>Before you buy or lease: khasra map, land category, govt land, overlaps and access - village by village.</p><div class="pt"><span>Land category</span><span>Excel</span><span>KML</span></div></div>
+    </div>
+    <div class="cta" style="margin-top:22px"><a class="btn" href="#quote">&#9993; Discuss your project</a></div>
   </div>
 </section>
 
