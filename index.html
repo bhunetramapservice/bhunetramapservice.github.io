@@ -222,6 +222,8 @@ section{padding:80px 0}
 .pw h3{font:700 19px Rajdhani,sans-serif;color:#fff;margin:6px 0}
 .pw p{color:#B9C7DF;font-size:14px}
 .svis{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+.svis.wvis{grid-template-columns:1fr 1fr;margin:0 0 22px}
+.libcard small a{color:var(--em-lit)}
 .proj{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
 .pn .pw-big{font:700 46px/1 Rajdhani,sans-serif;color:var(--amb-lit);text-shadow:0 0 18px rgba(242,142,58,.35)}
 @media (max-width:1250px){.proj{grid-template-columns:repeat(3,1fr)}}
@@ -234,7 +236,7 @@ section{padding:80px 0}
 .pj p{color:#B9C7DF;font-size:14px}
 .pt{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
 .pt span,.pt a{font-size:12px;padding:3px 9px;border-radius:999px;border:1px solid rgba(46,230,176,.4);color:var(--em-lit)}
-@media (max-width:1000px){.proj{grid-template-columns:1fr 1fr}.svis{grid-template-columns:1fr}}
+@media (max-width:1000px){.proj{grid-template-columns:1fr 1fr}.svis,.svis.wvis{grid-template-columns:1fr}}
 @media (max-width:560px){.proj{grid-template-columns:1fr}}
 .verify{margin-top:26px;color:#C9D6EA;font-size:14px}
 .contact .sub{color:#C9D6EA;margin:10px 0 22px}
@@ -531,6 +533,12 @@ nav .btn{white-space:nowrap}
 
     <div class="head reveal" style="margin-top:46px"><div class="tag">PROJECTS WE WORK ON</div><h2>Maps + survey for every kind of project</h2>
       <p>Land records and field survey in one delivery - from wind farm FMBs to highway land schedules.</p></div>
+    <div class="svis wvis">
+      <figure class="libcard reveal"><div class="libimg"><img src="images/wind/wind_fmb_sample.jpg" alt="Sample FMB (Field Measurement Book) sketch of a survey number" loading="lazy"><span class="sw">FMB &middot; sample</span></div>
+        <figcaption><b>FMB SKETCH</b><small>Chain line, offsets, side lengths, neighbours, corner coordinates and area - for every WTG survey number.</small></figcaption></figure>
+      <figure class="libcard reveal"><div class="libimg"><img src="images/wind/wind_layout_sample.jpg" alt="Sample wind project land layout with WTG points and land schedule" loading="lazy"><span class="sw">Wind layout &middot; sample</span></div>
+        <figcaption><b>WIND LAND PACKAGE</b><small>WTG points, blade-swept area and access road on the khasra map, with the khasra-wise land schedule. <a href="guides/fmb-for-wind-projects/">What is an FMB? &rarr;</a></small></figcaption></figure>
+    </div>
     <div class="grid4 pws">
       <div class="pw hot reveal"><span class="pk">WIND</span><h3>Wind farm FMB &amp; land</h3><p>FMB sketches for every WTG survey number, turbine points on the khasra map, access roads and cable routes, land schedule.</p><div class="pt"><span>FMB</span><span>WTG siting</span><span>DGPS</span><span>KML / DWG</span></div></div>
       <div class="pw reveal"><span class="pk">SOLAR</span><h3>Solar park</h3><p>Khasra and govt-land maps of the project villages, contour and slope survey, usable area and layout base.</p><div class="pt"><span>Khasra maps</span><span>Contour</span><span>Slope</span><span>Layout</span></div></div>
