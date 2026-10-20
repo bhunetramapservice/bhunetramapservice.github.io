@@ -170,6 +170,18 @@ section{padding:80px 0}
 .contact::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(700px 300px at 50% 0,rgba(46,230,176,.18),transparent),linear-gradient(180deg,rgba(8,14,29,.55),rgba(8,14,29,.92))}
 .contact h2{font-size:clamp(30px,4.4vw,48px)}
 .mail{display:inline-block;margin:18px 0 26px;font-family:Rajdhani;font-weight:700;font-size:clamp(20px,3.4vw,32px);color:#fff;border-bottom:2px solid var(--em-lit)}
+.lib{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.libcard{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(180deg,rgba(14,26,51,.95),rgba(11,20,40,.95));transition:.25s}
+.libcard:hover{transform:translateY(-4px);border-color:var(--em-mid);box-shadow:0 0 30px rgba(46,230,176,.15)}
+.libimg{position:relative;cursor:zoom-in;overflow:hidden}
+.libimg img{width:100%;aspect-ratio:16/10;object-fit:cover;transition:transform .6s ease}
+.libcard:hover .libimg img{transform:scale(1.04)}
+.libimg .sw{position:absolute;left:12px;top:12px;padding:4px 10px;border-radius:999px;background:rgba(8,14,29,.82);border:1px solid rgba(46,230,176,.5);font:600 12px Inter,sans-serif;color:var(--em-lit)}
+.libcard figcaption{padding:16px 18px 18px;display:flex;flex-direction:column;gap:4px}
+.libcard b{font-family:Rajdhani,sans-serif;font-size:21px;letter-spacing:.06em;color:#fff}
+.libcard i{font-style:normal;color:var(--amb-lit);font-size:14px}
+.libcard small{color:#B9C7DF;font-size:14px;line-height:1.5}
+@media (max-width:760px){.lib{grid-template-columns:1fr}}
 .verify{margin-top:26px;color:#C9D6EA;font-size:14px}
 .contact .sub{color:#C9D6EA;margin:10px 0 22px}
 .enq{max-width:760px;margin:0 auto;text-align:left;display:grid;gap:12px}
@@ -259,7 +271,7 @@ nav .btn{white-space:nowrap}
 <nav id="nav">
   <div class="wrap">
     <a class="brand" href="#top"><img src="images/logo.png" alt="BHU-NETRA logo">BHU-NETRA <span>MAP SERVICE</span></a>
-    <div class="links"><a href="#orders">Orders</a><a href="#services">Services</a><a href="#demo">Demos</a><a href="#states">Coverage</a><a href="verify/">Verify</a><a href="#contact">Contact</a></div>
+    <div class="links"><a href="#orders">Orders</a><a href="#services">Services</a><a href="#demo">Demos</a><a href="#library">Library</a><a href="#states">Coverage</a><a href="verify/">Verify</a><a href="#contact">Contact</a></div>
     <div class="chrono" id="chrono" title="Your local time">
       <svg class="ring" viewBox="0 0 44 44" aria-hidden="true">
         <circle class="trk" cx="22" cy="22" r="19"/><circle class="sec" id="c-sec" cx="22" cy="22" r="19"/>
@@ -354,6 +366,35 @@ nav .btn{white-space:nowrap}
       <figure class="shot reveal"><img src="images/demo_2_colour_coded.jpg" alt="Colour-coded land category" loading="lazy"><div><b>Colour-coded land category</b><small>Private vs Government land</small></div></figure>
     </div>
     <div class="formats"><span class="fmt">KML / KMZ</span><span class="fmt">DWG / DXF</span><span class="fmt">SHP + QGIS style</span><span class="fmt">Excel</span><span class="fmt">PDF / PNG</span></div>
+  </div>
+</section>
+
+<section id="library">
+  <div class="wrap">
+    <div class="head reveal"><div class="tag">VISUAL LIBRARY</div><h2>See exactly what you receive</h2>
+      <p>Every deliverable, rendered from real sample villages (public land records). Click any picture to open it full size.</p></div>
+    <div class="lib">
+      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_01_digitized.jpg" alt="Digitized Khasra Map sample" loading="lazy"><span class="sw">All formats</span></div>
+        <figcaption><b>DIGITIZED KHASRA MAP</b><i>Every khasra a closed polygon with its number</i><small>Clean topology: no overlaps, no gaps, every khasra number placed inside its own plot.</small></figcaption></figure>
+      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_02_colour_coded.jpg" alt="Colour-Coded Land Category sample" loading="lazy"><span class="sw">KML &middot; DWG &middot; SHP &middot; PDF</span></div>
+        <figcaption><b>COLOUR-CODED LAND CATEGORY</b><i>Yellow private &middot; Red non-allotable &middot; Green allotable</i><small>Government land split into allotable and non-allotable, khasra by khasra - see the land story at a glance.</small></figcaption></figure>
+      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_03_kml_google_earth.jpg" alt="Kml / Kmz sample" loading="lazy"><span class="sw">Google Earth</span></div>
+        <figcaption><b>KML / KMZ</b><i>Opens in Google Earth &amp; Google Maps</i><small>Khasra lines on satellite imagery, labels on, click any plot for khasra no., khata, area and category.</small></figcaption></figure>
+      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_04_dxf_cad.jpg" alt="Dwg / Dxf sample" loading="lazy"><span class="sw">AutoCAD &middot; any CAD</span></div>
+        <figcaption><b>DWG / DXF</b><i>Layered CAD drawing in real coordinates</i><small>Separate layers for khasra, text, village boundary, govt and allotable land - in UTM metres, ready for layout design.</small></figcaption></figure>
+      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_05_shp_gis.jpg" alt="Shapefile (Shp) sample" loading="lazy"><span class="sw">QGIS &middot; ArcGIS</span></div>
+        <figcaption><b>SHAPEFILE (SHP)</b><i>Full attribute table + ready map style</i><small>Khasra no., khata, area (ha / sqm / acre), category, village, tehsil, district in every record, with a QGIS style file.</small></figcaption></figure>
+      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_06_excel.jpg" alt="Excel Khasra List sample" loading="lazy"><span class="sw">Excel &middot; Google Sheets</span></div>
+        <figcaption><b>EXCEL KHASRA LIST</b><i>Every khasra with its area and category</i><small>Sorted khasra list with areas, category and village / tehsil, plus a summary sheet - ready for your land team.</small></figcaption></figure>
+      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_07_print_layout.jpg" alt="Print Map (Pdf) sample" loading="lazy"><span class="sw">Print &middot; PDF</span></div>
+        <figcaption><b>PRINT MAP (PDF)</b><i>A1 / A3 map with legend, north arrow, scale</i><small>A presentation-ready map sheet with title block, legend, grid coordinates and scale bar.</small></figcaption></figure>
+      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_08_combined_project.jpg" alt="Combined Project Layer sample" loading="lazy"><span class="sw">KML &middot; DWG &middot; SHP</span></div>
+        <figcaption><b>COMBINED PROJECT LAYER</b><i>All your villages in one file</i><small>Neighbouring villages joined edge to edge - one layer for the whole project area, each village outlined.</small></figcaption></figure>
+      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_09_village_boundary.jpg" alt="Village Outer Boundary sample" loading="lazy"><span class="sw">Inside every file</span></div>
+        <figcaption><b>VILLAGE OUTER BOUNDARY</b><i>Built from the village's own khasras</i><small>The exact outer edge of the village, included as its own layer / record in every deliverable.</small></figcaption></figure>
+      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_10_3d_view.jpg" alt="3D View sample" loading="lazy"><span class="sw">Google Earth</span></div>
+        <figcaption><b>3D VIEW</b><i>Tilt the map in Google Earth</i><small>Because the files are truly georeferenced, they sit on the terrain in 3D - perfect for site visits and presentations.</small></figcaption></figure>
+    </div>
   </div>
 </section>
 
@@ -476,7 +517,7 @@ const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && (e
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 // lightbox
 const lb = document.getElementById('lb'), li = lb.querySelector('img');
-document.querySelectorAll('.shot img, .cover img').forEach(i => i.addEventListener('click', () => { li.src = i.src; lb.classList.add('on'); }));
+document.querySelectorAll('.shot img, .cover img, .libimg img').forEach(i => i.addEventListener('click', () => { li.src = i.src; lb.classList.add('on'); }));
 lb.addEventListener('click', () => lb.classList.remove('on'));
 // before / after slider
 const ba = document.getElementById('ba'), top_ = document.getElementById('ba-map'), bar = document.getElementById('ba-bar'), knob = document.getElementById('ba-knob');
