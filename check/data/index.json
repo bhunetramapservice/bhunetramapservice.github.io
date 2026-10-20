@@ -58,5 +58,21 @@
  "Kerala": {
   "key": "kl",
   "n": 1620
+ },
+ "Punjab": {
+  "key": "pb",
+  "n": 13005
+ },
+ "Jharkhand": {
+  "key": "jh",
+  "n": 32756
+ },
+ "Assam": {
+  "key": "as",
+  "n": 26676
+ },
+ "Telangana": {
+  "key": "tg",
+  "n": 10732
  }
 }
