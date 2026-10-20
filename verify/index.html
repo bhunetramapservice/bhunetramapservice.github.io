@@ -112,7 +112,7 @@ footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-s
 
   <div class="how">
     <p><b>How it works:</b> the QR holds the document details and a digital signature (Ed25519) that only BHU-NETRA Map Service can make. If anyone changes a number, the signature no longer matches. The number + amount check looks the document up in our published list, which holds only scrambled fingerprints &ndash; no client names or amounts.</p>
-    <p style="margin-top:10px">Still unsure? Write to <a href="mailto:bhunetramapservice@gmail.com?subject=Invoice%20check">bhunetramapservice@gmail.com</a> with a photo of the document.</p>
+    <p style="margin-top:10px">Still unsure? Write to <a href="#" data-gate="mail" data-subject="Invoice check">bhunetramapservice@gmail.com</a> with a photo of the document.</p>
   </div>
 </main>
 <footer>&copy; <span id="yr">2026</span> BHU-NETRA Map Service &middot; <a href="../">bhunetramapservice.github.io</a></footer>
@@ -212,5 +212,6 @@ $('qrfile').onchange = async ev => {
 // links like verify/?q=<QR text> (optional)
 const qp = new URLSearchParams(location.search).get('q'); if (qp) { $('qrtext').value = qp; checkQR(qp); }
 </script>
+<script src="../gate.js"></script>
 </body>
 </html>
