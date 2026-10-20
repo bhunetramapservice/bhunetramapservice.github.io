@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>State Gallery | BHU-NETRA Map Service</title>
+<meta name="description" content="Georeferenced and digitized khasra maps from 13 Indian states - each sample village shown as digitized map, Google Earth KML and CAD DXF.">
+<meta name="theme-color" content="#080E1D">
+<link rel="canonical" href="https://bhunetramapservice.github.io/gallery/">
+<link rel="icon" href="../images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--void:#080E1D;--deep:#0B1428;--line:#1E3A66;--em:#0A5B4C;--em-mid:#19A884;--em-lit:#2EE6B0;--amb:#F28E3A;--amb-lit:#FFB46B;--mist:#EFF2FC;--muted:#93A4C3}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--void);color:var(--mist);font-family:Inter,"Segoe UI",system-ui,sans-serif;line-height:1.6}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(rgba(46,230,176,.045) 1px,transparent 1px) 0 0/44px 44px,linear-gradient(90deg,rgba(46,230,176,.045) 1px,transparent 1px) 0 0/44px 44px,
+  radial-gradient(900px 500px at 80% 0,rgba(17,53,111,.5),transparent 60%),var(--void)}
+a{color:var(--em-lit);text-decoration:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 18px}
+nav{position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line);background:rgba(8,14,29,.9);backdrop-filter:blur(10px)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font:700 21px Rajdhani,sans-serif;color:#fff;white-space:nowrap}
+.brand img{width:38px;height:38px;filter:drop-shadow(0 0 10px rgba(46,230,176,.5))}
+.brand span{color:var(--em-lit)}
+.navl{display:flex;gap:16px;font-size:14px;white-space:nowrap}.navl a{color:#C9D6EA}
+.navl .cta{background:linear-gradient(90deg,var(--em-mid),var(--em-lit));color:#04211A;padding:7px 14px;border-radius:10px;font:700 15px Rajdhani,sans-serif}
+header{padding:44px 0 10px}
+.tag{font:700 13px Rajdhani,sans-serif;letter-spacing:.32em;color:var(--amb-lit)}
+h1{font:700 clamp(32px,5vw,52px)/1.05 Rajdhani,sans-serif;margin-top:6px}
+header p{color:var(--muted);max-width:760px;margin-top:10px}
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 6px}
+.jump a{padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(14,26,51,.85);color:#C9D6EA;font-size:13.5px}
+.jump a:hover{border-color:var(--em-mid);color:#fff}
+section.state{padding:34px 0;border-bottom:1px dashed var(--line)}
+.sh{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+.sh h2{font:700 34px/1 Rajdhani,sans-serif}
+.sh .meta{color:var(--muted);font-size:14px;margin-top:4px}
+.sh .meta b{color:var(--em-lit);font-weight:600}
+.acts{display:flex;gap:8px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border-radius:10px;font:700 15px Rajdhani,sans-serif;background:linear-gradient(90deg,var(--em-mid),var(--em-lit));color:#04211A}
+.btn.ghost{background:transparent;color:var(--em-lit);border:1px solid var(--em-mid)}
+.views{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.v{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#0E1A33;cursor:zoom-in;transition:.25s}
+.v:hover{transform:translateY(-3px);border-color:var(--em-mid)}
+.v img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.v span{position:absolute;left:8px;bottom:8px;padding:3px 9px;border-radius:999px;background:rgba(8,14,29,.85);border:1px solid rgba(46,230,176,.45);font-size:12px;color:var(--em-lit)}
+#lb{position:fixed;inset:0;background:rgba(4,8,18,.94);display:none;place-items:center;z-index:50;padding:20px;cursor:zoom-out}
+#lb.on{display:grid}#lb img{max-height:92vh;max-width:96vw;border-radius:12px}
+footer{padding:26px 0 40px;color:var(--muted);font-size:13px;text-align:center}
+@media (max-width:900px){.views{grid-template-columns:1fr 1fr}.navl a:not(.cta){display:none}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a class="brand" href="../"><img src="../images/logo.png" alt="BHU-NETRA logo">BHU-NETRA <span>MAP SERVICE</span></a>
+  <div class="navl"><a href="../">Home</a><a href="../explore/">Live map</a><a href="../#library">Library</a><a href="../verify/">Verify</a>
+  <a class="cta" href="../#contact">Get a quote</a></div></div></nav>
+<main class="wrap">
+  <header>
+    <div class="tag">STATE GALLERY</div>
+    <h1>One real village from every state</h1>
+    <p>Each sample village (public land record) as you would receive it: on satellite imagery, as a digitized numbered map, in Google Earth (KML) and in CAD (DXF / DWG). Click any picture to enlarge, or open the village on the live map.</p>
+    <div class="jump" id="jump"></div>
+  </header>
+  <div id="states"></div>
+</main>
+<footer>&copy; <span id="yr">2026</span> BHU-NETRA Map Service &middot; <a href="mailto:bhunetramapservice@gmail.com">bhunetramapservice@gmail.com</a> &middot; Imagery &copy; Esri</footer>
+<div id="lb"><img alt=""></div>
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+fetch('../explore/data/index.json').then(r => r.json()).then(list => {
+  const box = document.getElementById('states'), jump = document.getElementById('jump');
+  list.forEach(s => {
+    jump.insertAdjacentHTML('beforeend', `<a href="#${s.key}">${esc(s.state)}</a>`);
+    const v = (src, lab) => `<figure class="v"><img src="${src}" alt="${esc(s.state)} ${lab}" loading="lazy"><span>${lab}</span></figure>`;
+    box.insertAdjacentHTML('beforeend', `<section class="state" id="${s.key}">
+      <div class="sh"><div><h2>${esc(s.state)}</h2><div class="meta">${esc(s.village)}, ${esc(s.district)} &middot; <b>${Number(s.khasra).toLocaleString('en-IN')}</b> khasra polygons</div></div>
+        <div class="acts"><a class="btn ghost" href="../explore/?s=${s.key}">&#9673; Open live map</a>
+        <a class="btn" href="mailto:bhunetramapservice@gmail.com?subject=${encodeURIComponent('Quotation - ' + s.state + ' khasra maps')}">Quote for ${esc(s.state)}</a></div></div>
+      <div class="views">${v('../images/states/' + s.key + '_map.jpg', 'Satellite + khasra')}${v('../images/gallery/' + s.key + '_digitized.jpg', 'Digitized map')}${v('../images/gallery/' + s.key + '_kml.jpg', 'KML · Google Earth')}${v('../images/gallery/' + s.key + '_cad.jpg', 'DXF · CAD')}</div></section>`);
+  });
+  const lb = document.getElementById('lb'), li = lb.querySelector('img');
+  document.querySelectorAll('.v img').forEach(i => i.parentElement.addEventListener('click', () => { li.src = i.src; lb.classList.add('on'); }));
+  lb.addEventListener('click', () => lb.classList.remove('on'));
+  if (location.hash) document.querySelector(location.hash)?.scrollIntoView();
+});
+</script>
+</body>
+</html>

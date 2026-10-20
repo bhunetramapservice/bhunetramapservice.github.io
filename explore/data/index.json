@@ -1,0 +1,93 @@
+[
+ {
+  "key": "rj",
+  "state": "Rajasthan",
+  "district": "Pratapgarh",
+  "village": "Amaliphala",
+  "khasra": 408
+ },
+ {
+  "key": "mp",
+  "state": "Madhya Pradesh",
+  "district": "Indore",
+  "village": "Sagdod",
+  "khasra": 1419
+ },
+ {
+  "key": "mh",
+  "state": "Maharashtra",
+  "district": "Pune",
+  "village": "Khandala",
+  "khasra": 140
+ },
+ {
+  "key": "br",
+  "state": "Bihar",
+  "district": "Araria",
+  "village": "Azmatpur",
+  "khasra": 770
+ },
+ {
+  "key": "ga",
+  "state": "Goa",
+  "district": "South Goa",
+  "village": "Bandora",
+  "khasra": 3221
+ },
+ {
+  "key": "tr",
+  "state": "Tripura",
+  "district": "Dhalai",
+  "village": "Kamalachhara",
+  "khasra": 343
+ },
+ {
+  "key": "cg",
+  "state": "Chhattisgarh",
+  "district": "Kanker",
+  "village": "Amodi",
+  "khasra": 639
+ },
+ {
+  "key": "od",
+  "state": "Odisha",
+  "district": "Sundargarh",
+  "village": "Banaigarh",
+  "khasra": 598
+ },
+ {
+  "key": "up",
+  "state": "Uttar Pradesh",
+  "district": "Agra",
+  "village": "Akola",
+  "khasra": 2745
+ },
+ {
+  "key": "ka",
+  "state": "Karnataka",
+  "district": "Hassan",
+  "village": "Koramangala Kaval",
+  "khasra": 224
+ },
+ {
+  "key": "dl",
+  "state": "Delhi",
+  "district": "East Delhi",
+  "village": "Kondli",
+  "khasra": 477
+ },
+ {
+  "key": "tn",
+  "state": "Tamil Nadu",
+  "district": "Tiruvallur",
+  "village": "Elavur",
+  "khasra": 855
+ },
+ {
+  "key": "ap",
+  "state": "Andhra Pradesh",
+  "district": "Guntur",
+  "village": "Kaza",
+  "khasra": 628
+ }
+]

@@ -72,7 +72,10 @@ nav .btn{padding:8px 16px;font-size:15px}
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding:110px 0 60px}
 .hero .bg{position:absolute;inset:0;z-index:-2;overflow:hidden}
 .hero .bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:kb 28s ease-in-out infinite alternate}
-.hero .bg img.map{clip-path:inset(0 100% 0 0);animation:kb 28s ease-in-out infinite alternate,wipe 9s ease-in-out infinite}
+.hero .bg img.map{clip-path:inset(0 100% 0 0);animation:kb 28s ease-in-out infinite alternate}
+.hero .bg img.map.run{animation:kb 28s ease-in-out infinite alternate,wipe 9s ease-in-out 1 forwards}
+.hero .bg{transition:opacity .6s ease}.hero .bg.fade{opacity:.15}
+.hud .stname{font:700 18px Rajdhani,sans-serif;letter-spacing:.14em;color:#fff}
 @keyframes kb{from{transform:scale(1.06) translate(0,0)}to{transform:scale(1.16) translate(-2%,-1.5%)}}
 @keyframes wipe{0%,8%{clip-path:inset(0 100% 0 0)}45%,70%{clip-path:inset(0 0 0 0)}92%,100%{clip-path:inset(0 0 0 100%)}}
 .hero .shade{position:absolute;inset:0;z-index:-1;background:
@@ -271,7 +274,7 @@ nav .btn{white-space:nowrap}
 <nav id="nav">
   <div class="wrap">
     <a class="brand" href="#top"><img src="images/logo.png" alt="BHU-NETRA logo">BHU-NETRA <span>MAP SERVICE</span></a>
-    <div class="links"><a href="#orders">Orders</a><a href="#services">Services</a><a href="#demo">Demos</a><a href="#library">Library</a><a href="#states">Coverage</a><a href="verify/">Verify</a><a href="#contact">Contact</a></div>
+    <div class="links"><a href="#services">Services</a><a href="#demo">Demos</a><a href="gallery/">Gallery</a><a href="explore/">Live map</a><a href="#library">Library</a><a href="verify/">Verify</a><a href="#contact">Contact</a></div>
     <div class="chrono" id="chrono" title="Your local time">
       <svg class="ring" viewBox="0 0 44 44" aria-hidden="true">
         <circle class="trk" cx="22" cy="22" r="19"/><circle class="sec" id="c-sec" cx="22" cy="22" r="19"/>
@@ -291,10 +294,10 @@ nav .btn{white-space:nowrap}
 </div></div>
 
 <header class="hero" id="top">
-  <div class="bg"><img src="images/states/hero_sat.jpg" alt=""><img class="map" src="images/states/hero_map.jpg" alt="Khasra map on satellite imagery"></div>
+  <div class="bg" id="hbg"><img id="hsat" src="images/states/hero_sat.jpg" alt=""><img id="hmap" class="map run" src="images/states/hero_map.jpg" alt="Khasra map on satellite imagery"></div>
   <div class="shade"></div><div class="scan"></div>
   <span class="corner a"></span><span class="corner b"></span><span class="corner c"></span><span class="corner d"></span>
-  <div class="hud tl mono">LAT <b>24.1948&deg; N</b> &nbsp; LON <b>74.7852&deg; E</b><br>KHASRA <b>408</b> &middot; AREA <b>251 ha</b><br>CRS <b>WGS 84 / UTM 43N</b></div>
+  <div class="hud tl mono" id="hud"><span class="stname">RAJASTHAN</span><br>Amaliphala &middot; Pratapgarh<br>LAT <b>24.1948&deg; N</b> &nbsp; LON <b>74.7852&deg; E</b><br>KHASRA <b>408</b> &middot; AREA <b>251 ha</b></div>
   <div class="hud br mono">SAT-ALIGN <b>LOCKED</b> &middot; OVERLAP <b>0</b><br>Imagery &copy; Esri, Maxar, Earthstar Geographics</div>
   <div class="wrap">
     <div class="eyelogo"><img src="images/logo.png" alt=""></div>
@@ -365,6 +368,7 @@ nav .btn{white-space:nowrap}
       <figure class="shot reveal"><img src="images/demo_1_digitized.jpg" alt="Digitized khasra map with numbers" loading="lazy"><div><b>Digitized khasra map</b><small>Every khasra with its number &middot; DWG / SHP / KML</small></div></figure>
       <figure class="shot reveal"><img src="images/demo_2_colour_coded.jpg" alt="Colour-coded land category" loading="lazy"><div><b>Colour-coded land category</b><small>Private vs Government land</small></div></figure>
     </div>
+    <div class="cta" style="margin-top:22px"><a class="btn" href="explore/">&#9673; Explore the live map</a><a class="btn ghost" href="gallery/">All 13 states gallery &rarr;</a></div>
     <div class="formats"><span class="fmt">KML / KMZ</span><span class="fmt">DWG / DXF</span><span class="fmt">SHP + QGIS style</span><span class="fmt">Excel</span><span class="fmt">PDF / PNG</span></div>
   </div>
 </section>
@@ -496,6 +500,36 @@ const FORM_TO = 'https://formsubmit.co/ajax/bhunetramapservice@gmail.com';   // 
       msg.className = 'enq-msg err';
       msg.innerHTML = 'Could not send right now. Please email <a href="mailto:bhunetramapservice@gmail.com">bhunetramapservice@gmail.com</a> or WhatsApp us.';
     } finally { btn.disabled = false; }
+  });
+})();
+
+// hero: one state after another - satellite, khasra lines sweep in, next state (HUD follows)
+(() => {
+  const bg = document.getElementById('hbg'), sat = document.getElementById('hsat'), mp = document.getElementById('hmap'), hud = document.getElementById('hud');
+  if (!bg || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  fetch('images/states/states.json').then(r => r.json()).then(list => {
+    if (!list.length) return;
+    let i = 0;
+    const show = s => {
+      const a = new Image(), b = new Image(); let n = 0;
+      const go = () => { if (++n < 2) return;
+        bg.classList.add('fade');
+        setTimeout(() => {
+          sat.src = a.src; mp.src = b.src;
+          mp.classList.remove('run'); void mp.offsetWidth; mp.classList.add('run');
+          const ns = s.lat >= 0 ? 'N' : 'S';
+          hud.innerHTML = `<span class="stname">${s.state.toUpperCase()}</span><br>${s.village || ''}${s.district ? ' &middot; ' + s.district : ''}<br>` +
+            `LAT <b>${Math.abs(s.lat).toFixed(4)}&deg; ${ns}</b> &nbsp; LON <b>${s.lon.toFixed(4)}&deg; E</b><br>` +
+            `KHASRA <b>${Number(s.khasra).toLocaleString('en-IN')}</b> &middot; AREA <b>${Number(s.area_ha).toLocaleString('en-IN')} ha</b>`;
+          bg.classList.remove('fade');
+        }, 600);
+      };
+      a.onload = b.onload = go; a.onerror = b.onerror = () => { i++; };
+      a.src = `images/states/${s.key}_sat.jpg`; b.src = `images/states/${s.key}_map.jpg`;
+    };
+    mp.addEventListener('animationend', e => { if (e.animationName === 'wipe') { i = (i + 1) % list.length; show(list[i]); } });
+    // first sweep plays on the hero picture, then the states follow
+    i = list.findIndex(s => s.key === 'rj'); if (i < 0) i = 0;
   });
 })();
 // orbital chrono: outer ring = seconds, inner ring = minutes, HH:MM + date (visitor's local time)

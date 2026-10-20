@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Live Khasra Map Explorer | BHU-NETRA Map Service</title>
+<meta name="description" content="Explore real georeferenced khasra maps from 13 Indian states on satellite imagery - click any plot to see its khasra number, area and category.">
+<meta name="theme-color" content="#080E1D">
+<link rel="canonical" href="https://bhunetramapservice.github.io/explore/">
+<link rel="icon" href="../images/favicon.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--void:#080E1D;--deep:#0B1428;--line:#1E3A66;--em:#0A5B4C;--em-mid:#19A884;--em-lit:#2EE6B0;--amb:#F28E3A;--amb-lit:#FFB46B;--mist:#EFF2FC;--muted:#93A4C3}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--void);color:var(--mist);font-family:Inter,"Segoe UI",system-ui,sans-serif;display:flex;flex-direction:column;overflow:hidden}
+a{color:var(--em-lit);text-decoration:none}
+nav{flex:0 0 auto;border-bottom:1px solid var(--line);background:rgba(8,14,29,.95)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;padding:0 16px;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font:700 20px Rajdhani,sans-serif;color:#fff;white-space:nowrap}
+.brand img{width:36px;height:36px;filter:drop-shadow(0 0 10px rgba(46,230,176,.5))}
+.brand span{color:var(--em-lit)}
+.navl{display:flex;gap:16px;font-size:14px;white-space:nowrap}
+.navl a{color:#C9D6EA}
+.navl .cta{background:linear-gradient(90deg,var(--em-mid),var(--em-lit));color:#04211A;padding:7px 14px;border-radius:10px;font:700 15px Rajdhani,sans-serif}
+.bar{flex:0 0 auto;display:flex;gap:8px;overflow-x:auto;padding:10px 16px;border-bottom:1px solid var(--line);background:var(--deep);scrollbar-width:thin}
+.st{flex:0 0 auto;cursor:pointer;padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:rgba(14,26,51,.9);color:#C9D6EA;font-size:13.5px;white-space:nowrap}
+.st.on{background:linear-gradient(90deg,var(--em-mid),var(--em-lit));color:#04211A;border-color:transparent;font-weight:600}
+main{flex:1 1 auto;position:relative}
+#map{position:absolute;inset:0;background:#000}
+.panel{position:absolute;z-index:500;left:14px;top:14px;width:300px;max-width:calc(100% - 28px);border-radius:16px;border:1px solid rgba(46,230,176,.35);
+  background:rgba(8,14,29,.86);backdrop-filter:blur(10px);padding:16px;box-shadow:0 10px 40px rgba(0,0,0,.45)}
+.panel .tag{font:700 11px Rajdhani,sans-serif;letter-spacing:.3em;color:var(--amb-lit)}
+.panel h1{font:700 26px/1.05 Rajdhani,sans-serif;margin:4px 0 2px}
+.panel .sub{color:var(--muted);font-size:13px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
+.stats div{border:1px solid var(--line);border-radius:10px;padding:7px 9px;background:rgba(14,26,51,.7)}
+.stats b{display:block;font:700 20px Rajdhani,sans-serif;color:var(--em-lit)}
+.stats span{font-size:11.5px;color:var(--muted)}
+.find{display:flex;gap:6px}
+.find input{flex:1;min-width:0;padding:9px 11px;border-radius:10px;border:1px solid var(--line);background:#081122;color:#fff;font:14px Inter,sans-serif}
+.find button,.tog button{cursor:pointer;border:0;border-radius:10px;padding:9px 12px;font:700 14px Rajdhani,sans-serif;background:linear-gradient(90deg,var(--em-mid),var(--em-lit));color:#04211A}
+.tog{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.tog button{background:rgba(14,26,51,.9);color:#C9D6EA;border:1px solid var(--line);font:500 12.5px Inter,sans-serif;padding:7px 10px}
+.tog button.on{border-color:var(--em-lit);color:var(--em-lit)}
+.legend{margin-top:10px;font-size:12px;color:#C9D6EA;display:none}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin:0 5px -2px 0}
+.hint{margin-top:10px;font-size:12px;color:var(--muted)}
+.leaflet-popup-content-wrapper{background:rgba(8,14,29,.95);color:#fff;border:1px solid var(--em-mid);border-radius:12px}
+.leaflet-popup-tip{background:rgba(8,14,29,.95)}
+.pop b{font:700 19px Rajdhani,sans-serif;color:var(--em-lit)}
+.pop table{margin-top:6px;font-size:12.5px}.pop td{padding:2px 8px 2px 0}.pop td:first-child{color:var(--muted)}
+.leaflet-container a.leaflet-popup-close-button{color:#fff}
+.lbl{background:none;border:0;box-shadow:none;color:#fff;font:600 11px Inter,sans-serif;text-shadow:0 0 3px #000,0 0 3px #000}
+.lbl:before{display:none}
+#loading{position:absolute;z-index:600;inset:0;display:grid;place-items:center;background:rgba(8,14,29,.55);font:700 20px Rajdhani,sans-serif;letter-spacing:.2em;color:var(--em-lit);pointer-events:none;transition:opacity .3s}
+@media (max-width:700px){.navl a:not(.cta){display:none}.panel{width:auto;right:14px;top:auto;bottom:14px;padding:12px}.panel h1{font-size:22px}.stats{display:none}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a class="brand" href="../"><img src="../images/logo.png" alt="BHU-NETRA logo">BHU-NETRA <span>MAP SERVICE</span></a>
+  <div class="navl"><a href="../">Home</a><a href="../gallery/">Gallery</a><a href="../#library">Library</a><a href="../verify/">Verify</a>
+  <a class="cta" href="../#contact">Get a quote</a></div></div></nav>
+<div class="bar" id="bar"></div>
+<main>
+  <div id="map"></div>
+  <div class="panel">
+    <div class="tag">LIVE MAP EXPLORER</div>
+    <h1 id="title">Loading ...</h1>
+    <div class="sub" id="sub">Real sample village (public land record)</div>
+    <div class="stats"><div><b id="n">-</b><span>khasra polygons</span></div><div><b id="ha">-</b><span>hectares mapped</span></div></div>
+    <div class="find"><input id="q" placeholder="Find khasra no., e.g. 125" autocomplete="off"><button id="go">Find</button></div>
+    <div class="tog"><button id="t-lab" class="on">Labels</button><button id="t-cat">Land category</button><button id="t-sat" class="on">Satellite</button></div>
+    <div class="legend" id="legend"><i style="background:#F6D44A"></i>Private &nbsp; <i style="background:#F28E3A"></i>Government &nbsp; <i style="background:#2FB463"></i>Forest</div>
+    <div class="hint">Click any khasra for its details. This is the same data you receive as KML / DWG / SHP.</div>
+  </div>
+  <div id="loading">LOADING MAP ...</div>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const map = L.map('map', {zoomControl: true, preferCanvas: true, maxZoom: 20});
+const sat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  {maxZoom: 20, maxNativeZoom: 19, attribution: 'Imagery &copy; Esri, Maxar, Earthstar Geographics'}).addTo(map);
+const ref = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}',
+  {maxZoom: 20, maxNativeZoom: 19}).addTo(map);
+const dark = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {maxZoom: 20, attribution: '&copy; OpenStreetMap &copy; CARTO'});
+map.setView([22.5, 79], 5);
+const CAT = {Private: '#F6D44A', Government: '#F28E3A', Forest: '#2FB463'};
+let layer = null, labels = null, byK = {}, showLab = true, showCat = false, cur = null;
+const $ = id => document.getElementById(id), esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function style(f){ const c = showCat ? (CAT[f.properties.c] || '#9AA6B8') : null;
+  return {color: '#FFE45C', weight: 1.3, opacity: .95, fillColor: c || '#2EE6B0', fillOpacity: c ? .55 : .06}; }
+function popup(f){ const p = f.properties;
+  return `<div class="pop"><b>Khasra ${esc(p.k)}</b><table>
+    <tr><td>Area</td><td>${p.a != null ? Number(p.a).toFixed(4) + ' ha' : '-'}</td></tr>
+    <tr><td>Category</td><td>${esc(p.c || '-')}</td></tr>
+    <tr><td>Village</td><td>${esc(cur.village)}</td></tr>
+    <tr><td>District</td><td>${esc(cur.district)}</td></tr><tr><td>State</td><td>${esc(cur.state)}</td></tr></table></div>`; }
+function drawLabels(){
+  if (labels) { map.removeLayer(labels); labels = null; }
+  if (!showLab || !layer || map.getZoom() < 16) return;
+  labels = L.layerGroup(); const b = map.getBounds().pad(.1);
+  layer.eachLayer(l => { const c = l.getBounds().getCenter(); if (b.contains(c)) labels.addLayer(L.tooltip({permanent: true, direction: 'center', className: 'lbl'}).setLatLng(c).setContent(esc(l.feature.properties.k))); });
+  labels.addTo(map);
+}
+map.on('zoomend moveend', drawLabels);
+async function load(s){
+  cur = s; $('loading').style.opacity = 1;
+  document.querySelectorAll('.st').forEach(b => b.classList.toggle('on', b.dataset.k === s.key));
+  history.replaceState(null, '', '?s=' + s.key);
+  const gj = await fetch('data/' + s.key + '.geojson').then(r => r.json());
+  if (layer) map.removeLayer(layer);
+  byK = {}; let ha = 0;
+  layer = L.geoJSON(gj, {style, onEachFeature: (f, l) => {
+    byK[String(f.properties.k).toLowerCase()] = l; ha += Number(f.properties.a || 0);
+    l.bindPopup(() => popup(f));
+    l.on('mouseover', () => l.setStyle({weight: 3, color: '#2EE6B0', fillOpacity: .3}));
+    l.on('mouseout', () => layer.resetStyle(l));
+  }}).addTo(map);
+  map.fitBounds(layer.getBounds(), {padding: [30, 30]});
+  $('title').textContent = s.state; $('sub').textContent = `${s.village}, ${s.district} · real sample village`;
+  $('n').textContent = gj.features.length.toLocaleString('en-IN'); $('ha').textContent = Math.round(ha).toLocaleString('en-IN');
+  $('loading').style.opacity = 0; drawLabels();
+}
+function find(){ const k = $('q').value.trim().toLowerCase(); const l = byK[k];
+  if (!l) { $('q').style.borderColor = '#FF5468'; setTimeout(() => $('q').style.borderColor = '', 1200); return; }
+  map.fitBounds(l.getBounds(), {maxZoom: 18}); l.openPopup(); l.setStyle({weight: 4, color: '#FF5468'}); }
+$('go').onclick = find; $('q').addEventListener('keydown', e => e.key === 'Enter' && find());
+$('t-lab').onclick = () => { showLab = !showLab; $('t-lab').classList.toggle('on', showLab); drawLabels(); };
+$('t-cat').onclick = () => { showCat = !showCat; $('t-cat').classList.toggle('on', showCat); $('legend').style.display = showCat ? 'block' : 'none'; layer && layer.setStyle(style); };
+$('t-sat').onclick = () => { const on = map.hasLayer(sat); if (on) { map.removeLayer(sat); map.removeLayer(ref); dark.addTo(map); } else { map.removeLayer(dark); sat.addTo(map); ref.addTo(map); } $('t-sat').classList.toggle('on', !on); };
+fetch('data/index.json').then(r => r.json()).then(list => {
+  const bar = $('bar'), want = new URLSearchParams(location.search).get('s');
+  list.forEach(s => { const b = document.createElement('button'); b.className = 'st'; b.dataset.k = s.key; b.textContent = s.state; b.onclick = () => load(s); bar.appendChild(b); });
+  load(list.find(s => s.key === want) || list[0]);
+});
+</script>
+</body>
+</html>
