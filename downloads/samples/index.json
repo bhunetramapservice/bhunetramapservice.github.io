@@ -124,5 +124,32 @@
   "khasra": 1977,
   "file": "downloads/samples/BHU-NETRA_Sample_Kiralur_Kerala.zip",
   "kb": 684
+ },
+ {
+  "key": "pb",
+  "state": "Punjab",
+  "village": "Manj",
+  "district": "Gurdaspur",
+  "khasra": 732,
+  "file": "downloads/samples/BHU-NETRA_Sample_Manj_Punjab.zip",
+  "kb": 181
+ },
+ {
+  "key": "jh",
+  "state": "Jharkhand",
+  "village": "Machidih",
+  "district": "Ranchi",
+  "khasra": 485,
+  "file": "downloads/samples/BHU-NETRA_Sample_Machidih_Jharkhand.zip",
+  "kb": 230
+ },
+ {
+  "key": "as",
+  "state": "Assam",
+  "village": "S-Guri Miri",
+  "district": "Golaghat",
+  "khasra": 500,
+  "file": "downloads/samples/BHU-NETRA_Sample_S_Guri_Miri_Assam.zip",
+  "kb": 519
  }
 ]

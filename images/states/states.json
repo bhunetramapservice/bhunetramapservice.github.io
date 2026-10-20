@@ -138,5 +138,35 @@
   "lon": 76.1646,
   "district": "Thrissur",
   "village": "Kiralur"
+ },
+ {
+  "key": "pb",
+  "state": "Punjab",
+  "khasra": 732,
+  "area_ha": 182,
+  "lat": 31.8858,
+  "lon": 75.3803,
+  "district": "Gurdaspur",
+  "village": "Manj"
+ },
+ {
+  "key": "jh",
+  "state": "Jharkhand",
+  "khasra": 485,
+  "area_ha": 147,
+  "lat": 23.2224,
+  "lon": 85.7925,
+  "district": "Ranchi",
+  "village": "Machidih"
+ },
+ {
+  "key": "as",
+  "state": "Assam",
+  "khasra": 500,
+  "area_ha": 633,
+  "lat": 26.7542,
+  "lon": 93.9883,
+  "district": "Golaghat",
+  "village": "S-Guri Miri"
  }
 ]

@@ -96,5 +96,26 @@
   "district": "Thrissur",
   "village": "Kiralur",
   "khasra": 1977
+ },
+ {
+  "key": "pb",
+  "state": "Punjab",
+  "district": "Gurdaspur",
+  "village": "Manj",
+  "khasra": 732
+ },
+ {
+  "key": "jh",
+  "state": "Jharkhand",
+  "district": "Ranchi",
+  "village": "Machidih",
+  "khasra": 485
+ },
+ {
+  "key": "as",
+  "state": "Assam",
+  "district": "Golaghat",
+  "village": "S-Guri Miri",
+  "khasra": 500
  }
 ]
