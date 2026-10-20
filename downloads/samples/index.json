@@ -1,0 +1,128 @@
+[
+ {
+  "key": "rj",
+  "state": "Rajasthan",
+  "village": "Amaliphala",
+  "district": "Pratapgarh",
+  "khasra": 408,
+  "file": "downloads/samples/BHU-NETRA_Sample_Amaliphala_Rajasthan.zip",
+  "kb": 303
+ },
+ {
+  "key": "mp",
+  "state": "Madhya Pradesh",
+  "village": "Sagdod",
+  "district": "Indore",
+  "khasra": 1419,
+  "file": "downloads/samples/BHU-NETRA_Sample_Sagdod_Madhya_Pradesh.zip",
+  "kb": 644
+ },
+ {
+  "key": "mh",
+  "state": "Maharashtra",
+  "village": "Khandala",
+  "district": "Pune",
+  "khasra": 140,
+  "file": "downloads/samples/BHU-NETRA_Sample_Khandala_Maharashtra.zip",
+  "kb": 74
+ },
+ {
+  "key": "br",
+  "state": "Bihar",
+  "village": "Azmatpur",
+  "district": "Araria",
+  "khasra": 770,
+  "file": "downloads/samples/BHU-NETRA_Sample_Azmatpur_Bihar.zip",
+  "kb": 306
+ },
+ {
+  "key": "ga",
+  "state": "Goa",
+  "village": "Bandora",
+  "district": "South Goa",
+  "khasra": 3221,
+  "file": "downloads/samples/BHU-NETRA_Sample_Bandora_Goa.zip",
+  "kb": 1164
+ },
+ {
+  "key": "tr",
+  "state": "Tripura",
+  "village": "Kamalachhara",
+  "district": "Dhalai",
+  "khasra": 343,
+  "file": "downloads/samples/BHU-NETRA_Sample_Kamalachhara_Tripura.zip",
+  "kb": 204
+ },
+ {
+  "key": "cg",
+  "state": "Chhattisgarh",
+  "village": "Amodi",
+  "district": "Kanker",
+  "khasra": 639,
+  "file": "downloads/samples/BHU-NETRA_Sample_Amodi_Chhattisgarh.zip",
+  "kb": 513
+ },
+ {
+  "key": "od",
+  "state": "Odisha",
+  "village": "Banaigarh",
+  "district": "Sundargarh",
+  "khasra": 598,
+  "file": "downloads/samples/BHU-NETRA_Sample_Banaigarh_Odisha.zip",
+  "kb": 370
+ },
+ {
+  "key": "up",
+  "state": "Uttar Pradesh",
+  "village": "Akola",
+  "district": "Agra",
+  "khasra": 2745,
+  "file": "downloads/samples/BHU-NETRA_Sample_Akola_Uttar_Pradesh.zip",
+  "kb": 927
+ },
+ {
+  "key": "ka",
+  "state": "Karnataka",
+  "village": "Koramangala Kaval",
+  "district": "Hassan",
+  "khasra": 224,
+  "file": "downloads/samples/BHU-NETRA_Sample_Koramangala_Kaval_Karnataka.zip",
+  "kb": 143
+ },
+ {
+  "key": "dl",
+  "state": "Delhi",
+  "village": "Kondli",
+  "district": "East Delhi",
+  "khasra": 477,
+  "file": "downloads/samples/BHU-NETRA_Sample_Kondli_Delhi.zip",
+  "kb": 323
+ },
+ {
+  "key": "tn",
+  "state": "Tamil Nadu",
+  "village": "Elavur",
+  "district": "Tiruvallur",
+  "khasra": 855,
+  "file": "downloads/samples/BHU-NETRA_Sample_Elavur_Tamil_Nadu.zip",
+  "kb": 403
+ },
+ {
+  "key": "ap",
+  "state": "Andhra Pradesh",
+  "village": "Kaza",
+  "district": "Guntur",
+  "khasra": 628,
+  "file": "downloads/samples/BHU-NETRA_Sample_Kaza_Andhra_Pradesh.zip",
+  "kb": 254
+ },
+ {
+  "key": "kl",
+  "state": "Kerala",
+  "village": "Kiralur",
+  "district": "Thrissur",
+  "khasra": 1977,
+  "file": "downloads/samples/BHU-NETRA_Sample_Kiralur_Kerala.zip",
+  "kb": 684
+ }
+]

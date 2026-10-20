@@ -1,0 +1,62 @@
+{
+ "Rajasthan": {
+  "key": "rj",
+  "n": 45232
+ },
+ "Madhya Pradesh": {
+  "key": "mp",
+  "n": 57324
+ },
+ "Maharashtra": {
+  "key": "mh",
+  "n": 45316
+ },
+ "Uttar Pradesh": {
+  "key": "up",
+  "n": 108384
+ },
+ "Bihar": {
+  "key": "br",
+  "n": 47887
+ },
+ "Odisha": {
+  "key": "od",
+  "n": 53128
+ },
+ "Chhattisgarh": {
+  "key": "cg",
+  "n": 21255
+ },
+ "Karnataka": {
+  "key": "ka",
+  "n": 30192
+ },
+ "Tamil Nadu": {
+  "key": "tn",
+  "n": 17232
+ },
+ "Andhra Pradesh": {
+  "key": "ap",
+  "n": 18310
+ },
+ "Haryana": {
+  "key": "hr",
+  "n": 7029
+ },
+ "Delhi": {
+  "key": "dl",
+  "n": 252
+ },
+ "Goa": {
+  "key": "ga",
+  "n": 436
+ },
+ "Tripura": {
+  "key": "tr",
+  "n": 963
+ },
+ "Kerala": {
+  "key": "kl",
+  "n": 1620
+ }
+}

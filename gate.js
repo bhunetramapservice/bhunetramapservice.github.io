@@ -1,6 +1,7 @@
 /* BHU-NETRA Map Service - captcha gate for every enquiry action (WhatsApp chat, email, quotation, enquiry form).
    The WhatsApp number is never written on the page: it is put together only after the captcha is solved.
    Use:  <a href="#" data-gate="wa" data-text="Hello ...">   <a href="#" data-gate="mail" data-subject=".." data-body="..">
+         <a href="#" data-gate="dl" data-href="downloads/...zip">  (free sample download)
          BNGate.check(fn)  - run fn after a solved captcha (the enquiry form uses this). */
 (() => {
   const K = '328596788916';                                   // the number, scrambled
@@ -100,10 +101,17 @@
 
   function act(el) {
     const kind = el.dataset.gate;
+    try {                                                     // visitor counter: which action (no personal data)
+      window.goatcounter && window.goatcounter.count && window.goatcounter.count({
+        path: 'action-' + kind + (kind === 'dl' ? '-' + (el.dataset.href || '').split('/').pop() : ''), title: 'Action: ' + kind, event: true});
+    } catch (e) {}
     if (kind === 'wa') {
       const url = 'https://wa.me/' + num() + (el.dataset.text ? '?text=' + encodeURIComponent(el.dataset.text) : '');
       const w = window.open(url, '_blank', 'noopener');
       if (!w) location.href = url;
+    } else if (kind === 'dl') {                                  // free sample download
+      const a = document.createElement('a'); a.href = el.dataset.href; a.download = ''; document.body.appendChild(a); a.click(); a.remove();
+      window.BNGate.onDownload && window.BNGate.onDownload(el.dataset.href);
     } else if (kind === 'mail') {
       let q = [];
       if (el.dataset.subject) q.push('subject=' + encodeURIComponent(el.dataset.subject));
@@ -117,5 +125,8 @@
     e.preventDefault();
     open(() => act(el));
   }, true);
-  window.BNGate = {check: open};
+  window.BNGate = {check: fn => open(() => {
+    try { window.goatcounter && window.goatcounter.count && window.goatcounter.count({path: 'action-form', title: 'Action: form', event: true}); } catch (e) {}
+    fn();
+  })};
 })();

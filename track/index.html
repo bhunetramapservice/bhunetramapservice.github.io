@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Track Your Order | BHU-NETRA Map Service</title>
+<meta name="description" content="Track your BHU-NETRA Map Service order: enter the invoice number and total amount to see the work status of your khasra maps or survey.">
+<link rel="canonical" href="https://bhunetramapservice.github.io/track/">
+<meta name="theme-color" content="#080E1D">
+<link rel="icon" href="../images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--void:#080E1D;--deep:#0B1428;--panel:#0E1A33;--navy:#11356F;--line:#1E3A66;--em:#0A5B4C;--em-mid:#19A884;--em-lit:#2EE6B0;
+  --amb:#F28E3A;--amb-lit:#FFB46B;--mist:#EFF2FC;--muted:#93A4C3;--red:#FF5468}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--void);color:var(--mist);font-family:Inter,"Segoe UI",system-ui,sans-serif;line-height:1.6;min-height:100vh}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(rgba(46,230,176,.045) 1px,transparent 1px) 0 0/44px 44px,linear-gradient(90deg,rgba(46,230,176,.045) 1px,transparent 1px) 0 0/44px 44px,
+  radial-gradient(900px 500px at 80% 0,rgba(17,53,111,.5),transparent 60%),var(--void)}
+a{color:var(--em-lit);text-decoration:none}
+h1,h2,h3,.brand,.btn,.tag{font-family:Rajdhani,"Bahnschrift",sans-serif;letter-spacing:.02em}
+.mono{font-family:"JetBrains Mono",Consolas,monospace}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px}
+nav{border-bottom:1px solid var(--line);background:rgba(8,14,29,.86);backdrop-filter:blur(10px)}
+nav .wrap{max-width:1200px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:700;color:#fff}
+.brand img{width:38px;height:38px;filter:drop-shadow(0 0 10px rgba(46,230,176,.5))}
+.brand span{color:var(--em-lit)}
+.tag{display:inline-block;color:var(--amb-lit);font-weight:700;letter-spacing:.32em;font-size:13px}
+header{padding:46px 0 18px}
+header h1{font-size:clamp(32px,5vw,50px);line-height:1.05}
+header p{color:var(--muted);margin-top:10px}
+.panel{position:relative;border:1px solid var(--line);border-radius:18px;background:rgba(11,20,40,.85);padding:22px;margin-top:18px}
+.panel::after{content:"";position:absolute;inset:6px;pointer-events:none;opacity:.75;background:
+  linear-gradient(var(--em-lit),var(--em-lit)) top left/14px 2px no-repeat,linear-gradient(var(--em-lit),var(--em-lit)) top left/2px 14px no-repeat,
+  linear-gradient(var(--em-lit),var(--em-lit)) top right/14px 2px no-repeat,linear-gradient(var(--em-lit),var(--em-lit)) top right/2px 14px no-repeat,
+  linear-gradient(var(--amb),var(--amb)) bottom left/14px 2px no-repeat,linear-gradient(var(--amb),var(--amb)) bottom left/2px 14px no-repeat,
+  linear-gradient(var(--amb),var(--amb)) bottom right/14px 2px no-repeat,linear-gradient(var(--amb),var(--amb)) bottom right/2px 14px no-repeat}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.tab{cursor:pointer;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:rgba(14,26,51,.8);color:#C9D6EA;font-size:14px}
+.tab.on{background:linear-gradient(90deg,var(--em-mid),var(--em-lit));color:#04211A;border-color:transparent;font-weight:600}
+.pane{display:none}.pane.on{display:block}
+label{display:block;font-size:13px;color:var(--muted);margin:10px 0 6px}
+input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#081122;color:#fff;font:15px Inter,sans-serif}
+textarea{min-height:150px;font-family:"JetBrains Mono",monospace;font-size:13px}
+input:focus,textarea:focus{outline:none;border-color:var(--em-mid);box-shadow:0 0 0 3px rgba(46,230,176,.15)}
+.row2{display:grid;grid-template-columns:1.4fr 1fr;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:12px;font-weight:700;font-size:17px;cursor:pointer;border:0;margin-top:14px;
+  background:linear-gradient(90deg,var(--em-mid),var(--em-lit));color:#04211A;box-shadow:0 0 22px rgba(46,230,176,.28)}
+.btn.ghost{background:transparent;color:var(--em-lit);border:1px solid var(--em-mid);box-shadow:none}
+#reader{border-radius:14px;overflow:hidden;border:1px dashed var(--line);margin-top:8px;min-height:40px}
+.hint{font-size:13px;color:var(--muted);margin-top:8px}
+#result{display:none;margin-top:20px;border-radius:18px;padding:22px;border:1px solid}
+#result.real{display:block;border-color:var(--em-mid);background:linear-gradient(160deg,rgba(10,91,76,.45),rgba(11,20,40,.9))}
+#result.fake{display:block;border-color:var(--red);background:linear-gradient(160deg,rgba(120,20,35,.45),rgba(11,20,40,.9))}
+#result.unk{display:block;border-color:var(--amb);background:linear-gradient(160deg,rgba(120,70,20,.4),rgba(11,20,40,.9))}
+#result h2{font-size:34px;line-height:1;display:flex;align-items:center;gap:12px}
+#result .seal{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;font-size:28px;border:2px solid}
+.real .seal{color:var(--em-lit);border-color:var(--em-lit);box-shadow:0 0 22px rgba(46,230,176,.5)}
+.fake .seal{color:var(--red);border-color:var(--red);box-shadow:0 0 22px rgba(255,84,104,.5)}
+.unk .seal{color:var(--amb-lit);border-color:var(--amb-lit)}
+#result p{margin-top:10px;color:#D8E3F5}
+#result table{margin-top:12px;width:100%;border-collapse:collapse;font-size:14px}
+#result td{padding:7px 0;border-bottom:1px dashed var(--line)} #result td:first-child{color:var(--muted)} #result td:last-child{text-align:right;font-family:"JetBrains Mono",monospace}
+.how{color:var(--muted);font-size:14px;margin:26px 0 40px}
+.how b{color:#fff}
+footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-size:13px;text-align:center}
+@media (max-width:560px){.row2{grid-template-columns:1fr}}
+</style>
+<style>
+.tf{display:grid;grid-template-columns:1.4fr 1fr auto;gap:12px;align-items:end}
+.tf label{display:block;font-size:13px;color:var(--muted)}
+.tf input{width:100%;margin-top:6px;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--void);color:#fff;font:600 15px "JetBrains Mono",Consolas,monospace}
+.tf input:focus{outline:none;border-color:var(--em-lit)}
+.tbtn{padding:12px 22px;border-radius:999px;border:0;background:linear-gradient(90deg,var(--em-mid),var(--em-lit));color:#04110D;font:700 16px Rajdhani,sans-serif;cursor:pointer}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:26px 0 8px;position:relative}
+.st{text-align:center;position:relative;padding-top:44px;color:var(--muted);font-size:14px}
+.st::before{content:"";position:absolute;top:16px;left:-50%;width:100%;height:3px;background:var(--line)}
+.st:first-child::before{display:none}
+.st i{position:absolute;top:2px;left:50%;transform:translateX(-50%);width:32px;height:32px;border-radius:50%;border:2px solid var(--line);background:var(--deep);font-style:normal;line-height:28px;font-weight:700;color:var(--muted)}
+.st.done{color:#fff}.st.done::before{background:var(--em-lit)}.st.done i{border-color:var(--em-lit);background:var(--em);color:#fff}
+.st.now i{box-shadow:0 0 0 6px rgba(46,230,176,.18)}
+.res{margin-top:16px}.res b{color:#fff}.bad{color:var(--red)}
+@media (max-width:640px){.tf{grid-template-columns:1fr}.st{font-size:12px}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a class="brand" href="../"><img src="../images/logo.png" alt="BHU-NETRA logo">BHU-NETRA <span>MAP SERVICE</span></a>
+  <a href="../">&larr; Home</a></div></nav>
+<header><div class="wrap"><div class="tag">ORDER TRACKER</div><h1>Track your order</h1>
+<p>Enter the invoice number and the total amount printed on your BHU-NETRA Map Service invoice. Only the work status is shown - no names, no amounts.</p></div></header>
+<main class="wrap">
+  <div class="panel">
+    <form class="tf" id="tf">
+      <label>Invoice number<input id="no" required placeholder="BNMS-INV-2610-00012-K" autocomplete="off" spellcheck="false"></label>
+      <label>Total amount (Rs)<input id="amt" required inputmode="decimal" placeholder="114000"></label>
+      <button class="tbtn" type="submit">Track &rarr;</button>
+    </form>
+    <div class="res" id="res"></div>
+  </div>
+  <p style="margin:18px 0 40px;color:var(--muted)">Questions about your order? <a href="#" data-gate="mail" data-subject="Order status">Email us</a> or <a href="#" data-gate="wa" data-text="Hello BHU-NETRA Map Service, about my order: ">chat on WhatsApp</a>. Want to check that an invoice is genuine? <a href="../verify/">Verify it here</a>.</p>
+</main>
+<footer>&copy; <span id="yr">2026</span> BHU-NETRA Map Service &middot; <a href="../">bhunetramapservice.github.io</a></footer>
+<script src="../gate.js"></script>
+<script>
+const STEPS = ['Order confirmed', 'Maps in progress', 'Quality check', 'Delivered'];
+const REG = fetch('../verify/register.json?t=' + Date.now()).then(r => r.json()).then(j => j.docs || []).catch(() => []);
+async function sha256(t){ const h = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(t)); return [...new Uint8Array(h)].map(b => b.toString(16).padStart(2, '0')).join(''); }
+document.getElementById('tf').addEventListener('submit', async e => {
+  e.preventDefault();
+  const res = document.getElementById('res');
+  const no = document.getElementById('no').value.trim().toUpperCase();
+  const amt = parseFloat(document.getElementById('amt').value.replace(/[^0-9.]/g, ''));
+  if (!no || !isFinite(amt)) { res.innerHTML = '<p class="bad">Please enter the invoice number and the total amount.</p>'; return; }
+  const reg = await REG, h = await sha256(`${no}|${amt.toFixed(2)}`), d = reg.find(x => x.h === h);
+  if (!d) { res.innerHTML = '<p class="bad">No invoice found with this number and amount. Please check both (the total is printed on the invoice), or contact us.</p>'; return; }
+  if (d.k !== 'i') { res.innerHTML = '<p>This is a <b>quotation</b>. The order tracker starts when the invoice is made.</p>'; return; }
+  const w = Number.isInteger(d.w) ? d.w : 0;
+  res.innerHTML = '<div class="steps">' + STEPS.map((s, i) => `<div class="st${i <= w ? ' done' : ''}${i === w ? ' now' : ''}"><i>${i < w || w === 3 ? '&#10003;' : i + 1}</i>${s}</div>`).join('') + '</div>' +
+    `<p>Invoice <b class="mono">${no}</b> dated ${d.d || '-'}: <b>${STEPS[w]}</b>${d.wd ? ' (updated ' + d.wd + ')' : ''}.</p>`;
+});
+</script>
+<script data-goatcounter="https://bhunetramapservice.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

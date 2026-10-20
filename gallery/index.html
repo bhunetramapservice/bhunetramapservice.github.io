@@ -79,7 +79,7 @@ fetch('../explore/data/index.json').then(r => r.json()).then(list => {
       <div class="sh"><div><h2>${esc(s.state)}</h2><div class="meta">${esc(s.village)}, ${esc(s.district)} &middot; <b>${Number(s.khasra).toLocaleString('en-IN')}</b> khasra polygons</div></div>
         <div class="acts"><a class="btn ghost" href="../explore/?s=${s.key}">&#9673; Open live map</a>
         <a class="btn" href="#" data-gate="mail" data-subject="Quotation - ${esc(s.state)} khasra maps">Quote for ${esc(s.state)}</a></div></div>
-      <div class="views">${v('../images/states/' + s.key + '_map.jpg', 'Satellite + khasra')}${v('../images/gallery/' + s.key + '_digitized.jpg', 'Digitized map')}${v('../images/gallery/' + s.key + '_kml.jpg', 'KML · Google Earth')}${v('../images/gallery/' + s.key + '_cad.jpg', 'DXF · CAD')}</div></section>`);
+      <div class="views">${v('../images/states/' + s.key + '_map.webp', 'Satellite + khasra')}${v('../images/gallery/' + s.key + '_digitized.webp', 'Digitized map')}${v('../images/gallery/' + s.key + '_kml.webp', 'KML · Google Earth')}${v('../images/gallery/' + s.key + '_cad.webp', 'DXF · CAD')}</div></section>`);
   });
   const lb = document.getElementById('lb'), li = lb.querySelector('img');
   document.querySelectorAll('.v img').forEach(i => i.parentElement.addEventListener('click', () => { li.src = i.src; lb.classList.add('on'); }));
@@ -88,5 +88,6 @@ fetch('../explore/data/index.json').then(r => r.json()).then(list => {
 });
 </script>
 <script src="../gate.js"></script>
+<script data-goatcounter="https://bhunetramapservice.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

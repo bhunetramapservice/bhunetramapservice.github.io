@@ -25,7 +25,7 @@
  "alternateName": "BHU-NETRA",
  "url": "https://bhunetramapservice.github.io/",
  "logo": "https://bhunetramapservice.github.io/images/logo.png",
- "image": "https://bhunetramapservice.github.io/images/states/hero_map.jpg",
+ "image": "https://bhunetramapservice.github.io/images/states/hero_map.webp",
  "description": "Georeferenced and digitized khasra (cadastral) maps in KML, DWG, SHP and Excel for 14 Indian states - single village to whole district, satellite aligned.",
  "email": "bhunetramapservice@gmail.com",
  "areaServed": ["Rajasthan","Madhya Pradesh","Maharashtra","Uttar Pradesh","Bihar","Odisha","Chhattisgarh","Karnataka","Tamil Nadu","Andhra Pradesh","Haryana","Delhi","Goa","Tripura","Kerala"],
@@ -171,7 +171,7 @@ section{padding:80px 0}
 .step h3{font-size:20px;margin:4px 0}.step p{color:#B9C7DF;font-size:14.5px}
 /* contact */
 .contact{position:relative;text-align:center;border:1px solid var(--line);border-radius:24px;padding:60px 24px;overflow:hidden}
-.contact::before{content:"";position:absolute;inset:0;z-index:-1;background:url(images/states/hero_map.jpg) center/cover;opacity:.28}
+.contact::before{content:"";position:absolute;inset:0;z-index:-1;background:url(images/states/hero_map.webp) center/cover;opacity:.28}
 .contact::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(700px 300px at 50% 0,rgba(46,230,176,.18),transparent),linear-gradient(180deg,rgba(8,14,29,.55),rgba(8,14,29,.92))}
 .contact h2{font-size:clamp(30px,4.4vw,48px)}
 .mail{display:inline-block;margin:18px 0 26px;font-family:Rajdhani;font-weight:700;font-size:clamp(20px,3.4vw,32px);color:#fff;border-bottom:2px solid var(--em-lit)}
@@ -220,6 +220,34 @@ section{padding:80px 0}
 .pw .pk{font:700 11px Rajdhani,sans-serif;letter-spacing:.18em;color:var(--amb-lit)}
 .pw h3{font:700 19px Rajdhani,sans-serif;color:#fff;margin:6px 0}
 .pw p{color:#B9C7DF;font-size:14px}
+.vc{border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,rgba(14,26,51,.9),rgba(11,20,40,.92));padding:22px}
+.vc-f{display:grid;grid-template-columns:260px 1fr;gap:14px}
+.vc label{display:block;font-size:13px;color:var(--muted)}
+.vc select,.vc input{width:100%;margin-top:6px;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--void);color:#fff;font:500 15px Inter,sans-serif}
+.vc input:focus,.vc select:focus{outline:none;border-color:var(--em-lit)}
+.vc-info{margin:12px 0 6px;color:var(--muted);font-size:14px}
+.vc-res{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;max-height:420px;overflow:auto}
+.vc-it{display:flex;justify-content:space-between;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:rgba(8,14,29,.6)}
+.vc-it b{display:block;color:#fff}.vc-it small{color:var(--muted)}
+.vc-it button{flex:none;border:1px solid rgba(46,230,176,.5);background:transparent;color:var(--em-lit);border-radius:999px;padding:6px 12px;font:700 13px Rajdhani,sans-serif;cursor:pointer}
+.vc-it button:hover{background:rgba(46,230,176,.12)}
+.vc-foot{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:16px}
+.vc-foot span{color:var(--muted);font-size:13px;flex:1;min-width:240px}
+@media (max-width:700px){.vc-f{grid-template-columns:1fr}}
+.rv-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.rv{border:1px solid var(--line);border-radius:16px;padding:18px;background:linear-gradient(180deg,rgba(14,26,51,.9),rgba(11,20,40,.92))}
+.rv .st{color:#FFC94D;letter-spacing:.12em}.rv p{color:#C9D6EA;margin:8px 0 10px;font-size:14.5px}
+.rv b{color:#fff}.rv small{color:var(--muted)}.rv .vf{display:inline-block;margin-left:6px;font-size:11px;padding:2px 8px;border-radius:999px;border:1px solid rgba(46,230,176,.5);color:var(--em-lit)}
+.rv-empty{border:1px dashed var(--line);border-radius:16px;padding:22px;color:var(--muted);text-align:center}
+.rv-form{margin-top:20px;border:1px solid var(--line);border-radius:16px;padding:16px 20px;background:rgba(11,20,40,.85)}
+.rv-form summary{cursor:pointer;font:700 18px Rajdhani,sans-serif;color:var(--em-lit)}
+.rv-form form{margin-top:14px;display:grid;gap:12px}
+.rv-form label{display:block;font-size:13px;color:var(--muted)}
+.rv-form input,.rv-form textarea{width:100%;margin-top:6px;padding:11px 13px;border-radius:10px;border:1px solid var(--line);background:var(--void);color:#fff;font:500 15px Inter,sans-serif}
+.rv-form textarea{min-height:110px}
+.rv-stars{display:flex;align-items:center;gap:4px}
+.rv-stars button{background:none;border:0;font-size:30px;line-height:1;color:#33415F;cursor:pointer;padding:0 2px}
+.rv-stars button.on{color:#FFC94D}.rv-stars span{margin-left:10px;color:var(--muted);font-size:14px}
 .svis{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
 .svis.wvis{margin:0 0 22px}
 .libcard small a{color:var(--em-lit)}
@@ -319,14 +347,46 @@ nav .btn{white-space:nowrap}
   .brand{font-size:17px} .brand img{width:34px;height:34px} nav .btn{display:none} section{padding:56px 0}
   .hero{min-height:92vh} .stats{margin-top:-20px}
 }
+
+/* ---- design upgrade (21-10-2026) ---- */
+#sprog{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:linear-gradient(90deg,var(--em-lit),#7CF7D4,var(--amb-lit));box-shadow:0 0 12px rgba(46,230,176,.7)}
+.links a{position:relative;padding:4px 0}
+.links a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:2px;border-radius:2px;background:var(--em-lit);transform:scaleX(0);transition:transform .25s}
+.links a:hover::after,.links a.on::after{transform:scaleX(1)}
+.links a.on{color:var(--em-lit)}
+.btn{position:relative;overflow:hidden}
+.btn::before{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .6s}
+.btn:hover::before{left:120%}
+.card,.pw,.pj,.libcard,.rv,.vc-it,.size{transition:transform .25s ease,box-shadow .25s ease,border-color .25s}
+.fx-tilt{transform-style:preserve-3d;will-change:transform}
+.card:hover,.pw:hover,.pj:hover,.rv:hover,.size:hover{border-color:rgba(46,230,176,.55);box-shadow:0 18px 50px rgba(0,0,0,.45),0 0 0 1px rgba(46,230,176,.25),0 0 40px rgba(46,230,176,.12)}
+.fx-glow{position:relative}
+.fx-glow::after{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),rgba(46,230,176,.9),rgba(255,180,107,.5) 40%,transparent 70%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.fx-glow:hover::after{opacity:1}
+.head h2{position:relative;display:inline-block}
+.head h2::after{content:"";display:block;height:3px;width:64px;margin-top:12px;border-radius:3px;background:linear-gradient(90deg,var(--em-lit),var(--amb-lit));box-shadow:0 0 14px rgba(46,230,176,.6)}
+section{position:relative}
+section+section::before{content:"";position:absolute;top:0;left:50%;width:min(900px,80%);height:1px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,rgba(46,230,176,.35),transparent)}
+#totop{position:fixed;right:22px;bottom:96px;z-index:40;width:46px;height:46px;border-radius:50%;border:1px solid rgba(46,230,176,.5);background:rgba(8,14,29,.85);color:var(--em-lit);font-size:20px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;transform:translateY(10px);backdrop-filter:blur(8px)}
+#totop.on{opacity:1;pointer-events:auto;transform:none}
+html{scrollbar-color:#19A884 #0B1428}
+::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:#0B1428}
+::-webkit-scrollbar-thumb{background:linear-gradient(#19A884,#0A5B4C);border-radius:10px;border:2px solid #0B1428}
+::selection{background:rgba(46,230,176,.35);color:#fff}
+img{image-rendering:auto}
+@media (prefers-reduced-motion:reduce){.btn::before,.fx-glow::after{display:none}}
+.shotmode #sprog,.shotmode #totop{display:none}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.hero .bg img.map{clip-path:none}}
 </style>
 </head>
 <body>
+<div id="sprog" aria-hidden="true"></div>
 <nav id="nav">
   <div class="wrap">
     <a class="brand" href="#top"><img src="images/logo.png" alt="BHU-NETRA logo">BHU-NETRA <span>MAP SERVICE</span></a>
-    <div class="links"><a href="#services">Services</a><a href="#survey">Survey</a><a href="#demo">Demos</a><a href="#projects">Projects</a><a href="gallery/">Gallery</a><a href="verify/">Verify</a><a href="#contact">Contact</a></div>
+    <div class="links"><a href="#services">Services</a><a href="#survey">Survey</a><a href="#demo">Demos</a><a href="#check">Check village</a><a href="#projects">Projects</a><a href="#reviews">Reviews</a><a href="gallery/">Gallery</a><a href="verify/">Verify</a><a href="#contact">Contact</a></div>
     <div class="chrono" id="chrono" title="Your local time">
       <svg class="ring" viewBox="0 0 44 44" aria-hidden="true">
         <circle class="trk" cx="22" cy="22" r="19"/><circle class="sec" id="c-sec" cx="22" cy="22" r="19"/>
@@ -346,7 +406,7 @@ nav .btn{white-space:nowrap}
 </div></div>
 
 <header class="hero" id="top">
-  <div class="bg" id="hbg"><img id="hsat" src="images/states/hero_sat.jpg" alt=""><img id="hmap" class="map run" src="images/states/hero_map.jpg" alt="Khasra map on satellite imagery"></div>
+  <div class="bg" id="hbg"><img id="hsat" src="images/states/hero_sat.webp" alt=""><img id="hmap" class="map run" src="images/states/hero_map.webp" alt="Khasra map on satellite imagery"></div>
   <div class="shade"></div><div class="scan"></div>
   <span class="corner a"></span><span class="corner b"></span><span class="corner c"></span><span class="corner d"></span>
   <div class="hud tl mono" id="hud"><span class="stname">RAJASTHAN</span><br>Amaliphala &middot; Pratapgarh<br>LAT <b>24.1948&deg; N</b> &nbsp; LON <b>74.7852&deg; E</b><br>KHASRA <b>408</b> &middot; AREA <b>251 ha</b></div>
@@ -420,11 +480,11 @@ nav .btn{white-space:nowrap}
       <div class="card reveal"><div class="ico">&#9638;</div><h3>Sub-division &amp; partition survey</h3><p>Splitting a khasra on the ground and on the map - new boundaries, areas and a sketch ready for the revenue records.</p></div>
     </div>
     <div class="svis">
-      <figure class="libcard reveal"><div class="libimg"><img src="images/survey/survey_contour.jpg" alt="Topographic contour survey sample" loading="lazy"><span class="sw">Contour &middot; 2 m</span></div>
+      <figure class="libcard reveal"><div class="libimg"><img src="images/survey/survey_contour.webp" alt="Topographic contour survey sample" loading="lazy"><span class="sw">Contour &middot; 2 m</span></div>
         <figcaption><b>TOPOGRAPHIC &amp; CONTOUR</b><small>Levels and contours with the khasra boundaries on top - for layouts, drainage and earthwork.</small></figcaption></figure>
-      <figure class="libcard reveal"><div class="libimg"><img src="images/survey/survey_3d.jpg" alt="3D terrain model sample" loading="lazy"><span class="sw">3D model</span></div>
+      <figure class="libcard reveal"><div class="libimg"><img src="images/survey/survey_3d.webp" alt="3D terrain model sample" loading="lazy"><span class="sw">3D model</span></div>
         <figcaption><b>3D TERRAIN MODEL</b><small>Elevation, imagery and khasras together - see the ground before the site visit.</small></figcaption></figure>
-      <figure class="libcard reveal"><div class="libimg"><img src="images/survey/survey_slope.jpg" alt="Slope analysis sample" loading="lazy"><span class="sw">Slope classes</span></div>
+      <figure class="libcard reveal"><div class="libimg"><img src="images/survey/survey_slope.webp" alt="Slope analysis sample" loading="lazy"><span class="sw">Slope classes</span></div>
         <figcaption><b>SLOPE ANALYSIS</b><small>Flat to very steep ground, khasra by khasra - the first check for solar and wind layouts.</small></figcaption></figure>
     </div>
     <div class="cta" style="margin-top:22px"><a class="btn" href="#quote">&#9993; Ask for a survey quote</a><a class="btn ghost" href="#" data-gate="wa" data-text="Hello BHU-NETRA Map Service, I need a survey: ">&#128172; WhatsApp us</a></div>
@@ -447,10 +507,10 @@ nav .btn{white-space:nowrap}
       <div class="info" id="info"></div>
     </div>
     <div class="extra">
-      <figure class="shot reveal"><img src="images/demo_1_digitized.jpg" alt="Digitized khasra map with numbers" loading="lazy"><div><b>Digitized khasra map</b><small>Every khasra with its number &middot; DWG / SHP / KML</small></div></figure>
-      <figure class="shot reveal"><img src="images/demo_2_colour_coded.jpg" alt="Colour-coded land category" loading="lazy"><div><b>Colour-coded land category</b><small>Private vs Government land</small></div></figure>
+      <figure class="shot reveal"><img src="images/demo_1_digitized.webp" alt="Digitized khasra map with numbers" loading="lazy"><div><b>Digitized khasra map</b><small>Every khasra with its number &middot; DWG / SHP / KML</small></div></figure>
+      <figure class="shot reveal"><img src="images/demo_2_colour_coded.webp" alt="Colour-coded land category" loading="lazy"><div><b>Colour-coded land category</b><small>Private vs Government land</small></div></figure>
     </div>
-    <div class="cta" style="margin-top:22px"><a class="btn" href="explore/">&#9673; Explore the live map</a><a class="btn ghost" href="gallery/">All 14 states gallery &rarr;</a><a class="btn ghost" href="downloads/BHU-NETRA_Sample_Amaliphala_Rajasthan.zip" download>&#11015; Free sample (KML + DXF + SHP + Excel)</a></div>
+    <div class="cta" style="margin-top:22px"><a class="btn" href="explore/">&#9673; Explore the live map</a><a class="btn ghost" href="gallery/">All 14 states gallery &rarr;</a><a class="btn ghost" id="demo-sample" href="#" data-gate="dl" data-href="downloads/samples/BHU-NETRA_Sample_Amaliphala_Rajasthan.zip">&#11015; Free sample <span id="demo-sample-st">Rajasthan</span> (KML + DXF + SHP + Excel)</a></div>
     <div class="formats"><span class="fmt">KML / KMZ</span><span class="fmt">DWG / DXF</span><span class="fmt">SHP + QGIS style</span><span class="fmt">Excel</span><span class="fmt">PDF / PNG</span></div>
   </div>
 </section>
@@ -460,25 +520,25 @@ nav .btn{white-space:nowrap}
     <div class="head reveal"><div class="tag">VISUAL LIBRARY</div><h2>See exactly what you receive</h2>
       <p>Every deliverable, rendered from real sample villages (public land records). Click any picture to open it full size.</p></div>
     <div class="lib">
-      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_01_digitized.jpg" alt="Digitized Khasra Map sample" loading="lazy"><span class="sw">All formats</span></div>
+      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_01_digitized.webp" alt="Digitized Khasra Map sample" loading="lazy"><span class="sw">All formats</span></div>
         <figcaption><b>DIGITIZED KHASRA MAP</b><i>Every khasra a closed polygon with its number</i><small>Clean topology: no overlaps, no gaps, every khasra number placed inside its own plot.</small></figcaption></figure>
-      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_02_colour_coded.jpg" alt="Colour-Coded Land Category sample" loading="lazy"><span class="sw">KML &middot; DWG &middot; SHP &middot; PDF</span></div>
+      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_02_colour_coded.webp" alt="Colour-Coded Land Category sample" loading="lazy"><span class="sw">KML &middot; DWG &middot; SHP &middot; PDF</span></div>
         <figcaption><b>COLOUR-CODED LAND CATEGORY</b><i>Yellow private &middot; Red non-allotable &middot; Green allotable</i><small>Government land split into allotable and non-allotable, khasra by khasra - see the land story at a glance.</small></figcaption></figure>
-      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_03_kml_google_earth.jpg" alt="Kml / Kmz sample" loading="lazy"><span class="sw">Google Earth</span></div>
+      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_03_kml_google_earth.webp" alt="Kml / Kmz sample" loading="lazy"><span class="sw">Google Earth</span></div>
         <figcaption><b>KML / KMZ</b><i>Opens in Google Earth &amp; Google Maps</i><small>Khasra lines on satellite imagery, labels on, click any plot for khasra no., khata, area and category.</small></figcaption></figure>
-      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_04_dxf_cad.jpg" alt="Dwg / Dxf sample" loading="lazy"><span class="sw">AutoCAD &middot; any CAD</span></div>
+      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_04_dxf_cad.webp" alt="Dwg / Dxf sample" loading="lazy"><span class="sw">AutoCAD &middot; any CAD</span></div>
         <figcaption><b>DWG / DXF</b><i>Layered CAD drawing in real coordinates</i><small>Separate layers for khasra, text, village boundary, govt and allotable land - in UTM metres, ready for layout design.</small></figcaption></figure>
-      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_05_shp_gis.jpg" alt="Shapefile (Shp) sample" loading="lazy"><span class="sw">QGIS &middot; ArcGIS</span></div>
+      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_05_shp_gis.webp" alt="Shapefile (Shp) sample" loading="lazy"><span class="sw">QGIS &middot; ArcGIS</span></div>
         <figcaption><b>SHAPEFILE (SHP)</b><i>Full attribute table + ready map style</i><small>Khasra no., khata, area (ha / sqm / acre), category, village, tehsil, district in every record, with a QGIS style file.</small></figcaption></figure>
-      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_06_excel.jpg" alt="Excel Khasra List sample" loading="lazy"><span class="sw">Excel &middot; Google Sheets</span></div>
+      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_06_excel.webp" alt="Excel Khasra List sample" loading="lazy"><span class="sw">Excel &middot; Google Sheets</span></div>
         <figcaption><b>EXCEL KHASRA LIST</b><i>Every khasra with its area and category</i><small>Sorted khasra list with areas, category and village / tehsil, plus a summary sheet - ready for your land team.</small></figcaption></figure>
-      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_07_print_layout.jpg" alt="Print Map (Pdf) sample" loading="lazy"><span class="sw">Print &middot; PDF</span></div>
+      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_07_print_layout.webp" alt="Print Map (Pdf) sample" loading="lazy"><span class="sw">Print &middot; PDF</span></div>
         <figcaption><b>PRINT MAP (PDF)</b><i>A1 / A3 map with legend, north arrow, scale</i><small>A presentation-ready map sheet with title block, legend, grid coordinates and scale bar.</small></figcaption></figure>
-      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_08_combined_project.jpg" alt="Combined Project Layer sample" loading="lazy"><span class="sw">KML &middot; DWG &middot; SHP</span></div>
+      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_08_combined_project.webp" alt="Combined Project Layer sample" loading="lazy"><span class="sw">KML &middot; DWG &middot; SHP</span></div>
         <figcaption><b>COMBINED PROJECT LAYER</b><i>All your villages in one file</i><small>Neighbouring villages joined edge to edge - one layer for the whole project area, each village outlined.</small></figcaption></figure>
-      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_09_village_boundary.jpg" alt="Village Outer Boundary sample" loading="lazy"><span class="sw">Inside every file</span></div>
+      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_09_village_boundary.webp" alt="Village Outer Boundary sample" loading="lazy"><span class="sw">Inside every file</span></div>
         <figcaption><b>VILLAGE OUTER BOUNDARY</b><i>Built from the village's own khasras</i><small>The exact outer edge of the village, included as its own layer / record in every deliverable.</small></figcaption></figure>
-      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_10_3d_view.jpg" alt="3D View sample" loading="lazy"><span class="sw">Google Earth</span></div>
+      <figure class="libcard reveal"><div class="libimg"><img src="images/library/lib_10_3d_view.webp" alt="3D View sample" loading="lazy"><span class="sw">Google Earth</span></div>
         <figcaption><b>3D VIEW</b><i>Tilt the map in Google Earth</i><small>Because the files are truly georeferenced, they sit on the terrain in 3D - perfect for site visits and presentations.</small></figcaption></figure>
     </div>
   </div>
@@ -486,12 +546,29 @@ nav .btn{white-space:nowrap}
 
 <section id="states">
   <div class="wrap cover">
-    <img class="reveal" src="images/coverage_map.jpg?v=70c5c0b3" alt="States covered by BHU-NETRA Map Service" loading="lazy">
+    <img class="reveal" src="images/coverage_map.webp?v=70c5c0b3" alt="States covered by BHU-NETRA Map Service" loading="lazy">
     <div class="reveal">
       <div class="head"><div class="tag">COVERAGE</div><h2>15 states &amp; union territories</h2>
         <p>Khasra / cadastral maps for any village &ndash; one village or a thousand. Click a state to see its demo.</p></div>
       <div class="states" id="statelist"></div>
-      <p style="margin-top:14px;color:var(--muted)">Your state is not listed? Write to us &ndash; new states are added regularly.</p>
+      <p style="margin-top:14px;color:var(--muted)">Each state has its own page with districts, sample village and FAQ: <a href="state/">khasra &amp; cadastral maps by state &rarr;</a> Your state is not listed? Write to us &ndash; new states are added regularly.</p>
+    </div>
+  </div>
+</section>
+
+<section id="check">
+  <div class="wrap">
+    <div class="head reveal"><div class="tag">CHECK YOUR VILLAGE</div><h2>Is your village covered?</h2>
+      <p>Search all 4.5 lakh census villages of the states we cover. Pick the state, type the village name and send it for a quotation in one click.</p></div>
+    <div class="vc reveal">
+      <div class="vc-f">
+        <label>State<select id="vc-st"></select></label>
+        <label class="vc-q">Village name<input id="vc-q" placeholder="type at least 2 letters, e.g. Amaliphala" autocomplete="off" spellcheck="false"></label>
+      </div>
+      <p class="vc-info" id="vc-info">Choose a state to load its village list.</p>
+      <div class="vc-res" id="vc-res"></div>
+      <div class="vc-foot"><a class="btn ghost" id="vc-sample" href="#" data-gate="dl" data-href="">&#11015; Free sample of this state</a>
+        <span>Names follow the census / LGD list; spellings in the land records can differ a little - we confirm every village with the quotation.</span></div>
     </div>
   </div>
 </section>
@@ -533,11 +610,11 @@ nav .btn{white-space:nowrap}
     <div class="head reveal" style="margin-top:46px"><div class="tag">PROJECTS WE WORK ON</div><h2>Maps + survey for every kind of project</h2>
       <p>Land records and field survey in one delivery - from wind farm FMBs to highway land schedules.</p></div>
     <div class="svis wvis">
-      <figure class="libcard reveal"><div class="libimg"><img src="images/wind/wind_fmb_sample.jpg" alt="Sample FMB (Field Measurement Book) sketch of a survey number" loading="lazy"><span class="sw">FMB &middot; sample</span></div>
+      <figure class="libcard reveal"><div class="libimg"><img src="images/wind/wind_fmb_sample.webp" alt="Sample FMB (Field Measurement Book) sketch of a survey number" loading="lazy"><span class="sw">FMB &middot; sample</span></div>
         <figcaption><b>FMB SKETCH</b><small>Chain line, offsets, side lengths, neighbours, corner coordinates and area - for every WTG survey number.</small></figcaption></figure>
-      <figure class="libcard reveal"><div class="libimg"><img src="images/wind/wind_layout_sample.jpg" alt="Sample wind project land layout with WTG points and land schedule" loading="lazy"><span class="sw">Wind layout &middot; sample</span></div>
+      <figure class="libcard reveal"><div class="libimg"><img src="images/wind/wind_layout_sample.webp" alt="Sample wind project land layout with WTG points and land schedule" loading="lazy"><span class="sw">Wind layout &middot; sample</span></div>
         <figcaption><b>WIND MICROSITING &amp; LAND</b><small>140 m rotor, every WTG 195 m+ from roads and houses and 500 m+ from villages (MNRE), access road, khasra-wise land schedule. <a href="guides/fmb-for-wind-projects/">What is an FMB? &rarr;</a></small></figcaption></figure>
-      <figure class="libcard reveal"><div class="libimg"><img src="images/solar/solar_layout_sample.jpg" alt="Sample solar project layout on khasra maps" loading="lazy"><span class="sw">Solar layout &middot; sample</span></div>
+      <figure class="libcard reveal"><div class="libimg"><img src="images/solar/solar_layout_sample.webp" alt="Sample solar project layout on khasra maps" loading="lazy"><span class="sw">Solar layout &middot; sample</span></div>
         <figcaption><b>SOLAR LAND &amp; LAYOUT</b><small>Site on the khasra map clear of roads, houses and tracks, module blocks, internal roads, pooling substation and the land schedule.</small></figcaption></figure>
     </div>
     <div class="grid4 pws">
@@ -555,6 +632,33 @@ nav .btn{white-space:nowrap}
       <div class="pw reveal"><span class="pk">DUE DILIGENCE</span><h3>Land aggregation &amp; checks</h3><p>Before you buy or lease: khasra map, land category, govt land, overlaps and access - village by village.</p><div class="pt"><span>Land category</span><span>Excel</span><span>KML</span></div></div>
     </div>
     <div class="cta" style="margin-top:22px"><a class="btn" href="#quote">&#9993; Discuss your project</a></div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="head reveal"><div class="tag">CLIENT REVIEWS</div><h2>What our clients say</h2>
+      <p id="rv-sum">Reviews from our clients appear here after we check them. Clients who add their invoice number get a "Verified client" badge.</p></div>
+    <div class="rv-list" id="rv-list"></div>
+    <details class="rv-form reveal"><summary>&#9733; Write a review</summary>
+      <form id="rv-f" autocomplete="on">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="rv-stars" id="rv-stars" role="radiogroup" aria-label="Rating">
+          <button type="button" data-r="1" aria-label="1 star">&#9733;</button><button type="button" data-r="2" aria-label="2 stars">&#9733;</button><button type="button" data-r="3" aria-label="3 stars">&#9733;</button><button type="button" data-r="4" aria-label="4 stars">&#9733;</button><button type="button" data-r="5" aria-label="5 stars">&#9733;</button>
+          <span id="rv-rt">Tap the stars</span></div>
+        <div class="f2">
+          <label>Your name *<input name="Name" required maxlength="80"></label>
+          <label>Company (optional)<input name="Company" maxlength="100"></label>
+        </div>
+        <div class="f2">
+          <label>State<input name="State" maxlength="40" placeholder="e.g. Rajasthan"></label>
+          <label>Invoice number (optional, for the "Verified client" badge)<input name="Invoice" maxlength="40" placeholder="BNMS-INV-..."></label>
+        </div>
+        <label>Your review *<textarea name="Review" required maxlength="1500" placeholder="How was the work, the accuracy and the delivery?"></textarea></label>
+        <button class="btn" type="submit">&#9993; Send review</button>
+        <p class="enq-msg" id="rv-msg"></p>
+      </form>
+    </details>
   </div>
 </section>
 
@@ -636,12 +740,13 @@ nav .btn{white-space:nowrap}
 
 <footer>
   <div class="wrap">
-    <span>&copy; <span id="yr">2026</span> BHU-NETRA Map Service &middot; bhunetramapservice@gmail.com &middot; <a href="guides/">Guides</a> &middot; <a href="#faq">FAQ</a> &middot; <a href="gallery/">Gallery</a> &middot; <a href="explore/">Live map</a> &middot; <a href="verify/">Verify invoice</a></span>
+    <span>&copy; <span id="yr">2026</span> BHU-NETRA Map Service &middot; bhunetramapservice@gmail.com &middot; <a href="guides/">Guides</a> &middot; <a href="#faq">FAQ</a> &middot; <a href="gallery/">Gallery</a> &middot; <a href="explore/">Live map</a> &middot; <a href="verify/">Verify invoice</a> &middot; <a href="track/">Track order</a> &middot; <a href="state/">Maps by state</a></span>
     <span>Maps are digitized from public land-record maps for planning / reference use; not a legal survey or title document. Imagery &copy; Esri.</span>
   </div>
 </footer>
 
 <div id="lb"><img alt=""></div>
+<button id="totop" type="button" aria-label="Back to top">&#8593;</button>
 <script src="gate.js"></script>
 <script>
 if (/shot/.test(location.search)) document.documentElement.classList.add('shotmode');   // static render for screenshots
@@ -694,7 +799,7 @@ const FORM_TO = 'https://formsubmit.co/ajax/bhunetramapservice@gmail.com';   // 
         }, 600);
       };
       a.onload = b.onload = go; a.onerror = b.onerror = () => { i++; };
-      a.src = `images/states/${s.key}_sat.jpg`; b.src = `images/states/${s.key}_map.jpg`;
+      a.src = `images/states/${s.key}_sat.webp`; b.src = `images/states/${s.key}_map.webp`;
     };
     // first sweep plays on the hero picture, then the states follow every 9 s (timer: works even when animations
     // are paused, e.g. a background tab)
@@ -738,6 +843,127 @@ const FORM_TO = 'https://formsubmit.co/ajax/bhunetramapservice@gmail.com';   // 
   const io2 = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { run(e.target); io2.unobserve(e.target); } }), {threshold: .5});
   els.forEach(el => io2.observe(el));
 })();
+
+// check your village: census village list per state (check/data/<key>.json, loaded when the state is picked)
+(() => {
+  const st = document.getElementById('vc-st'); if (!st) return;
+  const q = document.getElementById('vc-q'), info = document.getElementById('vc-info'), res = document.getElementById('vc-res');
+  const smp = document.getElementById('vc-sample');
+  let rows = [], samples = {};
+  const norm = t => t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]/g, '');
+  const esc = t => String(t).replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+  const SP = fetch('downloads/samples/index.json').then(r => r.json()).then(l => l.forEach(x => samples[x.state] = x)).catch(() => {});
+  fetch('check/data/index.json').then(r => r.json()).then(idx => {
+    st.add(new Option('Choose a state', ''));
+    Object.entries(idx).forEach(([name, v]) => st.add(new Option(`${name} (${v.n.toLocaleString('en-IN')} villages)`, v.key)));
+    const pre = new URLSearchParams(location.search).get('st');            // ?st=kl#check from the state pages
+    if (pre && [...st.options].some(o => o.value === pre)) { st.value = pre; st.dispatchEvent(new Event('change')); setTimeout(() => q.focus(), 400); }
+  });
+  st.addEventListener('change', () => {
+    rows = []; res.innerHTML = '';
+    const name = st.options[st.selectedIndex].text.replace(/ \(.*$/, '');
+    SP.then(() => {
+      const sm = samples[name];
+      smp.style.display = sm ? '' : 'none';
+      if (sm) { smp.dataset.href = sm.file; smp.innerHTML = `&#11015; Free sample: ${esc(sm.village)}, ${esc(name)} (${sm.kb >= 1024 ? (sm.kb / 1024).toFixed(1) + ' MB' : sm.kb + ' KB'})`; }
+    });
+    if (!st.value) { info.textContent = 'Choose a state to load its village list.'; return; }
+    info.textContent = 'Loading the village list ...';
+    fetch(`check/data/${st.value}.json`).then(r => r.json()).then(j => {
+      for (const [d, subs] of Object.entries(j.d)) for (const [t, vs] of Object.entries(subs)) for (const v of vs) rows.push([v, t, d, norm(v)]);
+      info.textContent = `${j.n.toLocaleString('en-IN')} villages of ${j.state} loaded - type a village name.`;
+      if (q.value.trim().length >= 2) find();
+    }).catch(() => { info.textContent = 'Could not load the list right now - please try again.'; });
+  });
+  let tm;
+  q.addEventListener('input', () => { clearTimeout(tm); tm = setTimeout(find, 150); });
+  function find() {
+    const t = norm(q.value);
+    if (!rows.length) { info.textContent = st.value ? 'Loading ...' : 'Choose the state first.'; return; }
+    if (t.length < 2) { res.innerHTML = ''; return; }
+    const a = [], b = [];
+    for (const r of rows) { if (r[3].startsWith(t)) a.push(r); else if (r[3].includes(t)) b.push(r); if (a.length >= 60) break; }
+    const hit = a.concat(b).slice(0, 60), name = st.options[st.selectedIndex].text.replace(/ \(.*$/, '');
+    info.innerHTML = hit.length ? `<b style="color:var(--em-lit)">&#10004; ${hit.length >= 60 ? '60+' : hit.length} match${hit.length === 1 ? '' : 'es'}</b> - yes, we can prepare the khasra / cadastral map of these villages.`
+                                : `No village called "${esc(q.value)}" in the ${esc(name)} list. Try another spelling, or send us the name - we will check it.`;
+    res.innerHTML = hit.map(r => `<div class="vc-it"><div><b>${esc(r[0])}</b><small>${esc(r[1])} &middot; ${esc(r[2])}</small></div><button type="button" data-v="${esc(r[0])}" data-t="${esc(r[1])}" data-d="${esc(r[2])}">Get quote</button></div>`).join('');
+  }
+  res.addEventListener('click', e => {
+    const b = e.target.closest('button[data-v]'); if (!b) return;
+    const name = st.options[st.selectedIndex].text.replace(/ \(.*$/, '');
+    const qs = document.getElementById('qb-state'); if (qs) qs.value = name;
+    const n = document.getElementById('qb-n'); if (n && !n.value) n.value = '1 village';
+    const w = document.getElementById('qb-where'); if (w) w.value = `${b.dataset.v} (${b.dataset.t}, ${b.dataset.d})`;
+    if (w) w.dispatchEvent(new Event('input', {bubbles: true}));
+    document.getElementById('quote').scrollIntoView({behavior: 'smooth'});
+  });
+})();
+
+// client reviews: only real reviews we approved (reviews/reviews.json); the form sends a new one for approval
+(() => {
+  const list = document.getElementById('rv-list'); if (!list) return;
+  const esc = t => String(t || '').replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+  fetch('reviews/reviews.json?t=' + Date.now()).then(r => r.json()).then(j => {
+    const rv = j.reviews || [];
+    if (!rv.length) { list.innerHTML = '<div class="rv-empty">No reviews yet - our first clients are writing theirs. Worked with us? <b>Be the first to review</b> below.</div>'; return; }
+    const avg = rv.reduce((a, r) => a + r.rating, 0) / rv.length;
+    document.getElementById('rv-sum').innerHTML = `<b style="color:#FFC94D">${'&#9733;'.repeat(Math.round(avg))}</b> <b>${avg.toFixed(1)} / 5</b> from ${rv.length} client review${rv.length === 1 ? '' : 's'} - every review is from a real client.`;
+    list.innerHTML = rv.map(r => `<div class="rv reveal in"><div class="st">${'&#9733;'.repeat(r.rating)}${'&#9734;'.repeat(5 - r.rating)}</div><p>${esc(r.text)}</p>` +
+      `<b>${esc(r.name)}</b>${r.verified ? '<span class="vf">&#10004; Verified client</span>' : ''}<br><small>${[r.company, r.state, r.date].filter(Boolean).map(esc).join(' &middot; ')}</small></div>`).join('');
+  }).catch(() => {});
+  let rating = 0;
+  const stars = document.querySelectorAll('#rv-stars button'), rt = document.getElementById('rv-rt');
+  const paint = n => stars.forEach(b => b.classList.toggle('on', +b.dataset.r <= n));
+  stars.forEach(b => { b.onclick = () => { rating = +b.dataset.r; paint(rating); rt.textContent = ['', 'Poor', 'Fair', 'Good', 'Very good', 'Excellent'][rating]; };
+                       b.onmouseenter = () => paint(+b.dataset.r); b.onmouseleave = () => paint(rating); });
+  const f = document.getElementById('rv-f'), msg = document.getElementById('rv-msg');
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!rating) { msg.className = 'enq-msg err'; msg.textContent = 'Please tap the stars to give a rating.'; return; }
+    BNGate.check(async () => {
+      const data = Object.fromEntries(new FormData(f).entries());
+      if (data._honey) return;
+      data.Rating = rating + ' / 5'; data._subject = 'Website review - ' + rating + ' stars - ' + (data.Name || ''); data._template = 'table'; data._captcha = 'false';
+      msg.className = 'enq-msg'; msg.textContent = 'Sending ...';
+      try {
+        const r = await fetch(FORM_TO, {method: 'POST', headers: {'Content-Type': 'application/json', 'Accept': 'application/json'}, body: JSON.stringify(data)});
+        const j = await r.json().catch(() => ({}));
+        if (!r.ok || String(j.success) === 'false') throw new Error(j.message || r.status);
+        msg.className = 'enq-msg ok'; msg.textContent = '✔ Thank you! Your review will appear here after we check it.'; f.reset(); rating = 0; paint(0); rt.textContent = 'Tap the stars';
+      } catch (err) { msg.className = 'enq-msg err'; msg.textContent = 'Could not send right now - please try again later.'; }
+    });
+  });
+})();
+
+// design: scroll progress, active nav link, back to top, card tilt + cursor glow (off for reduced motion / touch)
+(() => {
+  const bar = document.getElementById('sprog'), top = document.getElementById('totop');
+  const onScroll = () => {
+    const h = document.documentElement, max = h.scrollHeight - h.clientHeight;
+    if (bar) bar.style.width = (max > 0 ? h.scrollTop / max * 100 : 0) + '%';
+    if (top) top.classList.toggle('on', h.scrollTop > 900);
+  };
+  addEventListener('scroll', onScroll, {passive: true}); onScroll();
+  if (top) top.onclick = () => scrollTo({top: 0, behavior: 'smooth'});
+  const links = [...document.querySelectorAll('.links a[href^="#"]')];
+  const secs = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) links.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id));
+  }), {rootMargin: '-45% 0px -50% 0px'});
+  secs.forEach(s => io.observe(s));
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches || matchMedia('(hover: none)').matches || /shot/.test(location.search)) return;
+  document.querySelectorAll('.card,.pw,.pj,.rv,.size,.libcard').forEach(el => {
+    el.classList.add('fx-glow');
+    const tilt = !el.classList.contains('libcard');
+    if (tilt) el.classList.add('fx-tilt');
+    el.addEventListener('pointermove', e => {
+      const r = el.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+      el.style.setProperty('--mx', x * 100 + '%'); el.style.setProperty('--my', y * 100 + '%');
+      if (tilt) el.style.transform = `perspective(900px) rotateX(${(0.5 - y) * 6}deg) rotateY(${(x - 0.5) * 8}deg) translateY(-3px)`;
+    });
+    el.addEventListener('pointerleave', () => { el.style.transform = ''; });
+  });
+})();
 // orbital chrono: outer ring = seconds, inner ring = minutes, HH:MM + date (visitor's local time)
 const DAYS = ['SUN','MON','TUE','WED','THU','FRI','SAT'], MON = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
 const pad = n => String(n).padStart(2, '0'), q = id => document.getElementById(id);
@@ -770,13 +996,16 @@ setPos(50);
 // states
 const FALLBACK = [{key:'rj',state:'Rajasthan'},{key:'mp',state:'Madhya Pradesh'}];
 const ALL = ['Rajasthan','Madhya Pradesh','Maharashtra','Uttar Pradesh','Bihar','Odisha','Chhattisgarh','Karnataka','Tamil Nadu','Andhra Pradesh','Haryana','Delhi','Goa','Tripura','Kerala'];
+fetch('downloads/samples/index.json').then(r => r.json()).then(l => { window.BN_SAMPLES = {}; l.forEach(x => window.BN_SAMPLES[x.key] = x); }).catch(() => {});
 fetch('images/states/states.json').then(r => r.json()).catch(() => FALLBACK).then(list => {
   const tabs = document.getElementById('tabs'), info = document.getElementById('info'), sl = document.getElementById('statelist');
   const by = {}; list.forEach(s => by[s.state] = s);
   function show(s){
     document.querySelectorAll('.tab').forEach(t => t.classList.toggle('on', t.dataset.k === s.key));
-    document.getElementById('ba-sat').src = `images/states/${s.key}_sat.jpg`;
-    top_.src = `images/states/${s.key}_map.jpg`;
+    document.getElementById('ba-sat').src = `images/states/${s.key}_sat.webp`;
+    const ds = document.getElementById('demo-sample'), sm = (window.BN_SAMPLES || {})[s.key];
+    if (ds && sm) { ds.dataset.href = sm.file; document.getElementById('demo-sample-st').textContent = s.state; }
+    top_.src = `images/states/${s.key}_map.webp`;
     const ns = s.lat >= 0 ? 'N' : 'S';
     info.innerHTML = `<div class="tag" style="margin:0">SAMPLE VILLAGE</div><h3>${s.state}</h3>` +
       (s.district ? `<div class="row"><span>District</span><b>${s.district}</b></div>` : '') +
@@ -801,5 +1030,6 @@ fetch('images/states/states.json').then(r => r.json()).catch(() => FALLBACK).the
   if (list.length) show(list[0]);
 });
 </script>
+<script data-goatcounter="https://bhunetramapservice.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
