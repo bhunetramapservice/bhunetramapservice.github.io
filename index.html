@@ -527,9 +527,10 @@ const FORM_TO = 'https://formsubmit.co/ajax/bhunetramapservice@gmail.com';   // 
       a.onload = b.onload = go; a.onerror = b.onerror = () => { i++; };
       a.src = `images/states/${s.key}_sat.jpg`; b.src = `images/states/${s.key}_map.jpg`;
     };
-    mp.addEventListener('animationend', e => { if (e.animationName === 'wipe') { i = (i + 1) % list.length; show(list[i]); } });
-    // first sweep plays on the hero picture, then the states follow
+    // first sweep plays on the hero picture, then the states follow every 9 s (timer: works even when animations
+    // are paused, e.g. a background tab)
     i = list.findIndex(s => s.key === 'rj'); if (i < 0) i = 0;
+    setInterval(() => { i = (i + 1) % list.length; show(list[i]); }, 9000);
   });
 })();
 // orbital chrono: outer ring = seconds, inner ring = minutes, HH:MM + date (visitor's local time)
