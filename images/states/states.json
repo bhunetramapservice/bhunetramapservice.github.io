@@ -188,5 +188,15 @@
   "lon": 78.409,
   "district": "Nagarkurnool",
   "village": "Chinnakarpamula"
+ },
+ {
+  "key": "hp",
+  "state": "Himachal Pradesh",
+  "khasra": 161,
+  "area_ha": 135,
+  "lat": 32.1337,
+  "lon": 75.7925,
+  "district": "Kangra",
+  "village": "Kukdaila"
  }
 ]
