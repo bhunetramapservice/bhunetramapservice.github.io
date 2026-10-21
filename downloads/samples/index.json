@@ -169,5 +169,14 @@
   "khasra": 302,
   "file": "downloads/samples/BHU-NETRA_Sample_Chinnakarpamula_Telangana.zip",
   "kb": 203
+ },
+ {
+  "key": "hp",
+  "state": "Himachal Pradesh",
+  "village": "Kukdaila",
+  "district": "Kangra",
+  "khasra": 161,
+  "file": "downloads/samples/BHU-NETRA_Sample_Kukdaila_Himachal_Pradesh.zip",
+  "kb": 90
  }
 ]
