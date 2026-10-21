@@ -90,6 +90,15 @@
   "kb": 143
  },
  {
+  "key": "hr",
+  "state": "Haryana",
+  "village": "Garwali",
+  "district": "Jind",
+  "khasra": 2821,
+  "file": "downloads/samples/BHU-NETRA_Sample_Garwali_Haryana.zip",
+  "kb": 606
+ },
+ {
   "key": "dl",
   "state": "Delhi",
   "village": "Kondli",

@@ -100,6 +100,16 @@
   "village": "Koramangala Kaval"
  },
  {
+  "key": "hr",
+  "state": "Haryana",
+  "khasra": 2821,
+  "area_ha": 1057,
+  "lat": 29.1717,
+  "lon": 76.3461,
+  "district": "Jind",
+  "village": "Garwali"
+ },
+ {
   "key": "dl",
   "state": "Delhi",
   "khasra": 477,
