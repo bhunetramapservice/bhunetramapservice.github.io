@@ -290,7 +290,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 #lb.on{display:grid}#lb img{max-height:92vh;border-radius:12px}
 .reveal{opacity:0;transform:translateY(24px);transition:.8s ease}.reveal.in{opacity:1;transform:none}
 .shotmode .reveal{opacity:1;transform:none}.shotmode .hero{min-height:880px}.shotmode nav,.shotmode .ticker{position:absolute}
-/* ---- BHU-NETRA app look: grid backdrop, HUD brackets, ticker, status pod, chrono ---- */
+/* ---- BHU-NETRA app look: grid backdrop, HUD brackets, ticker, status pod ---- */
 body::before{content:"";position:fixed;inset:0;z-index:-5;pointer-events:none;
   background:linear-gradient(rgba(46,230,176,.045) 1px,transparent 1px) 0 0/44px 44px,
              linear-gradient(90deg,rgba(46,230,176,.045) 1px,transparent 1px) 0 0/44px 44px,
@@ -315,18 +315,6 @@ body::before{content:"";position:fixed;inset:0;z-index:-5;pointer-events:none;
   background:rgba(10,91,76,.18);font:600 12px Rajdhani,sans-serif;letter-spacing:.14em;color:var(--em-lit)}
 .pod i{width:8px;height:8px;border-radius:50%;background:var(--em-lit);box-shadow:0 0 10px var(--em-lit);animation:blink 2s infinite}
 .pod em{font-style:normal;color:#C9D6EA;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:11px}
-.chrono{display:flex;align-items:center;gap:10px;padding:4px 14px 4px 5px;border-radius:14px;border:1px solid rgba(46,230,176,.32);
-  background:linear-gradient(135deg,rgba(10,91,76,.32),rgba(17,53,111,.32));box-shadow:inset 0 0 18px rgba(46,230,176,.08),0 0 18px rgba(46,230,176,.08)}
-.chrono .ring{width:44px;height:44px;transform:rotate(-90deg)}
-.chrono .ring circle{fill:none;stroke-width:3}
-.chrono .ring .trk{stroke:rgba(255,255,255,.08)}
-.chrono .ring .sec{stroke:var(--em-lit);stroke-linecap:round;stroke-dasharray:119.38;filter:drop-shadow(0 0 3px var(--em-lit))}
-.chrono .ring .min{stroke:var(--amb);stroke-linecap:round;stroke-dasharray:84.82;stroke-width:2.4}
-.chrono .ring text{transform:rotate(90deg);transform-origin:22px 22px;fill:#fff;font:700 11px "JetBrains Mono",monospace;text-anchor:middle}
-.chrono .t{font:700 24px/1 Rajdhani,sans-serif;color:#fff;letter-spacing:.04em;text-shadow:0 0 14px rgba(46,230,176,.55)}
-.chrono .colon{color:var(--em-lit);margin:0 1px;animation:blink 1s steps(1) infinite}
-.chrono em{font:600 10px "JetBrains Mono",monospace;font-style:normal;color:var(--amb-lit);margin-left:6px;letter-spacing:.12em;vertical-align:top}
-.chrono .d{font:500 10px "JetBrains Mono",monospace;color:#AFC0DA;letter-spacing:.16em;margin-top:3px}
 .hero{padding-top:140px}
 .eyelogo{position:relative;width:120px;height:120px;margin-bottom:10px}
 .eyelogo img{position:absolute;inset:14px;filter:drop-shadow(0 0 18px rgba(46,230,176,.55))}
@@ -335,8 +323,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-5;pointer-events:none;
 @keyframes spin{to{transform:rotate(360deg)}}
 .hero .tag{display:block}
 nav .btn{white-space:nowrap}
-@media (max-width:1320px){.pod{display:none}} @media (max-width:1180px){.links{display:none}}
-@media (max-width:640px){.chrono{display:none}}
+@media (max-width:1320px){.pod{display:none}}
 @media (max-width:960px){.ticker{top:66px}}
 @media (max-width:960px){
   .viewer,.cover{grid-template-columns:1fr} .sizes,.grid3{grid-template-columns:1fr 1fr}
@@ -379,6 +366,28 @@ img{image-rendering:auto}
 @media (prefers-reduced-motion:reduce){.btn::before,.fx-glow::after{display:none}}
 .shotmode #sprog,.shotmode #totop{display:none}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.hero .bg img.map{clip-path:none}}
+
+/* ---- header (22-10-2026): no clock; brand + links + button never overlap; menu button below 1420 px ---- */
+nav .wrap{max-width:1440px;gap:22px}
+.brand{margin-right:0;padding-right:0;flex:none}
+.links{flex:1;justify-content:center;gap:clamp(12px,1.4vw,22px)}
+nav .btn{flex:none;padding:11px 20px}
+.menu-btn{display:none;flex:none;width:44px;height:44px;border-radius:12px;border:1px solid rgba(46,230,176,.4);background:rgba(8,14,29,.6);cursor:pointer;padding:0;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.menu-btn span{display:block;width:20px;height:2px;border-radius:2px;background:var(--em-lit);transition:transform .25s,opacity .25s}
+nav.open .menu-btn span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+nav.open .menu-btn span:nth-child(2){opacity:0}
+nav.open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:1420px){
+  .menu-btn{display:flex}
+  nav .btn{margin-left:auto}
+  .links{display:none !important;position:absolute;top:66px;right:16px;left:auto;flex-direction:column;gap:0;min-width:240px;padding:8px;
+    background:rgba(8,14,29,.97);border:1px solid var(--line);border-radius:14px;box-shadow:0 20px 50px rgba(0,0,0,.5);backdrop-filter:blur(12px)}
+  nav.open .links{display:flex !important}
+  .links a{padding:11px 14px;border-radius:10px;font-size:15px}
+  .links a:hover{background:rgba(46,230,176,.08)}
+  .links a::after{display:none}
+}
+@media (max-width:520px){nav .btn{display:none}.brand{font-size:18px}.brand img{width:34px;height:34px}}
 </style>
 </head>
 <body>
@@ -386,17 +395,9 @@ img{image-rendering:auto}
 <nav id="nav">
   <div class="wrap">
     <a class="brand" href="#top"><img src="images/logo.png" alt="BHU-NETRA logo">BHU-NETRA <span>MAP SERVICE</span></a>
-    <div class="links"><a href="#services">Services</a><a href="#survey">Survey</a><a href="#demo">Demos</a><a href="#check">Check village</a><a href="#projects">Projects</a><a href="#reviews">Reviews</a><a href="gallery/">Gallery</a><a href="verify/">Verify</a><a href="#contact">Contact</a></div>
-    <div class="chrono" id="chrono" title="Your local time">
-      <svg class="ring" viewBox="0 0 44 44" aria-hidden="true">
-        <circle class="trk" cx="22" cy="22" r="19"/><circle class="sec" id="c-sec" cx="22" cy="22" r="19"/>
-        <circle class="trk" cx="22" cy="22" r="13.5"/><circle class="min" id="c-min" cx="22" cy="22" r="13.5"/>
-        <text id="c-s" x="22" y="25.5">00</text>
-      </svg>
-      <div class="ct"><div class="t"><span id="c-h">00</span><b class="colon">:</b><span id="c-m">00</span><em id="c-z">IST</em></div>
-        <div class="d" id="c-d">---</div></div>
-    </div>
+    <div class="links" id="nav-links"><a href="#services">Services</a><a href="#survey">Survey</a><a href="#demo">Demos</a><a href="#check">Check village</a><a href="#projects">Projects</a><a href="#reviews">Reviews</a><a href="gallery/">Gallery</a><a href="verify/">Verify</a><a href="#contact">Contact</a></div>
     <a class="btn" href="#" data-gate="mail" data-subject="Quotation request - khasra maps">Get a quote</a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div class="ticker"><div class="run">
@@ -964,17 +965,15 @@ const FORM_TO = 'https://formsubmit.co/ajax/bhunetramapservice@gmail.com';   // 
     el.addEventListener('pointerleave', () => { el.style.transform = ''; });
   });
 })();
-// orbital chrono: outer ring = seconds, inner ring = minutes, HH:MM + date (visitor's local time)
-const DAYS = ['SUN','MON','TUE','WED','THU','FRI','SAT'], MON = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
-const pad = n => String(n).padStart(2, '0'), q = id => document.getElementById(id);
-const zone = (() => { try { const z = new Intl.DateTimeFormat('en-IN', {timeZoneName: 'short'}).formatToParts(new Date()).find(p => p.type === 'timeZoneName').value; return /GMT\+5:30/.test(z) ? 'IST' : z; } catch (e) { return ''; } })();
-q('c-z').textContent = zone;
-(function clock(){ const d = new Date(), s = d.getSeconds() + d.getMilliseconds() / 1000;
-  q('c-sec').style.strokeDashoffset = 119.38 * (1 - s / 60);
-  q('c-min').style.strokeDashoffset = 84.82 * (1 - (d.getMinutes() + s / 60) / 60);
-  q('c-s').textContent = pad(d.getSeconds()); q('c-h').textContent = pad(d.getHours()); q('c-m').textContent = pad(d.getMinutes());
-  q('c-d').textContent = DAYS[d.getDay()] + ' · ' + pad(d.getDate()) + ' ' + MON[d.getMonth()] + ' ' + d.getFullYear();
-  setTimeout(clock, 100); })();
+
+// header menu (small screens)
+(() => {
+  const nav = document.getElementById('nav'), b = document.getElementById('menu-btn');
+  if (!b) return;
+  b.addEventListener('click', () => { const o = nav.classList.toggle('open'); b.setAttribute('aria-expanded', o); });
+  document.querySelectorAll('#nav-links a').forEach(a => a.addEventListener('click', () => { nav.classList.remove('open'); b.setAttribute('aria-expanded', 'false'); }));
+  addEventListener('keydown', e => { if (e.key === 'Escape') nav.classList.remove('open'); });
+})();
 const nav = document.getElementById('nav');
 const onScroll = () => nav.classList.toggle('solid', scrollY > 40);
 addEventListener('scroll', onScroll); onScroll();
