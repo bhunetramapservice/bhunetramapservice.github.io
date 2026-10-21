@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KML vs DWG vs SHP vs Excel: which khasra map format does your land team need? | BHU-NETRA Map Service</title>
+<meta name="description" content="A practical comparison of KML / KMZ, DWG / DXF, Shapefile (SHP) and Excel for khasra maps - who uses each format, what it holds, coordinate systems and common mistakes."><link rel="canonical" href="https://bhunetramapservice.github.io/guides/kml-vs-dwg-vs-shp-for-land-teams/">
+<meta property="og:title" content="KML vs DWG vs SHP vs Excel: which khasra map format does your land team need?"><meta property="og:description" content="A practical comparison of KML / KMZ, DWG / DXF, Shapefile (SHP) and Excel for khasra maps - who uses each format, what it holds, coordinate systems and common mistakes.">
+<meta property="og:image" content="https://bhunetramapservice.github.io/images/og_card.jpg"><meta name="theme-color" content="#080E1D">
+<link rel="icon" href="../../images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>:root{--void:#080E1D;--line:#1E3A66;--em:#0A5B4C;--em-mid:#19A884;--em-lit:#2EE6B0;--amb:#F28E3A;--amb-lit:#FFB46B;--mist:#EFF2FC;--muted:#93A4C3}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--void);color:var(--mist);font-family:Inter,"Segoe UI",system-ui,sans-serif;line-height:1.75}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(rgba(46,230,176,.04) 1px,transparent 1px) 0 0/44px 44px,linear-gradient(90deg,rgba(46,230,176,.04) 1px,transparent 1px) 0 0/44px 44px,radial-gradient(900px 500px at 80% 0,rgba(17,53,111,.5),transparent 60%),var(--void)}
+a{color:var(--em-lit);text-decoration:none}
+nav{border-bottom:1px solid var(--line);background:rgba(8,14,29,.9);position:sticky;top:0;z-index:5;backdrop-filter:blur(10px)}
+nav .w{max-width:1100px;margin:0 auto;padding:0 18px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.brand{display:flex;align-items:center;gap:10px;font:700 20px Rajdhani,sans-serif;color:#fff;white-space:nowrap}.brand img{width:36px}.brand span{color:var(--em-lit)}
+.btn{display:inline-block;background:linear-gradient(90deg,var(--em-mid),var(--em-lit));color:#04211A;padding:9px 16px;border-radius:10px;font:700 15px Rajdhani,sans-serif}
+article,.list{max-width:820px;margin:0 auto;padding:40px 18px 30px}
+.tag{font:700 12px Rajdhani,sans-serif;letter-spacing:.32em;color:var(--amb-lit)}
+h1{font:700 clamp(30px,4.6vw,46px)/1.1 Rajdhani,sans-serif;margin:8px 0 14px}
+h2{font:700 25px/1.2 Rajdhani,sans-serif;color:#fff;margin:30px 0 8px}
+p,li{color:#D2DCEC;font-size:16.5px}
+ol,ul{padding-left:22px;margin:8px 0}li{margin:5px 0}
+.hero{width:100%;border-radius:16px;border:1px solid var(--line);margin:10px 0 18px}
+.meta{color:var(--muted);font-size:13.5px}
+.box{margin:34px 0 10px;padding:22px;border-radius:16px;border:1px solid var(--em-mid);background:linear-gradient(160deg,rgba(17,53,111,.45),rgba(11,20,40,.9))}
+.box h2{margin-top:0}
+.cards{display:grid;gap:14px;margin-top:20px}
+.card{display:grid;grid-template-columns:200px 1fr;gap:16px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:12px;background:rgba(14,26,51,.85)}
+.card img{width:100%;border-radius:10px;aspect-ratio:16/10;object-fit:cover}
+.card b{font:700 21px/1.2 Rajdhani,sans-serif;color:#fff;display:block}.card small{color:var(--muted)}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:24px 0 40px}
+@media (max-width:620px){.card{grid-template-columns:1fr}}</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "KML vs DWG vs SHP vs Excel: which khasra map format does your land team need?", "description": "A practical comparison of KML / KMZ, DWG / DXF, Shapefile (SHP) and Excel for khasra maps - who uses each format, what it holds, coordinate systems and common mistakes.", "datePublished": "2026-10-21", "dateModified": "2026-10-21", "image": "https://bhunetramapservice.github.io/images/og_card.jpg", "mainEntityOfPage": "https://bhunetramapservice.github.io/guides/kml-vs-dwg-vs-shp-for-land-teams/", "author": {"@type": "Organization", "name": "BHU-NETRA Map Service", "url": "https://bhunetramapservice.github.io/"}, "publisher": {"@type": "Organization", "name": "BHU-NETRA Map Service", "logo": {"@type": "ImageObject", "url": "https://bhunetramapservice.github.io/images/logo.png"}}}</script></head><body><nav><div class="w"><a class="brand" href="../../"><img src="../../images/logo.png" alt="BHU-NETRA logo">BHU-NETRA <span>MAP SERVICE</span></a><a class="btn" href="../../#quote">Get a quote</a></div></nav><article><div class="tag">GUIDE</div><h1>KML vs DWG vs SHP vs Excel: which khasra map format does your land team need?</h1><div class="meta">BHU-NETRA Map Service &middot; 21-10-2026</div><img class="hero" src="../../images/library/lib_05_shp_gis.webp" alt="KML vs DWG vs SHP vs Excel: which khasra map format does your land team need?"><p>When a land team orders a georeferenced khasra map, the first question is often: which file do we need? The honest answer is that different people on the same project need different formats. The map is the same - the same khasra polygons in the same place - but each format is built for a different tool and a different job. This guide explains the four formats we deliver and when to use each.</p>
+<h2>KML / KMZ - for the land team and the field</h2>
+<p>KML is the format of Google Earth. A KMZ is simply a zipped KML, often with labels or images inside. It is the easiest way for non-GIS people to see khasra boundaries on satellite imagery, on a laptop or on a phone.</p>
+<ul><li>Who uses it: land aggregators, project managers, site visit teams, clients who just want to look.</li><li>What it holds: khasra polygons, khasra numbers as labels, and a balloon with attributes such as area and land category.</li><li>Coordinates: always WGS 84 latitude / longitude.</li><li>Opens in: Google Earth Pro, Google Earth web, Google My Maps, and most mobile map apps.</li></ul>
+<p>Limitation: KML is for viewing and light editing. It is not the right file for engineering design or for spatial analysis across many villages.</p>
+<h2>DWG / DXF - for engineering and layout design</h2>
+<p>DWG is AutoCAD&#x27;s own format and DXF is its open exchange version. Engineers designing solar module tables, wind turbine positions, roads, substations or transmission lines work in CAD, so they need the khasra boundaries as CAD geometry.</p>
+<ul><li>Who uses it: design engineers, CAD draughtsmen, EPC contractors.</li><li>What it holds: khasra boundaries as polylines on separate layers, khasra numbers as text, village boundary on its own layer.</li><li>Coordinates: projected UTM in metres (the correct zone for the area), so distances and areas measured in CAD are real ground values.</li><li>Opens in: AutoCAD, BricsCAD, ZWCAD, LibreCAD, and GIS software as a CAD layer.</li></ul>
+<p>Common mistake: a CAD file drawn in local or paper units cannot be overlaid on the project layout. Always check that the drawing is in real UTM coordinates - a khasra corner should read as a six-digit easting and a seven-digit northing.</p>
+<h2>Shapefile (SHP) - for GIS analysis</h2>
+<p>The Shapefile is the standard exchange format of GIS. One shapefile is really a set of files (.shp, .shx, .dbf, .prj and often .cpg) that must stay together in one folder.</p>
+<ul><li>Who uses it: GIS analysts, planners, consultants preparing land reports.</li><li>What it holds: one polygon per khasra with an attribute table - khasra number, village, area, land category and other fields.</li><li>Coordinates: defined in the .prj file, usually WGS 84 or UTM.</li><li>Opens in: QGIS (free), ArcGIS, Global Mapper and most GIS tools.</li></ul>
+<p>This is the format for questions like: which khasras fall inside the project boundary, how much government land lies within 2 km of the substation, or which plots a transmission corridor crosses. A clean shapefile has no overlaps and no gaps between neighbouring khasras, so areas add up correctly.</p>
+<h2>Excel - for the land budget and title work</h2>
+<p>The Excel sheet is the khasra list: one row per plot with its number, village, area and category. It is not a map, but it is what the land, legal and finance teams work from every day.</p>
+<ul><li>Who uses it: land managers, legal / title search teams, finance.</li><li>Typical use: tracking negotiation status, matching khasras with jamabandi / record-of-rights extracts, calculating the land budget.</li></ul>
+<h2>Quick comparison</h2>
+<ul><li>Need to see the land on satellite imagery: KML / KMZ.</li><li>Need to design a layout or a line on the land: DWG / DXF in UTM.</li><li>Need analysis, buffers, overlays or reports: SHP.</li><li>Need a list to track ownership and areas: Excel.</li></ul>
+<h2>Why one order should include all four</h2>
+<p>On a real project the land team, the engineers and the GIS analyst work at the same time. If each converts the map on their own, small differences creep in - a shifted village, a lost attribute, a different coordinate system. Delivering KML, DWG, SHP and Excel from the same georeferenced geometry keeps every team on exactly the same khasra boundaries.</p>
+<p>Remember that digitized land-record maps are a planning base, not a legal survey. Where a boundary matters legally, a DGPS or Total Station demarcation survey on the ground is the next step.</p>
+<p>See what is available for your state on the <a href="../../state/">state-wise khasra map pages</a>, check if your village is covered with the <a href="../../#check">village checker</a>, or download the free sample files below to open all four formats yourself.</p><div class="box"><div class="tag">BHU-NETRA MAP SERVICE</div><h2>Need khasra maps or a survey?</h2>
+<p>Georeferenced and digitized khasra maps in KML, DWG, SHP and Excel for 19 states, plus DGPS, Total Station, topographic and drone surveys. Single village orders welcome.</p>
+<p style="margin-top:12px"><a class="btn" href="../../#quote">Get a quotation</a> &nbsp; <a href="#" data-gate="wa" data-text="Hello BHU-NETRA Map Service, I need khasra maps for: ">Chat on WhatsApp</a> &nbsp; <a href="#" data-gate="dl" data-href="../../downloads/samples/BHU-NETRA_Sample_Amaliphala_Rajasthan.zip">Free sample files</a></p></div><p style="margin-top:20px"><a href="../">&larr; All guides</a></p></article><footer>&copy; 2026 BHU-NETRA Map Service &middot; <a href="../../">bhunetramapservice.github.io</a></footer><script src="../../gate.js"></script><script data-goatcounter="https://bhunetramapservice.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body></html>
