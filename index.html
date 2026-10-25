@@ -21,6 +21,8 @@
 {
  "@context": "https://schema.org",
  "@type": "ProfessionalService",
+ "legalName": "Bhunetra Map Service",
+ "identifier": {"@type": "PropertyValue", "propertyID": "Udyam (MSME) registration", "value": "UDYAM-WB-07-0149070"},
  "name": "BHU-NETRA Map Service",
  "alternateName": "BHU-NETRA",
  "url": "https://bhunetramapservice.github.io/",
@@ -352,7 +354,7 @@ nav .btn{white-space:nowrap}
   background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),rgba(46,230,176,.9),rgba(255,180,107,.5) 40%,transparent 70%);
   -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
 .fx-glow:hover::after{opacity:1}
-.head h2{position:relative;display:inline-block}
+.head h2{position:relative;display:block}
 .head h2::after{content:"";display:block;height:3px;width:64px;margin-top:12px;border-radius:3px;background:linear-gradient(90deg,var(--em-lit),var(--amb-lit));box-shadow:0 0 14px rgba(46,230,176,.6)}
 section{position:relative}
 section+section::before{content:"";position:absolute;top:0;left:50%;width:min(900px,80%);height:1px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,rgba(46,230,176,.35),transparent)}
@@ -388,6 +390,14 @@ nav.open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
   .links a::after{display:none}
 }
 @media (max-width:520px){nav .btn{display:none}.brand{font-size:18px}.brand img{width:34px;height:34px}}
+
+/* MSME badge (26-10-2026) */
+.msme{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:7px 14px;border-radius:999px;border:1px solid rgba(255,180,107,.55);
+  background:rgba(8,14,29,.55);backdrop-filter:blur(6px);font:600 13.5px Inter,sans-serif;color:#E6ECF7;letter-spacing:.01em}
+.msme i{font-style:normal;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;
+  background:linear-gradient(135deg,var(--amb),var(--amb-lit));color:#1A0E02;font-size:12px;font-weight:800}
+.msme b{font:600 12.5px "JetBrains Mono",Consolas,monospace;color:var(--amb-lit);letter-spacing:.04em}
+@media (max-width:520px){.msme{font-size:12px;flex-wrap:wrap;border-radius:14px}.msme b{font-size:11.5px}}
 </style>
 </head>
 <body>
@@ -423,6 +433,7 @@ nav.open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
       <a class="btn" href="#" data-gate="mail" data-subject="Quotation request - khasra maps">&#9993; Request a quotation</a>
       <a class="btn ghost" href="#demo">&#9654; See state demos</a>
     </div>
+    <div class="msme" title="Registered with the Ministry of MSME, Government of India (Udyam)"><i>&#10004;</i>MSME (Udyam) Registered &middot; Micro Enterprise <b>UDYAM-WB-07-0149070</b></div>
   </div>
 </header>
 
@@ -741,7 +752,7 @@ nav.open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
 <footer>
   <div class="wrap">
-    <span>&copy; <span id="yr">2026</span> BHU-NETRA Map Service &middot; bhunetramapservice@gmail.com &middot; <a href="guides/">Guides</a> &middot; <a href="#faq">FAQ</a> &middot; <a href="gallery/">Gallery</a> &middot; <a href="explore/">Live map</a> &middot; <a href="verify/">Verify invoice</a> &middot; <a href="track/">Track order</a> &middot; <a href="state/">Maps by state</a> &middot; <a href="cadastral-map-digitization-services/">Cadastral map digitization</a> &middot; <a href="district-map-digitization-status/">District-wise status</a></span>
+    <span>&copy; <span id="yr">2026</span> BHU-NETRA Map Service (Regd.: Bhunetra Map Service, MSME Udyam UDYAM-WB-07-0149070) &middot; bhunetramapservice@gmail.com &middot; <a href="guides/">Guides</a> &middot; <a href="#faq">FAQ</a> &middot; <a href="gallery/">Gallery</a> &middot; <a href="explore/">Live map</a> &middot; <a href="verify/">Verify invoice</a> &middot; <a href="track/">Track order</a> &middot; <a href="state/">Maps by state</a> &middot; <a href="cadastral-map-digitization-services/">Cadastral map digitization</a> &middot; <a href="district-map-digitization-status/">District-wise status</a></span>
     <span>Maps are digitized from public land-record maps for planning / reference use; not a legal survey or title document. Imagery &copy; Esri.</span>
   </div>
 </footer>
