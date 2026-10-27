@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FMB sketch vs village map: what is the difference and which one do you need? | BHU-NETRA Map Service</title>
+<meta name="description" content="FMB sketch or village (cadastral) map? What each one shows, how they are made, when a land team needs one or the other, and how both are turned into KML, DWG and SHP."><link rel="canonical" href="https://bhunetramapservice.github.io/guides/fmb-sketch-vs-village-map/">
+<meta property="og:title" content="FMB sketch vs village map: what is the difference and which one do you need?"><meta property="og:description" content="FMB sketch or village (cadastral) map? What each one shows, how they are made, when a land team needs one or the other, and how both are turned into KML, DWG and SHP.">
+<meta property="og:image" content="https://bhunetramapservice.github.io/images/og_card.jpg"><meta name="theme-color" content="#080E1D">
+<link rel="icon" href="../../images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>:root{--void:#080E1D;--line:#1E3A66;--em:#0A5B4C;--em-mid:#19A884;--em-lit:#2EE6B0;--amb:#F28E3A;--amb-lit:#FFB46B;--mist:#EFF2FC;--muted:#93A4C3}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--void);color:var(--mist);font-family:Inter,"Segoe UI",system-ui,sans-serif;line-height:1.75}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(rgba(46,230,176,.04) 1px,transparent 1px) 0 0/44px 44px,linear-gradient(90deg,rgba(46,230,176,.04) 1px,transparent 1px) 0 0/44px 44px,radial-gradient(900px 500px at 80% 0,rgba(17,53,111,.5),transparent 60%),var(--void)}
+a{color:var(--em-lit);text-decoration:none}
+nav{border-bottom:1px solid var(--line);background:rgba(8,14,29,.9);position:sticky;top:0;z-index:5;backdrop-filter:blur(10px)}
+nav .w{max-width:1100px;margin:0 auto;padding:0 18px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.brand{display:flex;align-items:center;gap:10px;font:700 20px Rajdhani,sans-serif;color:#fff;white-space:nowrap}.brand img{width:36px}.brand span{color:var(--em-lit)}
+.btn{display:inline-block;background:linear-gradient(90deg,var(--em-mid),var(--em-lit));color:#04211A;padding:9px 16px;border-radius:10px;font:700 15px Rajdhani,sans-serif}
+article,.list{max-width:820px;margin:0 auto;padding:40px 18px 30px}
+.tag{font:700 12px Rajdhani,sans-serif;letter-spacing:.32em;color:var(--amb-lit)}
+h1{font:700 clamp(30px,4.6vw,46px)/1.1 Rajdhani,sans-serif;margin:8px 0 14px}
+h2{font:700 25px/1.2 Rajdhani,sans-serif;color:#fff;margin:30px 0 8px}
+p,li{color:#D2DCEC;font-size:16.5px}
+ol,ul{padding-left:22px;margin:8px 0}li{margin:5px 0}
+.hero{width:100%;border-radius:16px;border:1px solid var(--line);margin:10px 0 18px}
+.meta{color:var(--muted);font-size:13.5px}
+.box{margin:34px 0 10px;padding:22px;border-radius:16px;border:1px solid var(--em-mid);background:linear-gradient(160deg,rgba(17,53,111,.45),rgba(11,20,40,.9))}
+.box h2{margin-top:0}
+.cards{display:grid;gap:14px;margin-top:20px}
+.card{display:grid;grid-template-columns:200px 1fr;gap:16px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:12px;background:rgba(14,26,51,.85)}
+.card img{width:100%;border-radius:10px;aspect-ratio:16/10;object-fit:cover}
+.card b{font:700 21px/1.2 Rajdhani,sans-serif;color:#fff;display:block}.card small{color:var(--muted)}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:24px 0 40px}
+@media (max-width:620px){.card{grid-template-columns:1fr}}</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "FMB sketch vs village map: what is the difference and which one do you need?", "description": "FMB sketch or village (cadastral) map? What each one shows, how they are made, when a land team needs one or the other, and how both are turned into KML, DWG and SHP.", "datePublished": "2026-10-27", "dateModified": "2026-10-27", "image": "https://bhunetramapservice.github.io/images/og_card.jpg", "mainEntityOfPage": "https://bhunetramapservice.github.io/guides/fmb-sketch-vs-village-map/", "author": {"@type": "Organization", "name": "BHU-NETRA Map Service", "url": "https://bhunetramapservice.github.io/"}, "publisher": {"@type": "Organization", "name": "BHU-NETRA Map Service", "logo": {"@type": "ImageObject", "url": "https://bhunetramapservice.github.io/images/logo.png"}}}</script></head><body><nav><div class="w"><a class="brand" href="../../"><img src="../../images/logo.png" alt="BHU-NETRA logo">BHU-NETRA <span>MAP SERVICE</span></a><a class="btn" href="../../#quote">Get a quote</a></div></nav><article><div class="tag">GUIDE</div><h1>FMB sketch vs village map: what is the difference and which one do you need?</h1><div class="meta">BHU-NETRA Map Service &middot; 27-10-2026</div><img class="hero" src="../../images/library/lib_09_village_boundary.webp" alt="FMB sketch vs village map: what is the difference and which one do you need?"><p>Land teams often get two kinds of drawings from the revenue records: the sketch of one survey number and the map of the whole village. They look alike but answer different questions. Here is what each one is and when you need which.</p>
+<h2>What is an FMB sketch?</h2>
+<p>FMB stands for Field Measurement Book. An FMB sketch is the measured drawing of a single survey number (khasra, gat or dag in other states): its outline drawn to scale, the length of every side, the chain line and offsets used in the old survey, the survey numbers on every side and the area. The name is used in states such as Tamil Nadu and Andhra Pradesh; other states keep similar plot sketches under their own names.</p>
+<ul><li>One survey number (sometimes with its sub-divisions) per sheet</li><li>Side lengths and measurements written on the drawing</li><li>Neighbouring survey numbers named, but not drawn in full</li><li>Usually on a local paper grid - no real-world coordinates</li></ul>
+<h2>What is a village map?</h2>
+<p>The village map, also called the cadastral or revenue map, shows every plot of the village together on one sheet: plot numbers, cart tracks, streams, tanks, the abadi (settlement) and the village boundary. Many states now show it online on a Bhunaksha-type portal or a state GIS.</p>
+<ul><li>All plots of the village and how they fit together</li><li>Roads, tracks, nallahs and the outer village boundary</li><li>Smaller scale - side lengths are not written for every plot</li><li>Often on its own sheet grid; georeferencing places it on the earth</li></ul>
+<h2>Side by side</h2>
+<ul><li>Question it answers - FMB: exact shape and size of one plot. Village map: where the plot lies and what is around it.</li><li>Detail - FMB: side lengths and corners. Village map: layout of hundreds of plots.</li><li>Typical use - FMB: sale or lease deed, demarcation, conversion file. Village map: project planning, route and site selection, land schedules.</li><li>Field work - both are drawings of the record; a DGPS or Total Station survey shows where the corners are on the ground today.</li></ul>
+<h2>When you need the FMB sketch</h2>
+<ul><li>Registration or lease of one survey number, where the deed refers to its boundaries</li><li>Demarcation of a plot, or a dispute about one boundary</li><li>Wind turbine land, where each WTG survey number needs its own sketch - see our guide on FMB for wind projects</li><li>Conversion or approval files that ask for the sketch of each survey number used</li></ul>
+<h2>When you need the village map</h2>
+<ul><li>Solar parks, industrial land and townships, where many plots must form one block</li><li>Transmission lines, roads and pipelines, where a route crosses many plots and villages</li><li>Finding government land, forest land and the plots that are already private</li><li>Making a khasra-wise land schedule for a whole project</li></ul>
+<h2>Turning them into GIS files</h2>
+<p>Neither drawing is ready for Google Earth or AutoCAD as it comes. A village map is digitized plot by plot and georeferenced to satellite imagery in WGS 84 / UTM, so every plot becomes a polygon with its number. An FMB can then be checked against that map: its side lengths confirm the plot shape, and the georeferenced map gives its corners real coordinates. On a project the two together, plus a field survey where the boundary matters, give a land team a reliable picture.</p>
+<p>Both drawings show the record, not a title: the record of rights and the revenue office stay the legal source. BHU-NETRA Map Service is a private service and is not connected with any state government.</p>
+<p>See the <a href="../../state/">khasra map page of your state</a> with a free sample, check your village with the <a href="../../#check">village checker</a>, read <a href="../fmb-for-wind-projects/">FMB for wind projects</a> and <a href="../village-boundary-map/">village boundary map</a>, or <a href="../../#quote">ask for a quotation</a>.</p><div class="box"><div class="tag">BHU-NETRA MAP SERVICE</div><h2>Need khasra maps or a survey?</h2>
+<p>Georeferenced and digitized khasra maps in KML, DWG, SHP and Excel for 20 states, plus DGPS, Total Station, topographic and drone surveys. Single village orders welcome.</p>
+<p style="margin-top:12px"><a class="btn" href="../../#quote">Get a quotation</a> &nbsp; <a href="#" data-gate="wa" data-text="Hello BHU-NETRA Map Service, I need khasra maps for: ">Chat on WhatsApp</a> &nbsp; <a href="#" data-gate="dl" data-href="../../downloads/samples/BHU-NETRA_Sample_Amaliphala_Rajasthan.zip">Free sample files</a></p></div><p style="margin-top:20px"><a href="../">&larr; All guides</a></p></article><footer>&copy; 2026 BHU-NETRA Map Service &middot; MSME (Udyam) UDYAM-WB-07-0149070 &middot; <a href="../../">bhunetramapservice.github.io</a></footer><script src="../../gate.js"></script><script data-goatcounter="https://bhunetramapservice.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body></html>
