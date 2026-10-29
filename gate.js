@@ -134,7 +134,7 @@
 // Free sample on every page (user, 29-10-2026): a pill bottom-left, same captcha gate.  Pages with their own sample band
 // (home) show it only after that band scrolls away.  The file = coverage.SAMPLE_FILE.
 (function () {
-  const FILE = 'downloads/samples/BHU-NETRA_Sample_Idarla_Rajasthan.zip';
+  const FILE = 'downloads/samples/BHU-NETRA_Sample_Barotha_Rajasthan.zip';
   const src = (document.currentScript && document.currentScript.src) || '';
   const root = src ? src.replace(/gate\.js(\?.*)?$/, '') : '/';
   function add() {
