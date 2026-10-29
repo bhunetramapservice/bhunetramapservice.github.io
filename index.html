@@ -522,7 +522,7 @@ nav.open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
       <figure class="shot reveal"><img src="images/demo_1_digitized.webp" alt="Digitized khasra map with numbers" loading="lazy"><div><b>Digitized khasra map</b><small>Every khasra with its number &middot; DWG / SHP / KML</small></div></figure>
       <figure class="shot reveal"><img src="images/demo_2_colour_coded.webp" alt="Colour-coded land category" loading="lazy"><div><b>Colour-coded land category</b><small>Private vs Government land</small></div></figure>
     </div>
-    <div class="cta" style="margin-top:22px"><a class="btn" href="explore/">&#9673; Explore the live map</a><a class="btn ghost" href="gallery/">All 20 states gallery &rarr;</a><a class="btn ghost" id="demo-sample" href="#" data-gate="dl" data-href="downloads/samples/BHU-NETRA_Sample_Amaliphala_Rajasthan.zip">&#11015; Free sample <span id="demo-sample-st">Rajasthan</span> (KML + DXF + SHP + Excel)</a></div>
+    <div class="cta" style="margin-top:22px"><a class="btn" href="explore/">&#9673; Explore the live map</a><a class="btn ghost" href="gallery/">All 20 states gallery &rarr;</a><a class="btn ghost" id="demo-sample" href="#" data-gate="dl" data-href="downloads/samples/BHU-NETRA_Sample_Idarla_Rajasthan.zip">&#11015; Free sample files (Idarla, Rajasthan &middot; KML + DXF + SHP)</a></div>
     <div class="formats"><span class="fmt">KML / KMZ</span><span class="fmt">DWG / DXF</span><span class="fmt">SHP + QGIS style</span><span class="fmt">Excel</span><span class="fmt">PDF / PNG</span></div>
   </div>
 </section>
@@ -579,7 +579,7 @@ nav.open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
       </div>
       <p class="vc-info" id="vc-info">Choose a state to load its village list.</p>
       <div class="vc-res" id="vc-res"></div>
-      <div class="vc-foot"><a class="btn ghost" id="vc-sample" href="#" data-gate="dl" data-href="">&#11015; Free sample of this state</a>
+      <div class="vc-foot"><a class="btn ghost" id="vc-sample" href="#" data-gate="dl" data-href="downloads/samples/BHU-NETRA_Sample_Idarla_Rajasthan.zip">&#11015; Free sample files (Idarla, Rajasthan)</a>
         <span>Names follow the census / LGD list; spellings in the land records can differ a little - we confirm every village with the quotation.</span></div>
     </div>
   </div>
@@ -860,11 +860,9 @@ const FORM_TO = 'https://formsubmit.co/ajax/bhunetramapservice@gmail.com';   // 
 (() => {
   const st = document.getElementById('vc-st'); if (!st) return;
   const q = document.getElementById('vc-q'), info = document.getElementById('vc-info'), res = document.getElementById('vc-res');
-  const smp = document.getElementById('vc-sample');
-  let rows = [], samples = {};
+  let rows = [];
   const norm = t => t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]/g, '');
   const esc = t => String(t).replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
-  const SP = fetch('downloads/samples/index.json').then(r => r.json()).then(l => l.forEach(x => samples[x.state] = x)).catch(() => {});
   fetch('check/data/index.json').then(r => r.json()).then(idx => {
     st.add(new Option('Choose a state', ''));
     Object.entries(idx).forEach(([name, v]) => st.add(new Option(`${name} (${v.n.toLocaleString('en-IN')} villages)`, v.key)));
@@ -874,11 +872,6 @@ const FORM_TO = 'https://formsubmit.co/ajax/bhunetramapservice@gmail.com';   // 
   st.addEventListener('change', () => {
     rows = []; res.innerHTML = '';
     const name = st.options[st.selectedIndex].text.replace(/ \(.*$/, '');
-    SP.then(() => {
-      const sm = samples[name];
-      smp.style.display = sm ? '' : 'none';
-      if (sm) { smp.dataset.href = sm.file; smp.innerHTML = `&#11015; Free sample: ${esc(sm.village)}, ${esc(name)} (${sm.kb >= 1024 ? (sm.kb / 1024).toFixed(1) + ' MB' : sm.kb + ' KB'})`; }
-    });
     if (!st.value) { info.textContent = 'Choose a state to load its village list.'; return; }
     info.textContent = 'Loading the village list ...';
     fetch(`check/data/${st.value}.json`).then(r => r.json()).then(j => {
@@ -1006,15 +999,12 @@ setPos(50);
 // states
 const FALLBACK = [{key:'rj',state:'Rajasthan'},{key:'mp',state:'Madhya Pradesh'}];
 const ALL = ['Rajasthan','Madhya Pradesh','Maharashtra','Uttar Pradesh','Bihar','Odisha','Chhattisgarh','Karnataka','Tamil Nadu','Andhra Pradesh','Haryana','Delhi','Goa','Tripura','Kerala','Punjab','Jharkhand','Assam','Telangana','Himachal Pradesh'];
-fetch('downloads/samples/index.json').then(r => r.json()).then(l => { window.BN_SAMPLES = {}; l.forEach(x => window.BN_SAMPLES[x.key] = x); }).catch(() => {});
 fetch('images/states/states.json').then(r => r.json()).catch(() => FALLBACK).then(list => {
   const tabs = document.getElementById('tabs'), info = document.getElementById('info'), sl = document.getElementById('statelist');
   const by = {}; list.forEach(s => by[s.state] = s);
   function show(s){
     document.querySelectorAll('.tab').forEach(t => t.classList.toggle('on', t.dataset.k === s.key));
     document.getElementById('ba-sat').src = `images/states/${s.key}_sat.webp`;
-    const ds = document.getElementById('demo-sample'), sm = (window.BN_SAMPLES || {})[s.key];
-    if (ds && sm) { ds.dataset.href = sm.file; document.getElementById('demo-sample-st').textContent = s.state; }
     top_.src = `images/states/${s.key}_map.webp`;
     const ns = s.lat >= 0 ? 'N' : 'S';
     info.innerHTML = `<div class="tag" style="margin:0">SAMPLE VILLAGE</div><h3>${s.state}</h3>` +
