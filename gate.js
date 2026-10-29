@@ -130,3 +130,36 @@
     fn();
   })};
 })();
+
+// Free sample on every page (user, 29-10-2026): a pill bottom-left, same captcha gate.  Pages with their own sample band
+// (home) show it only after that band scrolls away.  The file = coverage.SAMPLE_FILE.
+(function () {
+  const FILE = 'downloads/samples/BHU-NETRA_Sample_Idarla_Rajasthan.zip';
+  const src = (document.currentScript && document.currentScript.src) || '';
+  const root = src ? src.replace(/gate\.js(\?.*)?$/, '') : '/';
+  function add() {
+    if (document.getElementById('bn-sfab') || document.body.dataset.noSampleFab !== undefined) return;
+    const st = document.createElement('style');
+    st.textContent = '#bn-sfab{position:fixed;left:18px;bottom:20px;z-index:39;display:flex;align-items:center;gap:10px;' +
+      'padding:10px 18px 10px 12px;border-radius:999px;text-decoration:none;color:#04221A;font:700 16px Rajdhani,Inter,sans-serif;' +
+      'background:linear-gradient(135deg,#2EE6B0,#F5B53D);box-shadow:0 0 0 6px rgba(46,230,176,.16),0 10px 30px rgba(0,0,0,.45);' +
+      'transition:transform .2s,opacity .3s;animation:bnPulse 2.6s ease-in-out 3}' +
+      '#bn-sfab:hover{transform:translateY(-3px)}#bn-sfab i{font-style:normal;display:grid;place-items:center;width:30px;height:30px;' +
+      'border-radius:50%;background:rgba(4,34,26,.85);color:#2EE6B0;font-size:17px}#bn-sfab small{display:block;font:600 11.5px Inter,sans-serif;' +
+      'opacity:.8;margin-top:-2px}#bn-sfab.off{opacity:0;pointer-events:none;transform:translateY(12px)}' +
+      '@keyframes bnPulse{50%{box-shadow:0 0 0 14px rgba(46,230,176,.05),0 10px 30px rgba(0,0,0,.45)}}' +
+      '@media (max-width:600px){#bn-sfab{left:12px;bottom:16px;padding:9px 14px 9px 10px;font-size:15px}#bn-sfab small{display:none}}' +
+      '@media print{#bn-sfab{display:none}}';
+    document.head.appendChild(st);
+    const a = document.createElement('a');
+    a.id = 'bn-sfab'; a.href = '#'; a.dataset.gate = 'dl'; a.dataset.href = root + FILE;
+    a.setAttribute('aria-label', 'Download free sample files');
+    a.innerHTML = '<i>&#11015;</i><span>Free sample<small>KML &middot; DWG &middot; SHP</small></span>';
+    document.body.appendChild(a);
+    const band = document.getElementById('sample');                    // home: hide while the big band is on screen
+    if (band && 'IntersectionObserver' in window) {
+      new IntersectionObserver(es => es.forEach(x => a.classList.toggle('off', x.isIntersecting))).observe(band);
+    }
+  }
+  if (document.body) add(); else document.addEventListener('DOMContentLoaded', add);
+})();

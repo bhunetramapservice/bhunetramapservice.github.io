@@ -398,6 +398,22 @@ nav.open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
   background:linear-gradient(135deg,var(--amb),var(--amb-lit));color:#1A0E02;font-size:12px;font-weight:800}
 .msme b{font:600 12.5px "JetBrains Mono",Consolas,monospace;color:var(--amb-lit);letter-spacing:.04em}
 @media (max-width:520px){.msme{font-size:12px;flex-wrap:wrap;border-radius:14px}.msme b{font-size:11.5px}}
+.btn.sample{background:linear-gradient(135deg,#2EE6B0,#F5B53D);color:#04221A;border:0;box-shadow:0 0 0 5px rgba(46,230,176,.15),0 10px 26px rgba(0,0,0,.35)}
+.btn.sample:hover{filter:brightness(1.08)}
+.nl-sample{color:var(--em-lit)!important;font-weight:700}
+.sband{margin-top:22px;display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;padding:24px 26px;border-radius:20px;
+  border:1px solid rgba(46,230,176,.45);background:linear-gradient(120deg,rgba(17,53,111,.55),rgba(14,26,51,.92) 55%,rgba(245,181,61,.14));
+  box-shadow:0 0 40px rgba(46,230,176,.12) inset,0 12px 40px rgba(0,0,0,.35);position:relative;overflow:hidden}
+.sband .sb-ico{width:66px;height:66px;border-radius:18px;display:grid;place-items:center;font-size:34px;color:#04221A;
+  background:linear-gradient(135deg,#2EE6B0,#F5B53D);box-shadow:0 0 24px rgba(46,230,176,.45)}
+.sband h2{font-size:clamp(22px,2.6vw,30px);margin:6px 0 6px;line-height:1.15}
+.sband p{color:#C9D6EA;margin:0;font-size:15.5px}
+.sb-fmt{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.sb-fmt span{font-size:13px;padding:5px 11px;border-radius:999px;border:1px solid var(--line);background:rgba(8,14,29,.55);color:#C9D6EA}
+.sb-fmt b{color:var(--em-lit);margin-right:4px}
+.btn.sample.big{flex-direction:column;gap:2px;padding:16px 26px;font-size:19px;white-space:nowrap}
+.btn.sample.big small{font:600 12.5px Inter,sans-serif;opacity:.75}
+@media (max-width:860px){.sband{grid-template-columns:1fr;text-align:left;padding:20px}.sband .sb-ico{display:none}.btn.sample.big{width:100%}}
 </style>
 </head>
 <body>
@@ -405,7 +421,7 @@ nav.open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 <nav id="nav">
   <div class="wrap">
     <a class="brand" href="#top"><img src="images/logo.png" alt="BHU-NETRA logo">BHU-NETRA <span>MAP SERVICE</span></a>
-    <div class="links" id="nav-links"><a href="#services">Services</a><a href="#survey">Survey</a><a href="#demo">Demos</a><a href="#check">Check village</a><a href="#projects">Projects</a><a href="#reviews">Reviews</a><a href="gallery/">Gallery</a><a href="verify/">Verify</a><a href="#contact">Contact</a></div>
+    <div class="links" id="nav-links"><a href="#services">Services</a><a href="#survey">Survey</a><a href="#demo">Demos</a><a href="#sample" class="nl-sample">Free sample</a><a href="#check">Check village</a><a href="#projects">Projects</a><a href="#reviews">Reviews</a><a href="gallery/">Gallery</a><a href="verify/">Verify</a><a href="#contact">Contact</a></div>
     <a class="btn" href="#" data-gate="mail" data-subject="Quotation request - khasra maps">Get a quote</a>
     <button class="menu-btn" id="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
   </div>
@@ -431,6 +447,7 @@ nav.open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
     <div class="wwd"><a href="#services"><b>&#9638;</b>Khasra digitization</a><a href="#demo"><b>&#127760;</b>Georeferencing</a><a href="#library"><b>&#9673;</b>Land category maps</a><a href="#survey"><b>&#8982;</b>Land surveys</a><a href="#survey"><b>&#9992;</b>Drone mapping</a><a href="#library"><b>&#9881;</b>GIS / CAD data</a></div><div class="chips"><span class="chip"><b>KML</b> / KMZ</span><span class="chip"><b>DWG</b> / DXF</span><span class="chip"><b>SHP</b></span><span class="chip"><b>Excel</b></span><span class="chip">PDF maps, etc.</span></div>
     <div class="cta">
       <a class="btn" href="#" data-gate="mail" data-subject="Quotation request - khasra maps">&#9993; Request a quotation</a>
+      <a class="btn sample" href="#" data-gate="dl" data-href="downloads/samples/BHU-NETRA_Sample_Idarla_Rajasthan.zip">&#11015; Free sample files</a>
       <a class="btn ghost" href="#demo">&#9654; See state demos</a>
     </div>
     <div class="msme" title="Registered with the Ministry of MSME, Government of India (Udyam)"><i>&#10004;</i>MSME (Udyam) Registered &middot; Micro Enterprise <b>UDYAM-WB-07-0149070</b></div>
@@ -443,6 +460,14 @@ nav.open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
     <div class="stat"><span class="num">1</span><span>village minimum &ndash; single file orders welcome</span></div>
     <div class="stat"><span class="num">0</span><span>overlaps between khasras</span></div>
     <div class="stat"><span class="num">3+</span><span>formats: KML, DWG, SHP</span></div>
+  </div>
+  <div class="sband" id="sample">
+    <div class="sb-ico" aria-hidden="true">&#11015;</div>
+    <div class="sb-txt"><div class="tag" style="margin:0">FREE SAMPLE &middot; NO SIGN-UP</div>
+      <h2>Download a complete village &ndash; open it in your own software</h2>
+      <p>Village <b>Idarla</b>, Tehsil Reodar, District Sirohi, Rajasthan &middot; <b>1,038 khasra</b> as clean polygons with khasra / khata number, area and land category &ndash; the same files you get on an order. Private owner names are not shown.</p>
+      <div class="sb-fmt"><span><b>KMZ</b> Google Earth</span><span><b>DXF</b> AutoCAD</span><span><b>SHP</b> QGIS / ArcGIS</span><span><b>JPG</b> map overlay</span></div></div>
+    <a class="btn sample big" href="#" data-gate="dl" data-href="downloads/samples/BHU-NETRA_Sample_Idarla_Rajasthan.zip">&#11015; Download free sample <small>ZIP &middot; 3.5 MB</small></a>
   </div>
 </div>
 
